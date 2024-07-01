@@ -1,13 +1,13 @@
 ---
 import '../styles/css/index.scss'
-import Layout from '../layouts/PageLayout.astro'
+import PageLayout from '../layouts/PageLayout.astro'
 import ContactForm from '../components/ContactForm.vue'
 import ServiceCard from '../components/ServiceCard.astro'
 import { services } from '../data/home.ts'
 import PrimaryButton from '../components/PrimaryButton.vue'
 ---
 
-<Layout>
+<PageLayout>
 	<div class="hero_section">
 		<div class="hero_content">
 			<div class="hero_text">
@@ -38,4 +38,4 @@ import PrimaryButton from '../components/PrimaryButton.vue'
 		</div>
 	</div>
 	<ContactForm client:load />
-</Layout>
+</PageLayout>
