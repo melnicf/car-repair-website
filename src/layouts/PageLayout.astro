@@ -19,17 +19,17 @@ import Footer from '../components/Footer.astro';
     <slot />
     <Footer />
   </body>
-  <script>
-    const rightNavBarToggle = () => {
-      const rightNavBar = document.querySelector(".right_navbar_main_div");
+  <script lang="ts">
+    const rightNavBarToggle = (): void => {
+      const rightNavBar = document.querySelector(".right_navbar_main_div") as HTMLElement;
       if (rightNavBar) {
         rightNavBar.classList.toggle("right_navbar_main_div_toggle");
       }
     };
 
-    window.onload = () => {
-      const hamburger = document.querySelector(".hamburger");
-      const closeBtn = document.querySelector(".close");
+    window.onload = (): void => {
+      const hamburger = document.querySelector(".hamburger") as HTMLElement;
+      const closeBtn = document.querySelector(".close") as HTMLElement;
 
       if (hamburger) {
         hamburger.addEventListener("click", () => {
