@@ -1,167 +1,193 @@
 <nav class="navbar">
-  <div class="navbar_top">
-    <div class="navbar_top_text">
-      <p>Contatti : + 39 546 747 63</p>
-      <p>Orario Apertura : 8:00 - 18:00</p>
-    </div>
-  </div>
-  <div class="navbar_bottom">
-    <div class="navbar_bottom_main">
-      <img src="../assets/logo.png" alt="logo" class="navbar_logo" />
-      <div class="navbar_links">
-        <a href="#">HOME</a>
-        <a href="#">CHI SIAMO</a>
-        <a href="#">SERVIZI</a>
-        <a href="#">GALLERIA</a>
-        <a href="#">CONTATTI</a>
-      </div>
-      <button class="hamburger">
-        <img src="../assets/menu.svg" alt="burger" />
-      </button>
-    </div>
-  </div>
+	<div class="navbar_top">
+		<div class="navbar_top_text">
+			<p>Contatti : + 39 546 747 63</p>
+			<p>Orario Apertura : 8:00 - 18:00</p>
+		</div>
+	</div>
+	<div class="navbar_bottom">
+		<div class="navbar_bottom_main">
+			<img src="../assets/logo.png" alt="logo" class="navbar_logo" />
+			<div class="navbar_links">
+				<a href="#">HOME</a>
+				<a href="#">CHI SIAMO</a>
+				<a href="#">SERVIZI</a>
+				<a href="#">GALLERIA</a>
+				<a href="#">CONTATTI</a>
+			</div>
+			<button class="hamburger">
+				<img src="../assets/menu.svg" alt="burger" />
+			</button>
+		</div>
+	</div>
+	<script>
+		const rightNavBarToggle = (): void => {
+			const rightNavBar = document.querySelector('.side_navbar') as HTMLElement
+			if (rightNavBar) {
+				rightNavBar.classList.toggle('side_navbar_toggle')
+			} else {
+			}
+		}
+
+		window.onload = (): void => {
+			const hamburger = document.querySelector('.hamburger') as HTMLElement
+			const closeBtn = document.querySelector('.close') as HTMLElement
+
+			if (hamburger) {
+				hamburger.addEventListener('click', () => {
+					rightNavBarToggle()
+				})
+			}
+
+			if (closeBtn) {
+				closeBtn.addEventListener('click', () => {
+					rightNavBarToggle()
+				})
+			}
+		}
+	</script>
 </nav>
 <nav class="side_navbar">
-  <div class="side_navbar_top">
-    <button class="close">
-      <img src="../assets/close.svg" alt="close" />
-    </button>
-  </div>
-  <div class="side_navbar_links">
-    <a href="#">HOME</a>
-    <a href="#">CHI SIAMO</a>
-    <a href="#">SERVIZI</a>
-    <a href="#">GALLERIA</a>
-    <a href="#">CONTATTI</a>
-  </div>
+	<div class="side_navbar_top">
+		<button class="close">
+			<img src="../assets/close.svg" alt="close" />
+		</button>
+	</div>
+	<div class="side_navbar_links">
+		<a href="#">HOME</a>
+		<a href="#">CHI SIAMO</a>
+		<a href="#">SERVIZI</a>
+		<a href="#">GALLERIA</a>
+		<a href="#">CONTATTI</a>
+	</div>
 </nav>
 
 <style>
-.navbar {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: var(--box-shadow-large);
-}
+	.navbar {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		box-shadow: var(--box-shadow-large);
+	}
 
-.navbar_top {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  background-color: rgb(48, 48, 48);
-}
+	.navbar_top {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		background-color: rgb(48, 48, 48);
+	}
 
-.navbar_top_text {
-  width: 80%;
-  height: auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 50px;
-}
+	.navbar_top_text {
+		width: 80%;
+		height: auto;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 50px;
+	}
 
-.navbar_bottom {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-}
+	.navbar_bottom {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+	}
 
-.navbar_bottom_main {
-  width: 80%;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+	.navbar_bottom_main {
+		width: 80%;
+		height: auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-.navbar_links {
-  width: auto;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 40px;
-}
+	.navbar_links {
+		width: auto;
+		height: 100%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		gap: 40px;
+	}
 
-.navbar_logo {
-  width: 200px;
-}
+	.navbar_logo {
+		width: 200px;
+	}
 
-.hamburger,
-.close {
-  outline: none;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
+	.hamburger,
+	.close {
+		outline: none;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+	}
 
-.hamburger {
-  display: none;
-}
+	.hamburger {
+		display: none;
+	}
 
-.close {
-  padding-right: 50px;
-}
+	.close {
+		padding-right: 50px;
+	}
 
-.side_navbar {
-  width: 400px;
-  height: 100%;
-  display: none;
-  justify-content: flex-start;
-  align-items: center;
-  position: fixed;
-  flex-direction: column;
-  top: 0px;
-  right: 0px;
-  transform: translateX(110%);
-  transition: var(--transition-ease);
-  background-color: var(--color-white);
-  box-shadow: var(--box-shadow-large);
-  z-index: 99;
-}
+	.side_navbar {
+		width: 400px;
+		height: 100%;
+		display: none;
+		justify-content: flex-start;
+		align-items: center;
+		position: fixed;
+		flex-direction: column;
+		top: 0px;
+		right: 0px;
+		transform: translateX(110%);
+		transition: var(--transition-ease);
+		background-color: var(--color-white);
+		box-shadow: var(--box-shadow-large);
+		z-index: 99;
+	}
 
-.side_navbar_toggle {
-  transform: translateX(0%);
-}
+	.side_navbar_toggle {
+		transform: translateX(0%);
+	}
 
-.side_navbar_top {
-  width: 100%;
-  min-height: 70px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  box-shadow: var(--box-shadow-large);
-}
+	.side_navbar_top {
+		width: 100%;
+		min-height: 70px;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		box-shadow: var(--box-shadow-large);
+	}
 
-.side_navbar_links {
-  width: 100%;
-  height: auto;
-  overflow-y: auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  gap: 50px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
+	.side_navbar_links {
+		width: 100%;
+		height: auto;
+		overflow-y: auto;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		gap: 50px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
 
-@media screen and (max-width: 1000px) {
-  .hamburger {
-    display: block;
-  }
+	@media screen and (max-width: 1000px) {
+		.hamburger {
+			display: block;
+		}
 
-  .navbar_links {
-    display: none;
-  }
+		.navbar_links {
+			display: none;
+		}
 
-  .side_navbar {
-    display: flex;
-  }
-}
+		.side_navbar {
+			display: flex;
+		}
+	}
 </style>

@@ -1,47 +1,22 @@
 ---
 import '../styles/css/global.css'
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import Navbar from '../components/Navbar.astro'
+import Footer from '../components/Footer.astro'
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Mecha</title>
-  </head>
-  <body>
-    <Navbar />
-    <slot />
-    <Footer />
-  </body>
-  <script lang="ts">
-    const rightNavBarToggle = (): void => {
-      const rightNavBar = document.querySelector(".right_navbar_main_div") as HTMLElement;
-      if (rightNavBar) {
-        rightNavBar.classList.toggle("right_navbar_main_div_toggle");
-      }
-    };
-
-    window.onload = (): void => {
-      const hamburger = document.querySelector(".hamburger") as HTMLElement;
-      const closeBtn = document.querySelector(".close") as HTMLElement;
-
-      if (hamburger) {
-        hamburger.addEventListener("click", () => {
-          rightNavBarToggle();
-        });
-      }
-
-      if (closeBtn) {
-        closeBtn.addEventListener("click", () => {
-          rightNavBarToggle();
-        });
-      }
-    };
-  </script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Mecha</title>
+	</head>
+	<body>
+		<Navbar />
+		<slot />
+		<Footer />
+	</body>
 </html>
