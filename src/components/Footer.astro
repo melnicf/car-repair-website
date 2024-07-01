@@ -1,57 +1,61 @@
 <footer class="footer">
-  <div class="footer_logo">
-    <img src="../assets/logo.png" alt="logo" class="navbar_logo_img" width="200px"/>
-  </div>
-  <div class="footer_links">
-    <a href="#">HOME</a>
-    <a href="#">CHI SIAMO</a>
-    <a href="#">SERVIZI</a>
-    <a href="#">GALLERIA</a>
-    <a href="#">CONTATTI</a>
-  </div>
-  <div class="footer_separator"></div>
-  <div class="footer_bottom">
-    <p>© 2024 Meccanico. All Rights Reserved.</p>
-  </div>
+	<div class="footer_logo">
+		<img src="../assets/logo.png" alt="logo" class="navbar_logo_img" width="200px" />
+	</div>
+	<div class="footer_links">
+		<a href="#">HOME</a>
+		<a href="#">CHI SIAMO</a>
+		<a href="#">SERVIZI</a>
+		<a href="#">GALLERIA</a>
+		<a href="#">CONTATTI</a>
+	</div>
+	<div class="footer_separator"></div>
+	<div class="footer_bottom">
+		<p>© 2024 Meccanico. All Rights Reserved.</p>
+	</div>
 </footer>
-<style>
-.footer {
-  width: 100%;
-  height: auto;
-  background-color: rgb(37, 37, 37);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
-  flex-direction: column;
-}
 
-.footer_links {
-  width: 80%;
-  height: auto;
-  padding: var(--padding-medium);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+<style lang="scss">
+	@import '../styles/variables/variables';
 
-.footer_links a {
-  color: var(--color-white);
-  font-size: 12px;
-}
+	.footer {
+		width: 100%;
+		height: auto;
+		background-color: rgb(37, 37, 37);
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 20px;
+		flex-direction: column;
+		margin-top: 2vw;
 
-.footer_separator {
-  width: 90%;
-  height: 1px;
-  background-color: rgb(53, 53, 53);
-}
+		.footer_links {
+			width: 80%;
+			height: auto;
+			padding: $padding-medium;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
 
-.footer_bottom {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--padding-medium);
-}
+			a {
+				color: $color-white;
+				font-size: 12px;
+			}
+		}
+
+		.footer_separator {
+			width: 90%;
+			height: 1px;
+			background-color: rgb(53, 53, 53);
+		}
+
+		.footer_bottom {
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: $padding-medium;
+		}
+	}
 </style>

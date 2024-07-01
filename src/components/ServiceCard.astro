@@ -1,66 +1,69 @@
 ---
 interface Props {
-    title: string;
-    description: string;
-    image: string;
+	title: string
+	description: string
+	image: string
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image } = Astro.props
 ---
+
 <div class="service_card">
-    <div class="service_card_image">
-      <img src={image} alt="circle1" />
-    </div>
-    <h1>{title}</h1>
-    <p>
-      {description}
-    </p>
-  </div>
+	<div class="service_card_image">
+		<img src={image} alt="circle1" />
+	</div>
+	<h1>{title}</h1>
+	<p>
+		{description}
+	</p>
+</div>
 
-  <style>
-    .service_card {
-  width: 300px;
-  height: auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: var(--box-shadow-large);
-  padding: var(--padding-medium);
-  background-color: var(--color-white);
-  border-radius: var(--border-radius);
-}
+<style lang="scss">
+	@import '../styles/variables/variables';
 
-.service_card p,
-.service_card h1 {
-  margin: 5px;
-  text-align: center;
-}
+	.service_card {
+		width: 300px;
+		height: auto;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		box-shadow: $box-shadow-large;
+		padding: $padding-medium;
+		background-color: $color-white;
+		border-radius: $border-radius;
 
-.service_card h1 {
-  font-size: 20px;
-  color: var(--color-black);
-}
+		p,
+		h1 {
+			margin: 5px;
+			text-align: center;
+		}
 
-.service_card p {
-  color: rgb(43, 43, 43);
-}
+		h1 {
+			font-size: 20px;
+			color: $color-black;
+		}
 
-.service_card_image {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
+		p {
+			color: rgb(43, 43, 43);
+		}
 
-.service_card_image img {
-  position: absolute;
-  top: -50px;
-}
+		.service_card_image {
+			width: 100%;
+			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
 
-.service_card:hover {
-  box-shadow: var(--box-shadow-large-hover);
-}
-  </style>
+			img {
+				position: absolute;
+				top: -50px;
+			}
+		}
+
+		&:hover {
+			box-shadow: $box-shadow-large;
+		}
+	}
+</style>

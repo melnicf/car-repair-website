@@ -20,32 +20,6 @@
 			</button>
 		</div>
 	</div>
-	<script>
-		const rightNavBarToggle = (): void => {
-			const rightNavBar = document.querySelector('.side_navbar') as HTMLElement
-			if (rightNavBar) {
-				rightNavBar.classList.toggle('side_navbar_toggle')
-			} else {
-			}
-		}
-
-		window.onload = (): void => {
-			const hamburger = document.querySelector('.hamburger') as HTMLElement
-			const closeBtn = document.querySelector('.close') as HTMLElement
-
-			if (hamburger) {
-				hamburger.addEventListener('click', () => {
-					rightNavBarToggle()
-				})
-			}
-
-			if (closeBtn) {
-				closeBtn.addEventListener('click', () => {
-					rightNavBarToggle()
-				})
-			}
-		}
-	</script>
 </nav>
 <nav class="side_navbar">
 	<div class="side_navbar_top">
@@ -62,7 +36,39 @@
 	</div>
 </nav>
 
-<style>
+<script>
+	const rightNavBarToggle = (): void => {
+		const rightNavBar = document.querySelector('.side_navbar') as HTMLElement
+		const hamburger = document.querySelector('.hamburger') as HTMLElement
+		if (rightNavBar) {
+			rightNavBar.classList.toggle('side_navbar_toggle')
+			if (hamburger) {
+				hamburger.classList.toggle('hidden')
+			}
+		}
+	}
+
+	window.onload = (): void => {
+		const hamburger = document.querySelector('.hamburger') as HTMLElement
+		const closeBtn = document.querySelector('.close') as HTMLElement
+
+		if (hamburger) {
+			hamburger.addEventListener('click', () => {
+				rightNavBarToggle()
+			})
+		}
+
+		if (closeBtn) {
+			closeBtn.addEventListener('click', () => {
+				rightNavBarToggle()
+			})
+		}
+	}
+</script>
+
+<style lang="scss">
+	@import '../styles/variables/variables';
+
 	.navbar {
 		width: 100%;
 		height: auto;
@@ -70,74 +76,77 @@
 		justify-content: flex-start;
 		align-items: center;
 		flex-direction: column;
-		box-shadow: var(--box-shadow-large);
-	}
+		box-shadow: $box-shadow-large;
 
-	.navbar_top {
-		width: 100%;
-		height: auto;
-		display: flex;
-		justify-content: center;
-		background-color: rgb(48, 48, 48);
-	}
+		.navbar_top {
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: center;
+			background-color: rgb(48, 48, 48);
 
-	.navbar_top_text {
-		width: 80%;
-		height: auto;
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		gap: 50px;
-	}
+			.navbar_top_text {
+				width: 80%;
+				height: auto;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 50px;
+			}
+		}
 
-	.navbar_bottom {
-		width: 100%;
-		height: auto;
-		display: flex;
-		justify-content: center;
-	}
+		.navbar_bottom {
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: center;
 
-	.navbar_bottom_main {
-		width: 80%;
-		height: auto;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+			.navbar_bottom_main {
+				width: 80%;
+				height: auto;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 
-	.navbar_links {
-		width: auto;
-		height: 100%;
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		gap: 40px;
-	}
+				.navbar_links {
+					width: auto;
+					height: 100%;
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					gap: 40px;
+				}
 
-	.navbar_logo {
-		width: 200px;
-	}
+				.navbar_logo {
+					width: 200px;
+				}
 
-	.hamburger,
-	.close {
-		outline: none;
-		background-color: transparent;
-		border: none;
-		cursor: pointer;
-	}
+				.hamburger {
+					display: none;
+					background-color: transparent;
+					border: none;
+					cursor: pointer;
+					&.hidden {
+						display: none;
+					}
+				}
 
-	.hamburger {
-		display: none;
-	}
-
-	.close {
-		padding-right: 50px;
+				.close {
+					display: none;
+					background-color: transparent;
+					border: none;
+					cursor: pointer;
+					&.hidden {
+						display: none;
+					}
+				}
+			}
+		}
 	}
 
 	.side_navbar {
 		width: 400px;
 		height: 100%;
-		display: none;
 		justify-content: flex-start;
 		align-items: center;
 		position: fixed;
@@ -145,45 +154,45 @@
 		top: 0px;
 		right: 0px;
 		transform: translateX(110%);
-		transition: var(--transition-ease);
-		background-color: var(--color-white);
-		box-shadow: var(--box-shadow-large);
+		transition: $transition-ease;
+		background-color: $color-white;
+		box-shadow: $box-shadow-large;
 		z-index: 99;
-	}
 
-	.side_navbar_toggle {
-		transform: translateX(0%);
-	}
+		&.side_navbar_toggle {
+			transform: translateX(0%);
+		}
 
-	.side_navbar_top {
-		width: 100%;
-		min-height: 70px;
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		box-shadow: var(--box-shadow-large);
-	}
+		.side_navbar_top {
+			width: 100%;
+			min-height: 70px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			box-shadow: $box-shadow-large;
+		}
 
-	.side_navbar_links {
-		width: 100%;
-		height: auto;
-		overflow-y: auto;
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		flex-direction: column;
-		gap: 50px;
-		padding-top: 30px;
-		padding-bottom: 30px;
+		.side_navbar_links {
+			width: 100%;
+			height: auto;
+			overflow-y: auto;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			flex-direction: column;
+			gap: 50px;
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
 	}
 
 	@media screen and (max-width: 1000px) {
-		.hamburger {
-			display: block;
+		.navbar .navbar_bottom .navbar_bottom_main .navbar_links {
+			display: none;
 		}
 
-		.navbar_links {
-			display: none;
+		.navbar .navbar_bottom .navbar_bottom_main .hamburger {
+			display: block;
 		}
 
 		.side_navbar {

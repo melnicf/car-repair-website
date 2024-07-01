@@ -34,14 +34,14 @@
 		components: {
 			PrimaryButton,
 			InputField,
-			TextAreaField
+			TextAreaField,
 		},
 		setup() {
 			const form = reactive({
 				name: '',
 				email: '',
 				object: '',
-				message: ''
+				message: '',
 			})
 
 			const errors = reactive<{
@@ -53,7 +53,7 @@
 				name: null,
 				email: null,
 				object: null,
-				message: null
+				message: null,
 			})
 
 			const validateForm = () => {
@@ -74,13 +74,13 @@
 			return {
 				form,
 				errors,
-				validateForm
+				validateForm,
 			}
-		}
+		},
 	}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 	.contact_form {
   width: 70%;
   height: auto;
@@ -90,7 +90,7 @@
   margin: auto;
 }
 
-.contact_form_info {
+ .contact_form_info {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -182,6 +182,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .contact_form{
+    padding-top: 150vw;
+  }
   .contact_form_info h1 {
     font-size: 10vw;
   }
