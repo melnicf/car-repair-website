@@ -14,13 +14,14 @@
     "@astrojs/check": "^0.7.0",
     "@astrojs/vue": "^4.5.0",
     "astro": "^4.11.3",
-    "prettier": "^3.3.2",
     "prettier-plugin-astro": "^0.14.0",
     "typescript": "^5.5.2"
   },
   "devDependencies": {
     "husky": "^8.0.0",
-    "lint-staged": "^15.2.7"
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "prettier-plugin-vue": "^1.1.6"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,astro,css}": [
