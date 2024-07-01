@@ -90,7 +90,7 @@
   margin: auto;
 }
 
- .contact_form_info {
+.contact_form_info {
   display: flex;
   justify-content: flex-start;
   align-items: center;
