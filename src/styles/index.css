@@ -1,0 +1,136 @@
+.first_section_main_div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../assets/garage.jpg");
+  background-attachment: fixed;
+}
+
+.first_section_second_div {
+  width: 60%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.first_section_third_div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  height: auto;
+}
+
+.first_section_third_div_buttons_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: auto;
+  height: auto;
+}
+.second_section_main_div {
+  width: 100%;
+  height: 300px;
+  padding: 50px;
+  position: relative;
+}
+
+.second_section_second_div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+  position: absolute;
+  left: 0px;
+  top: -100px;
+  padding: 50px;
+}
+
+.second_section_card_main_div {
+  width: 300px;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 20px 0 #c1c1c1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.second_section_card_main_div p,
+.second_section_card_main_div h1 {
+  margin: 5px;
+  text-align: center;
+}
+
+.second_section_card_main_div h1 {
+  font-size: 20px;
+  color: black;
+}
+
+.second_section_card_main_div p {
+  color: rgb(43, 43, 43);
+}
+
+.second_section_card_top_div {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.second_section_card_top_div img {
+  position: absolute;
+  top: -50px;
+}
+
+@media screen and (max-width: 800px) {
+  .second_section_main_div {
+    height: auto;
+  }
+
+  .second_section_second_div {
+    position: static;
+    flex-direction: column;
+    gap: 70px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .first_section_second_div {
+    width: 100%;
+    padding: 30px;
+  }
+
+  .first_section_third_div {
+    align-items: center;
+  }
+
+  .first_section_third_div h1 {
+    font-size: 10vw;
+    text-align: center;
+  }
+
+  .first_section_third_div p {
+    font-size: 5vw;
+    text-align: center;
+  }
+
+  .first_section_third_div_buttons_div {
+    flex-direction: column;
+  }
+}
