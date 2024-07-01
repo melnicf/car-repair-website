@@ -1,167 +1,167 @@
-<nav class="navbar_main_div">
-    <div class="navbar_top_div">
-      <div class="navbar_top_div_text_div">
-        <p>Contatti : + 39 546 747 63</p>
-        <p>Orario Apertura : 8:00 - 18:00</p>
-      </div>
+<nav class="navbar">
+  <div class="navbar_top">
+    <div class="navbar_top_text">
+      <p>Contatti : + 39 546 747 63</p>
+      <p>Orario Apertura : 8:00 - 18:00</p>
     </div>
-    <div class="navbar_bottom_div">
-      <div class="navbar_bottom_div_main_div">
-        <img src="../assets/logo.png" alt="logo" class="navbar_logo_img" />
-        <div class="navbar_bottom_div_second_div">
-          <a href="#">HOME</a>
-          <a href="#">CHI SIAMO</a>
-          <a href="#">SERVIZI</a>
-          <a href="#">GALLERIA</a>
-          <a href="#">CONTATTI</a>
-        </div>
-        <button class="hamburger">
-          <img src="../assets/menu.svg" alt="burger" />
-        </button>
+  </div>
+  <div class="navbar_bottom">
+    <div class="navbar_bottom_main">
+      <img src="../assets/logo.png" alt="logo" class="navbar_logo" />
+      <div class="navbar_links">
+        <a href="#">HOME</a>
+        <a href="#">CHI SIAMO</a>
+        <a href="#">SERVIZI</a>
+        <a href="#">GALLERIA</a>
+        <a href="#">CONTATTI</a>
       </div>
-    </div>
-  </nav>
-  <nav class="right_navbar_main_div">
-    <div class="right_navbar_top_div">
-      <button class="close">
-        <img src="../assets/close.svg" alt="close" />
+      <button class="hamburger">
+        <img src="../assets/menu.svg" alt="burger" />
       </button>
     </div>
-    <div class="right_navbar_second_div">
-      <a href="#">HOME</a>
-      <a href="#">CHI SIAMO</a>
-      <a href="#">SERVIZI</a>
-      <a href="#">GALLERIA</a>
-      <a href="#">CONTATTI</a>
-    </div>
+  </div>
+</nav>
+<nav class="side_navbar">
+  <div class="side_navbar_top">
+    <button class="close">
+      <img src="../assets/close.svg" alt="close" />
+    </button>
+  </div>
+  <div class="side_navbar_links">
+    <a href="#">HOME</a>
+    <a href="#">CHI SIAMO</a>
+    <a href="#">SERVIZI</a>
+    <a href="#">GALLERIA</a>
+    <a href="#">CONTATTI</a>
+  </div>
 </nav>
 
-  <style>
-    .navbar_main_div {
-      width: 100%;
-      height: auto;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      flex-direction: column;
-      box-shadow: 0 0 20px 0 black;
-    }
-    
-    .navbar_top_div {
-      width: 100%;
-      height: auto;
-      display: flex;
-      justify-content: center;
-      background-color: rgb(48, 48, 48);
-    }
-    
-    .navbar_top_div_text_div {
-      width: 80%;
-      height: auto;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 50px;
-    }
-    
-    .navbar_bottom_div {
-      width: 100%;
-      height: auto;
-      display: flex;
-      justify-content: center;
-    }
-    
-    .navbar_bottom_div_main_div {
-      width: 80%;
-      height: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .navbar_bottom_div_second_div {
-      width: auto;
-      height: 100%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      gap: 40px;
-    }
-    
-    .navbar_logo_img {
-      width: 200px;
-    }
-    
-    .hamburger,
-    .close {
-      outline: none;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .hamburger {
-      display: none;
-    }
-    
-    .close {
-      padding-right: 50px;
-    }
-    
-    .right_navbar_main_div {
-      width: 400px;
-      height: 100%;
-      display: none;
-      justify-content: flex-start;
-      align-items: center;
-      position: fixed;
-      flex-direction: column;
-      top: 0px;
-      right: 0px;
-      transform: translateX(110%);
-      transition: ease-in-out 0.2s;
-      background-color: white;
-      box-shadow: 0 0 20px 0 black;
-      z-index: 99;
-    }
-    
-    .right_navbar_main_div_toggle {
-      transform: translateX(0%);
-    }
-    
-    .right_navbar_top_div {
-      width: 100%;
-      min-height: 70px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      box-shadow: 0 0 20px 0 rgb(119, 119, 119);
-    }
-    
-    .right_navbar_second_div {
-      width: 100%;
-      height: auto;
-      overflow-y: auto;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      flex-direction: column;
-      gap: 50px;
-      padding-top: 30px;
-      padding-bottom: 30px;
-    }
-    
-    @media screen and (max-width: 1000px) {
-      .hamburger {
-        display: block;
-      }
-    
-      .navbar_bottom_div_second_div {
-        display: none;
-      }
-    
-      .right_navbar_main_div {
-        display: flex;
-      }
-    }
-    </style>
+<style>
+.navbar {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: var(--box-shadow-large);
+}
+
+.navbar_top {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(48, 48, 48);
+}
+
+.navbar_top_text {
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+}
+
+.navbar_bottom {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar_bottom_main {
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar_links {
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar_logo {
+  width: 200px;
+}
+
+.hamburger,
+.close {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+}
+
+.close {
+  padding-right: 50px;
+}
+
+.side_navbar {
+  width: 400px;
+  height: 100%;
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 0px;
+  right: 0px;
+  transform: translateX(110%);
+  transition: var(--transition-ease);
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow-large);
+  z-index: 99;
+}
+
+.side_navbar_toggle {
+  transform: translateX(0%);
+}
+
+.side_navbar_top {
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: var(--box-shadow-large);
+}
+
+.side_navbar_links {
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar_links {
+    display: none;
+  }
+
+  .side_navbar {
+    display: flex;
+  }
+}
+</style>

@@ -1,13 +1,16 @@
 ---
+import '../styles/css/index.css'
 import Layout from "../layouts/Layout.astro";
 import ContactForm from "../components/ContactForm.astro";
-import '../styles/index.css'
+import ServiceCard from "../components/ServiceCard.astro";
+import { services } from '../data/home.ts';
+import PrimaryButton from '../components/PrimaryButton.astro';
 ---
 
 <Layout>
-<div class="first_section_main_div">
-    <div class="first_section_second_div">
-      <div class="first_section_third_div">
+<div class="hero_section">
+    <div class="hero_content">
+      <div class="hero_text">
         <h1>Meccanici Numeri 1 Al Mondo!</h1>
         <p style="font-size: 20px">
           Benvenuti nella nostra officina meccanica, dove esperienza e
@@ -15,51 +18,18 @@ import '../styles/index.css'
           Affidateci la vostra auto e vi garantiremo sicurezza e
           soddisfazione.
         </p>
-        <div class="first_section_third_div_buttons_div">
-          <a href="#" class="button_type_1"> CONTATTACI </a>
-          <a href="#" class="button_type_2"> CONTATTACI </a>
+        <div class="hero_buttons">
+          <PrimaryButton type="button_type_1" label="CONTATTACI" href="#" />
+          <PrimaryButton type="button_type_2" label="CONTATTACI" href="#" />
         </div>
       </div>
     </div>
   </div>
-  <div class="second_section_main_div">
-    <div class="second_section_second_div">
-      <div class="second_section_card_main_div">
-        <div class="second_section_card_top_div">
-          <img src="../assets/circle1.png" alt="circle1" />
-        </div>
-        <h1>SERVIZI</h1>
-        <p>
-          Offriamo una vasta gamma di servizi meccanici, tra cui manutenzione
-          ordinaria, riparazioni, diagnostica avanzata e servizio gomme. Il
-          nostro team di esperti è pronto a garantirvi prestazioni ottimali
-          per la vostra auto.
-        </p>
-      </div>
-      <div class="second_section_card_main_div">
-        <div class="second_section_card_top_div">
-          <img src="../assets/circle1.png" alt="circle1" />
-        </div>
-        <h1>SERVIZI</h1>
-        <p>
-          Offriamo una vasta gamma di servizi meccanici, tra cui manutenzione
-          ordinaria, riparazioni, diagnostica avanzata e servizio gomme. Il
-          nostro team di esperti è pronto a garantirvi prestazioni ottimali
-          per la vostra auto.
-        </p>
-      </div>
-      <div class="second_section_card_main_div">
-        <div class="second_section_card_top_div">
-          <img src="../assets/circle1.png" alt="circle1" />
-        </div>
-        <h1>SERVIZI</h1>
-        <p>
-          Offriamo una vasta gamma di servizi meccanici, tra cui manutenzione
-          ordinaria, riparazioni, diagnostica avanzata e servizio gomme. Il
-          nostro team di esperti è pronto a garantirvi prestazioni ottimali
-          per la vostra auto.
-        </p>
-      </div>
+  <div class="features_section">
+    <div class="features_content">
+      {services.map((service) => (
+        <ServiceCard title={service.title} description={service.description} image={service.image} />
+      ))}
     </div>
   </div>
   <ContactForm />

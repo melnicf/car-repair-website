@@ -1,0 +1,51 @@
+@import url('../variables/variables.css');
+
+* {
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+body {
+    margin: 0%;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+}
+
+
+p {
+    color: white;
+    word-wrap: break-word;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 17px;
+}
+
+h1 {
+    color: white;
+    font-size: 50px;
+    word-wrap: break-word;
+}
+
+input {
+    border-radius: var(--border-radius);
+    color: var(--color-black);
+    font-size: 17px;
+    height: 15px;
+    outline: none;
+    padding: var(--padding-large);
+    width: 100%;
+    border: none;
+    box-shadow: var(--box-shadow-large);
+}
+
+textarea {
+    height: 300px;
+    width: 100%;
+    resize: vertical;
+    padding: 10px;
+    box-shadow: var(--box-shadow-large);
+    border: none;
+}
