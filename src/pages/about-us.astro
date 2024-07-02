@@ -86,42 +86,44 @@ import PrimaryButton from '../components/PrimaryButton.vue'
 	@import '../styles/variables/variables';
 	.about_hero {
 		background: $background-color;
-		padding: 60px 20px;
+		padding: 80px 20px;
 		text-align: center;
 
 		.container {
-			max-width: 800px;
+			max-width: 700px;
 			margin: 0 auto;
 		}
 
 		h1 {
-			font-size: 2.5rem;
+			font-size: 3rem;
 			margin-bottom: 20px;
 			color: $color-black;
 		}
 
 		p {
-			font-size: 1.2rem;
-			margin-bottom: 40px;
+			font-size: 1.1rem;
+			margin-bottom: 30px;
 			color: $color-black;
 		}
 
 		.buttons {
 			display: flex;
 			justify-content: center;
-			gap: 20px;
+			gap: 15px;
 		}
 	}
 
 	.about_features {
-		padding: 60px 0;
+		padding: 80px 0;
+		background: rgba(255, 255, 255, 0.8);
+		backdrop-filter: blur(10px);
 
 		.container {
-			max-width: 60%;
+			max-width: 70%;
 			margin: 0 auto;
 			display: flex;
 			flex-direction: column;
-			gap: 40px;
+			gap: 50px;
 
 			@media screen and (max-width: 800px) {
 				max-width: 90%;
@@ -130,13 +132,12 @@ import PrimaryButton from '../components/PrimaryButton.vue'
 
 		.feature {
 			position: relative;
-			height: 500px;
+			height: 450px;
 			display: flex;
 			align-items: center;
 			text-align: center;
-			padding: 40px;
+			padding: 30px;
 			border-radius: $border-radius;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 			box-shadow: $box-shadow-large;
 
 			@media screen and (max-width: 1000px) {
@@ -145,18 +146,19 @@ import PrimaryButton from '../components/PrimaryButton.vue'
 			}
 
 			.text_container {
-				height: 70%;
-				background: rgba(252, 252, 252, 0.7);
-				backdrop-filter: blur(5px);
+				height: 60%;
+				background: rgba(255, 255, 255, 0.8);
+				backdrop-filter: blur(10px);
 				text-align: left;
 				border-radius: $border-radius;
 				padding: 20px;
 			}
 
 			h2 {
-				font-size: 1.8rem;
-				margin-bottom: 10px;
+				font-size: 2rem;
+				margin-bottom: 15px;
 				text-align: center;
+				color: $color-black;
 			}
 
 			img {
@@ -166,14 +168,13 @@ import PrimaryButton from '../components/PrimaryButton.vue'
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				margin-bottom: 20px;
 				border-radius: $border-radius;
 				z-index: -1;
 			}
 
 			p {
 				font-size: 1rem;
-				$color-black: #000000;
+				color: $color-black;
 			}
 		}
 	}
