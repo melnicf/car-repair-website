@@ -84,7 +84,7 @@
 	.contact_form {
   width: 70%;
   height: auto;
-  padding: var(--padding-large);
+  padding: 30px;
   display: flex;
   gap: 100px;
   margin: auto;
@@ -182,9 +182,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .contact_form{
-    padding-top: 150vw;
-  }
+
   .contact_form_info h1 {
     font-size: 10vw;
   }

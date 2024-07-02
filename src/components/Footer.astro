@@ -1,6 +1,6 @@
 <footer class="footer">
 	<div class="footer_logo">
-		<img src="../assets/logo.png" alt="logo" class="navbar_logo_img" width="200px" />
+		<img src="../assets/logo_2.png" alt="logo" class="navbar_logo_img" width="200px" />
 	</div>
 	<div class="footer_links">
 		<a href="#">HOME</a>
@@ -29,6 +29,15 @@
 		flex-direction: column;
 		margin-top: 2vw;
 
+		.footer_logo {
+			width: 100%;
+			padding: 20px;
+			height: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
 		.footer_links {
 			width: 80%;
 			height: auto;
@@ -56,6 +65,10 @@
 			justify-content: center;
 			align-items: center;
 			padding: $padding-medium;
+
+			p {
+				color: $color-white;
+			}
 		}
 	}
 </style>

@@ -1,0 +1,30 @@
+---
+import ContactForm from '@components/ContactForm.vue'
+import Layout from '../layouts/PageLayout.astro'
+import LightBox from '@components/LightBox.jsx'
+import { galleryImages } from '../data/galleryImages'
+import Title1 from '@components/Title1.astro'
+---
+
+<Layout>
+	<div class="gallery">
+		<Title1 title="Gallery" paragraph="Check out our gallery of beautiful images" />
+		<div class="gallery__images">
+			<LightBox images={galleryImages} client:load />
+		</div>
+	</div>
+</Layout>
+
+<style scoped lang="scss">
+	.gallery {
+		padding: 20px;
+	}
+	.gallery__images {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 20px;
+	}
+</style>
