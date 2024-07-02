@@ -1,13 +1,175 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro'
+import PrimaryButton from '../components/PrimaryButton.vue'
 ---
 
 <PageLayout>
-	<div>
-		<h1>CHI SIAMO</h1>
-		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, tempore deserunt! Laboriosam,
-			voluptatum.
-		</p>
-	</div>
+	<section class="about_hero">
+		<div class="container">
+			<h1>Chi Siamo</h1>
+			<p>
+				Benvenuti nella nostra azienda, dove esperienza e passione si uniscono per offrire i
+				migliori servizi. La nostra missione è garantire la soddisfazione del cliente attraverso
+				soluzioni innovative e di alta qualità. Ci impegniamo a migliorare continuamente e a
+				superare le aspettative dei nostri clienti.
+			</p>
+			<div class="buttons">
+				<PrimaryButton class="button_type_1" type="button" label="Contattaci" href="#" />
+			</div>
+		</div>
+	</section>
+
+	<section class="about_features">
+		<div class="container">
+			<div class="feature">
+				<img src="/public/assets/our-history.jpg" alt="La Nostra Storia" />
+				<div class="text_container">
+					<h2>La Nostra Storia</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
+						libero. Sed cursus ante dapibus diam. Abbiamo iniziato il nostro viaggio nel 2000 e da
+						allora abbiamo raggiunto numerosi traguardi. Lorem ipsum dolor sit amet, consectetur
+						adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+						Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
+						traguardi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+						Praesent libero. Sed cursus ante dapibus diam. Abbiamo iniziato il nostro viaggio nel
+						2000 e da allora abbiamo raggiunto numerosi traguardi.Lorem ipsum dolor sit amet,
+						consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
+						diam. Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
+						traguardi.
+					</p>
+				</div>
+			</div>
+			<div class="feature">
+				<img src="/public/assets/our-values.jpg" alt="I Nostri Valori" />
+				<div class="text_container">
+					<h2>I Nostri Valori</h2>
+					<p>
+						Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
+						mauris. Fusce nec tellus sed augue semper porta. Integrità, innovazione e rispetto sono
+						i pilastri su cui costruiamo ogni nostra azione.Lorem ipsum dolor sit amet, consectetur
+						adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+						Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
+						traguardi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+						Praesent libero. Sed cursus ante dapibus diam. Abbiamo iniziato il nostro viaggio nel
+						2000 e da allora abbiamo raggiunto numerosi traguardi.Lorem ipsum dolor sit amet,
+						consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
+						diam. Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
+						traguardi.
+					</p>
+				</div>
+			</div>
+			<div class="feature">
+				<img src="/public/assets/our-team.jpg" alt="Il Nostro Team" />
+				<div class="text_container">
+					<h2>Il Nostro Team</h2>
+					<p>
+						Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
+						Quisque volutpat condimentum velit. Il nostro team è composto da professionisti
+						altamente qualificati e appassionati del loro lavoro.Lorem ipsum dolor sit amet,
+						consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
+						diam. Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
+						traguardi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+						Praesent libero. Sed cursus ante dapibus diam. Abbiamo iniziato il nostro viaggio nel
+						2000 e da allora abbiamo raggiunto numerosi traguardi.Lorem ipsum dolor sit amet,
+						consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
+						diam. Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
+						traguardi.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
 </PageLayout>
+
+<style lang="scss">
+	.about_hero {
+		background: #f5f5f5;
+		padding: 60px 20px;
+		text-align: center;
+
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		h1 {
+			font-size: 2.5rem;
+			margin-bottom: 20px;
+		}
+
+		p {
+			font-size: 1.2rem;
+			margin-bottom: 40px;
+		}
+
+		.buttons {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+		}
+	}
+
+	.about_features {
+		padding: 60px 0;
+
+		.container {
+			max-width: 60%;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+
+			@media screen and (max-width: 800px) {
+				max-width: 90%;
+			}
+		}
+
+		.feature {
+			position: relative;
+			height: 500px;
+			display: flex;
+			align-items: center;
+			text-align: center;
+			padding: 40px;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+			@media screen and (max-width: 1000px) {
+				height: auto;
+				padding: 20px;
+			}
+
+			.text_container {
+				height: 70%;
+				background: rgba(252, 252, 252, 0.7);
+				backdrop-filter: blur(5px);
+				text-align: left;
+				border-radius: 8px;
+				padding: 20px;
+			}
+
+			h2 {
+				font-size: 1.8rem;
+				margin-bottom: 10px;
+				text-align: center;
+			}
+
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				margin-bottom: 20px;
+				border-radius: 8px;
+				z-index: -1;
+			}
+
+			p {
+				font-size: 1rem;
+			}
+		}
+	}
+</style>
