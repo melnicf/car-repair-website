@@ -1,0 +1,66 @@
+---
+interface Props {
+	imgSrc: string
+	imgAlt: string
+	title: string
+	content: string
+}
+const { imgSrc, imgAlt, title, content } = Astro.props
+---
+
+<div class="feature">
+	<img src={imgSrc} alt={imgAlt} />
+	<div class="text_container">
+		<h2>{title}</h2>
+		<p>{content}</p>
+	</div>
+</div>
+
+<style lang="scss">
+	@import '../styles/variables/variables';
+	.feature {
+		position: relative;
+		height: 450px;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		padding: 30px;
+		border-radius: $border-radius;
+
+		@media screen and (max-width: 1000px) {
+			height: auto;
+			padding: 20px;
+		}
+
+		.text_container {
+			height: 60%;
+			background: rgba(255, 255, 255, 0.8);
+			backdrop-filter: blur(10px);
+			text-align: left;
+			border-radius: $border-radius;
+			padding: 20px;
+		}
+
+		h2 {
+			font-size: 2rem;
+			margin-bottom: 15px;
+			text-align: center;
+			color: $color-black;
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: -1;
+		}
+
+		p {
+			font-size: 1rem;
+			color: $color-black;
+		}
+	}
+</style>

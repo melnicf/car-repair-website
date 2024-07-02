@@ -1,17 +1,16 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro'
 import PrimaryButton from '../components/PrimaryButton.vue'
+import Feature from '../components/AboutUsFeatureCard.astro'
+import { aboutUs } from '../data/aboutUs.ts'
 ---
 
 <PageLayout>
 	<section class="about_hero">
 		<div class="container">
-			<h1>Chi Siamo</h1>
+			<h1>{aboutUs.title}</h1>
 			<p>
-				Benvenuti nella nostra azienda, dove esperienza e passione si uniscono per offrire i
-				migliori servizi. La nostra missione è garantire la soddisfazione del cliente attraverso
-				soluzioni innovative e di alta qualità. Ci impegniamo a migliorare continuamente e a
-				superare le aspettative dei nostri clienti.
+				{aboutUs.description}
 			</p>
 			<div class="buttons">
 				<PrimaryButton class="button_type_1" type="button" label="Contattaci" href="#" />
@@ -21,63 +20,11 @@ import PrimaryButton from '../components/PrimaryButton.vue'
 
 	<section class="about_features">
 		<div class="container">
-			<div class="feature">
-				<img src="/public/assets/our-history.jpg" alt="La Nostra Storia" />
-				<div class="text_container">
-					<h2>La Nostra Storia</h2>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
-						libero. Sed cursus ante dapibus diam. Abbiamo iniziato il nostro viaggio nel 2000 e da
-						allora abbiamo raggiunto numerosi traguardi. Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-						Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
-						traguardi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-						Praesent libero. Sed cursus ante dapibus diam. Abbiamo iniziato il nostro viaggio nel
-						2000 e da allora abbiamo raggiunto numerosi traguardi.Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
-						diam. Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
-						traguardi.
-					</p>
-				</div>
-			</div>
-			<div class="feature">
-				<img src="/public/assets/our-values.jpg" alt="I Nostri Valori" />
-				<div class="text_container">
-					<h2>I Nostri Valori</h2>
-					<p>
-						Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
-						mauris. Fusce nec tellus sed augue semper porta. Integrità, innovazione e rispetto sono
-						i pilastri su cui costruiamo ogni nostra azione.Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-						Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
-						traguardi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-						Praesent libero. Sed cursus ante dapibus diam. Abbiamo iniziato il nostro viaggio nel
-						2000 e da allora abbiamo raggiunto numerosi traguardi.Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
-						diam. Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
-						traguardi.
-					</p>
-				</div>
-			</div>
-			<div class="feature">
-				<img src="/public/assets/our-team.jpg" alt="Il Nostro Team" />
-				<div class="text_container">
-					<h2>Il Nostro Team</h2>
-					<p>
-						Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
-						Quisque volutpat condimentum velit. Il nostro team è composto da professionisti
-						altamente qualificati e appassionati del loro lavoro.Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
-						diam. Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
-						traguardi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-						Praesent libero. Sed cursus ante dapibus diam. Abbiamo iniziato il nostro viaggio nel
-						2000 e da allora abbiamo raggiunto numerosi traguardi.Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
-						diam. Abbiamo iniziato il nostro viaggio nel 2000 e da allora abbiamo raggiunto numerosi
-						traguardi.
-					</p>
-				</div>
-			</div>
+			{
+				aboutUs.features.map((f) => (
+					<Feature imgSrc={f.coverImage} imgAlt={f.title} title={f.title} content={f.description} />
+				))
+			}
 		</div>
 	</section>
 </PageLayout>
@@ -127,54 +74,6 @@ import PrimaryButton from '../components/PrimaryButton.vue'
 
 			@media screen and (max-width: 800px) {
 				max-width: 90%;
-			}
-		}
-
-		.feature {
-			position: relative;
-			height: 450px;
-			display: flex;
-			align-items: center;
-			text-align: center;
-			padding: 30px;
-			border-radius: $border-radius;
-			box-shadow: $box-shadow-large;
-
-			@media screen and (max-width: 1000px) {
-				height: auto;
-				padding: 20px;
-			}
-
-			.text_container {
-				height: 60%;
-				background: rgba(255, 255, 255, 0.8);
-				backdrop-filter: blur(10px);
-				text-align: left;
-				border-radius: $border-radius;
-				padding: 20px;
-			}
-
-			h2 {
-				font-size: 2rem;
-				margin-bottom: 15px;
-				text-align: center;
-				color: $color-black;
-			}
-
-			img {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				border-radius: $border-radius;
-				z-index: -1;
-			}
-
-			p {
-				font-size: 1rem;
-				color: $color-black;
 			}
 		}
 	}
