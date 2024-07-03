@@ -47,7 +47,7 @@ const LightBox = (props) => {
 			flex: isMobile ? '100%' : isTablet ? '50%' : '25%',
 		},
 		LightBoxImg: {
-			width: '100%',
+			width: isMobile ? '100%' : '300px',
 			padding: '10px',
 			cursor: 'pointer',
 			transition: 'ease-in-out 0.2s',
@@ -135,21 +135,18 @@ const LightBox = (props) => {
 
 	return (
 		<div style={styles.LightBoxRow}>
-			{props.images.map((arr, i) => (
+			{props.images.map((image, i) => (
 				<div key={i} style={styles.LightBoxColumn}>
-					{arr.map((ele, j) => (
-						<img
-							key={j}
-							src={ele.image_path}
-							alt=""
-							style={styles.LightBoxImg}
-							onMouseEnter={(e) =>
-								(e.currentTarget.style.boxShadow = styles.LightBoxImgHover.boxShadow)
-							}
-							onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '')}
-							onClick={() => ImgClick(ele.index)}
-						/>
-					))}
+					<img
+						src={image.image_path}
+						alt=""
+						style={styles.LightBoxImg}
+						onMouseEnter={(e) =>
+							(e.currentTarget.style.boxShadow = styles.LightBoxImgHover.boxShadow)
+						}
+						onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '')}
+						onClick={() => ImgClick(image.index)}
+					/>
 				</div>
 			))}
 
