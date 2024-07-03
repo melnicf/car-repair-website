@@ -1,6 +1,8 @@
-export const galleryImages = [
+export type GalleryImage = { image_path: string; index: number }
+
+export const galleryImages: GalleryImage[] = [
 	{ image_path: '/assets/img1.jpg', index: 0 },
-	{ image_path: '/assets/img2.jpg', index: 1 },
+	{ image_path: '/assets/our-team.jpg', index: 1 },
 	{ image_path: '/assets/img3.jpg', index: 2 },
 	{ image_path: '/assets/img1.jpg', index: 3 },
 	{ image_path: '/assets/img2.jpg', index: 4 },
