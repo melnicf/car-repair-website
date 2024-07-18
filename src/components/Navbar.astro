@@ -1,7 +1,11 @@
+---
+const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
+---
+
 <nav class="navbar">
 	<div class="navbar_top">
 		<div class="navbar_top_text">
-			<a href="tel:+3954674763" class="phone-link"><p>Contatti : + 39 546 747 63</p></a>
+			<a href={`tel:{phoneNumber}`} class="phone-link"><p>Contatti : {phoneNumber}</p></a>
 			<p>Orario Apertura : 8:00 - 18:00</p>
 		</div>
 	</div>
