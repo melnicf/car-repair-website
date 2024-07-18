@@ -1,6 +1,17 @@
 <footer class="footer">
 	<div class="footer_logo">
 		<img src="../assets/logo_2.png" alt="logo" class="navbar_logo_img" width="200px" />
+		<div class="footer_social">
+			<a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+				<i class="fab fa-facebook-f"></i>
+			</a>
+			<a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+				<i class="fab fa-twitter"></i>
+			</a>
+			<a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+				<i class="fab fa-instagram"></i>
+			</a>
+		</div>
 	</div>
 	<div class="footer_links">
 		<a href="#">HOME</a>
@@ -36,6 +47,25 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			gap: 10px;
+			.footer_social {
+				height: auto;
+				padding: $padding-medium;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				gap: 15px;
+
+				i {
+					color: $color-white;
+					font-size: 24px;
+					transition: color 0.3s;
+
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
 		}
 
 		.footer_links {
