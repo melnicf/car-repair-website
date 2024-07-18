@@ -77,7 +77,7 @@ const LightBox = ({ images }: { images: GalleryImage[] }) => {
 					>
 						<img src="/assets/left_arrow.svg" alt="left" className={styles.LightBoxArrowImg} />
 					</div>
-					<div className={styles.LightBoxImgMainDiv}>
+					{/* <div className={styles.LightBoxImgMainDiv}>
 						<div className={styles.LightBoxImgSecondDiv}>
 							<div
 								style={{
@@ -89,6 +89,24 @@ const LightBox = ({ images }: { images: GalleryImage[] }) => {
 									backgroundRepeat: 'no-repeat',
 								}}
 							/>
+						</div>
+					</div> */}
+					<div className={styles.LightBoxImgMainDiv}>
+						<div className={styles.LightBoxImgSecondDiv}>
+							{images.map((image, i) => (
+								<div key={i} className={styles.LightBoxImgDiv}>
+									<div
+										style={{
+											width: '90%',
+											height: '90%',
+											backgroundSize: 'contain',
+											backgroundImage: `url(${image.image_path})`,
+											backgroundPosition: 'center',
+											backgroundRepeat: 'no-repeat',
+										}}
+									/>
+								</div>
+							))}
 						</div>
 					</div>
 					<div
