@@ -4,14 +4,13 @@ import Layout from '../layouts/PageLayout.astro'
 import LightBox from '@components/LightBox.tsx'
 import { galleryImages } from '../data/galleryImages'
 import Title1 from '@components/Title1.astro'
+import { gallery } from 'src/data/gallery'
 ---
 
 <Layout>
-	<div class="gallery">
-		<Title1 title="Gallery" paragraph="Check out our gallery of beautiful images" />
-		<div class="gallery__images">
-			<LightBox images={galleryImages} client:load />
-		</div>
+	<Title1 title={gallery.title} paragraph={gallery.paragraph} icon="fas fa-photo-video" />
+	<div class="gallery__images">
+		<LightBox images={galleryImages} client:load />
 	</div>
 </Layout>
 

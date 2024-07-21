@@ -1,3 +1,7 @@
+$primary-color: rgba(0, 0, 0, 0.692);
+$secondary-color: rgba(0, 0, 0, 0.886);
+$shadow-color: rgb(63, 63, 63);
+
 .LightBoxRow {
 	display: flex;
 	flex-wrap: wrap;
@@ -5,22 +9,24 @@
 	margin-top: 50px;
 	margin-bottom: 50px;
 	max-width: 1024px;
-}
+	justify-content: center;
+	align-items: center;
 
-.LightBoxRow.isTablet {
-	width: 95%;
+	&.isTablet {
+		width: 95%;
+	}
 }
 
 .LightBoxColumn {
 	flex: 25%;
-}
 
-.LightBoxColumn.isTablet {
-	flex: 50%;
-}
+	&.isTablet {
+		flex: 50%;
+	}
 
-.LightBoxColumn.isMobile {
-	flex: 100%;
+	&.isMobile {
+		flex: 100%;
+	}
 }
 
 .LightBoxImg {
@@ -30,14 +36,14 @@
 	cursor: pointer;
 	transition: ease-in-out 0.2s;
 	position: relative;
-}
 
-.LightBoxImg.isMobile {
-	width: 100%;
-}
+	&.isMobile {
+		width: 100%;
+	}
 
-.LightBoxImgHover {
-	box-shadow: 0 0 10px 0 rgb(63, 63, 63);
+	&Hover {
+		box-shadow: 0 0 10px 0 $shadow-color;
+	}
 }
 
 .LightBoxFocusMainDiv {
@@ -48,20 +54,41 @@
 	top: 0;
 	left: 0;
 	z-index: 10;
-	background-color: rgba(0, 0, 0, 0.692);
+	background-color: $primary-color;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
 }
 
-.LightBoxArrowDiv {
-	width: 60px;
+.LightBoxFocusUnderDiv {
+	width: 100%;
+	height: calc(100% - 60px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.LightBoxLeftArrowDiv,
+.LightBoxRightArrowDiv {
+	min-width: 60px;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
 	z-index: 100;
+	position: absolute;
+}
+
+.LightBoxLeftArrowDiv {
+	top: 0px;
+	left: 0px;
+}
+
+.LightBoxRightArrowDiv {
+	top: 0px;
+	right: 0px;
 }
 
 .LightBoxArrowImg {
@@ -78,29 +105,36 @@
 }
 
 .LightBoxImgSecondDiv {
-	width: 90%;
-	height: 90%;
+	width: 100%;
+	height: 80%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	transition: ease-in-out 0.2s;
+}
+
+.LightBoxImgDiv {
+	min-width: 100%;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.LightBoxFocusImg {
-	max-width: 100%;
-	max-height: 100%;
-	object-fit: cover;
-}
-
-.LightBoxFocusUnderDiv {
+.LightBoxFocusedImg {
 	width: 100%;
 	height: 100%;
-	display: flex;
+	object-fit: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-left: 60px;
+	padding-right: 60px;
 }
 
 .LightBoxFocusNavBar {
 	width: 100%;
 	min-height: 60px;
-	background-color: rgba(0, 0, 0, 0.886);
+	background-color: $secondary-color;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -118,15 +152,4 @@
 	height: 25px;
 	cursor: pointer;
 	margin-right: 30px;
-}
-
-.LightBoxCard {
-	margin: 20px;
-	width: 300px;
-	height: 300px;
-	cursor: pointer;
-}
-
-.LightBoxCard.isMobile {
-	width: 90%;
 }

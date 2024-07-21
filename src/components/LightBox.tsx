@@ -61,7 +61,7 @@ const LightBox = ({ images }: { images: GalleryImage[] }) => {
 			<div className={styles.LightBoxFocusMainDiv} ref={ref1}>
 				<div className={styles.LightBoxFocusNavBar}>
 					<p className={styles.LightBoxIndexPar}>
-						{currentImgIndex + 1} / {images.flat().length}
+						{currentImgIndex + 1} / {images.length}
 					</p>
 					<img
 						src="/assets/close_white.svg"
@@ -72,32 +72,42 @@ const LightBox = ({ images }: { images: GalleryImage[] }) => {
 				</div>
 				<div className={styles.LightBoxFocusUnderDiv}>
 					<div
-						className={styles.LightBoxArrowDiv}
+						className={styles.LightBoxLeftArrowDiv}
 						onClick={() => currentImgIndex > 0 && setCurrentImgIndex(currentImgIndex - 1)}
 					>
-						<img src="/assets/left_arrow.svg" alt="left" className={styles.LightBoxArrowImg} />
+						{currentImgIndex > 0 && (
+							<img src="/assets/left_arrow.svg" alt="left" className={styles.LightBoxArrowImg} />
+						)}
 					</div>
 					<div className={styles.LightBoxImgMainDiv}>
-						<div className={styles.LightBoxImgSecondDiv}>
-							<div
-								style={{
-									width: '100%',
-									height: '100%',
-									backgroundSize: 'contain',
-									backgroundImage: `url(${images.flat()[currentImgIndex].image_path})`,
-									backgroundPosition: 'center',
-									backgroundRepeat: 'no-repeat',
-								}}
-							/>
+						<div
+							className={styles.LightBoxImgSecondDiv}
+							style={{ transform: `translateX(${currentImgIndex * -100}%)` }}
+						>
+							{images.map((image, i) => (
+								<div key={i} className={styles.LightBoxImgDiv}>
+									{currentImgIndex === i ||
+									(currentImgIndex - 1 >= 0 && i == currentImgIndex - 1) ||
+									(currentImgIndex + 1 < images.length && i == currentImgIndex + 1) ? (
+										<img
+											src={image.image_path}
+											className={styles.LightBoxFocusedImg}
+											alt="description"
+										/>
+									) : null}
+								</div>
+							))}
 						</div>
 					</div>
 					<div
-						className={styles.LightBoxArrowDiv}
+						className={styles.LightBoxRightArrowDiv}
 						onClick={() =>
-							currentImgIndex < images.flat().length - 1 && setCurrentImgIndex(currentImgIndex + 1)
+							currentImgIndex < images.length - 1 && setCurrentImgIndex(currentImgIndex + 1)
 						}
 					>
-						<img src="/assets/right_arrow.svg" alt="right" className={styles.LightBoxArrowImg} />
+						{currentImgIndex < images.length - 1 && (
+							<img src="/assets/right_arrow.svg" alt="right" className={styles.LightBoxArrowImg} />
+						)}
 					</div>
 				</div>
 			</div>

@@ -2,15 +2,21 @@
 interface Props {
 	title: string
 	paragraph: string
+	icon: string
 }
-const { title, paragraph } = Astro.props as Props
+const { title, paragraph, icon } = Astro.props as Props
 ---
 
 <div class="main_div">
 	<h1>
 		{title}
 	</h1>
-	<div class="line"></div>
+	<div class="line_main_div">
+		<div class="line"></div>
+		<i class={icon}></i>
+		<div class="line"></div>
+	</div>
+
 	<p>
 		{paragraph}
 	</p>
@@ -26,9 +32,24 @@ const { title, paragraph } = Astro.props as Props
 		justify-content: center;
 		gap: 20px;
 		padding: 20px;
+		padding-left: 50px;
+		padding-right: 50px;
+
+		p {
+			text-align: center;
+		}
+	}
+
+	.line_main_div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		width: 100%;
+		height: auto;
 	}
 	.line {
-		width: 70%;
+		width: 100%;
 		height: 1px;
 		background-color: #000;
 	}
