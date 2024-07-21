@@ -102,10 +102,10 @@ const LightBox = ({ images }: { images: GalleryImage[] }) => {
 					<div
 						className={styles.LightBoxRightArrowDiv}
 						onClick={() =>
-							currentImgIndex < images.flat().length - 1 && setCurrentImgIndex(currentImgIndex + 1)
+							currentImgIndex < images.length - 1 && setCurrentImgIndex(currentImgIndex + 1)
 						}
 					>
-						{currentImgIndex < images.flat().length - 1 && (
+						{currentImgIndex < images.length - 1 && (
 							<img src="/assets/right_arrow.svg" alt="right" className={styles.LightBoxArrowImg} />
 						)}
 					</div>
