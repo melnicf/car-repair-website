@@ -7,11 +7,9 @@ import Title1 from '@components/Title1.astro'
 ---
 
 <Layout>
-	<div class="gallery">
-		<Title1 title="Gallery" paragraph="Check out our gallery of beautiful images" />
-		<div class="gallery__images">
-			<LightBox images={galleryImages} client:load />
-		</div>
+	<Title1 title="Gallery" paragraph="Check out our gallery of beautiful images" />
+	<div class="gallery__images">
+		<LightBox images={galleryImages} client:load />
 	</div>
 </Layout>
 
