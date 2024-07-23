@@ -1,8 +1,10 @@
 {
 	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.defaultFormatter": null,
 	"[scss]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"prettier.requireConfig": true
+	"prettier.requireConfig": true,
+	"html.validate.styles": false,
+	"css.validate": false
 }
