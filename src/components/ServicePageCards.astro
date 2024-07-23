@@ -1,0 +1,94 @@
+---
+interface Props {
+	title: string
+	description: string
+	image: string
+	index: number
+}
+
+const { title, description, image, index } = Astro.props
+---
+
+<div class="main_div">
+	<div class="second_div">
+		{
+			index % 2 === 0 ? (
+				<>
+					<div class="text_div">
+						<h1>{title}</h1>
+						<p>{description}</p>
+					</div>
+					<div class="image_div">
+						<img src={image} alt="" />
+					</div>
+				</>
+			) : (
+				<>
+					<div class="image_div">
+						<img src={image} alt="" />
+					</div>
+					<div class="text_div">
+						<h1>{title}</h1>
+						<p>{description}</p>
+					</div>
+				</>
+			)
+		}
+	</div>
+</div>
+
+<style scoped lang="scss">
+	@import '../styles/variables/variables';
+	.main_div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		padding: 50px;
+	}
+
+	.second_div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 90%;
+		max-width: 1000px;
+		height: 100%;
+		gap: 50px;
+		box-shadow: $box-shadow-large;
+		border-radius: $border-radius;
+		padding: 40px;
+	}
+
+	.image_div {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			box-shadow: $box-shadow-large;
+		}
+	}
+
+	.text_div {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 20px;
+		width: 100%;
+		height: 100%;
+
+		h1,
+		p {
+			text-align: start;
+			width: 100%;
+		}
+	}
+</style>

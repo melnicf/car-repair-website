@@ -8,36 +8,48 @@ const { title, paragraph, icon } = Astro.props as Props
 ---
 
 <div class="main_div">
-	<h1>
-		{title}
-	</h1>
-	<div class="line_main_div">
-		<div class="line"></div>
-		<i class={icon}></i>
-		<div class="line"></div>
+	<div class="second_div">
+		<h1>
+			{title}
+		</h1>
+		<div class="line_main_div">
+			<div class="line"></div>
+			<i class={icon}></i>
+			<div class="line"></div>
+		</div>
+		<p>
+			{paragraph}
+		</p>
 	</div>
-
-	<p>
-		{paragraph}
-	</p>
 </div>
 
-<style lang="scss">
+<style scoped lang="scss">
+	@import '../styles/variables/variables';
 	.main_div {
 		width: 100%;
-		height: 100%;
+		height: auto;
 		display: flex;
-		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 20px;
 		padding: 20px;
 		padding-left: 50px;
 		padding-right: 50px;
 
-		p {
+		p,
+		h1 {
 			text-align: center;
 		}
+	}
+
+	.second_div {
+		width: 100%;
+		max-width: $standard-width;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		gap: 10px;
 	}
 
 	.line_main_div {

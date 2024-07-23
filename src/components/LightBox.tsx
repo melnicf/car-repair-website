@@ -71,14 +71,14 @@ const LightBox = ({ images }: { images: GalleryImage[] }) => {
 					/>
 				</div>
 				<div className={styles.LightBoxFocusUnderDiv}>
-					<div
+					<button
 						className={styles.LightBoxLeftArrowDiv}
 						onClick={() => currentImgIndex > 0 && setCurrentImgIndex(currentImgIndex - 1)}
 					>
 						{currentImgIndex > 0 && (
 							<img src="/assets/left_arrow.svg" alt="left" className={styles.LightBoxArrowImg} />
 						)}
-					</div>
+					</button>
 					<div className={styles.LightBoxImgMainDiv}>
 						<div
 							className={styles.LightBoxImgSecondDiv}
@@ -99,7 +99,7 @@ const LightBox = ({ images }: { images: GalleryImage[] }) => {
 							))}
 						</div>
 					</div>
-					<div
+					<button
 						className={styles.LightBoxRightArrowDiv}
 						onClick={() =>
 							currentImgIndex < images.length - 1 && setCurrentImgIndex(currentImgIndex + 1)
@@ -108,7 +108,7 @@ const LightBox = ({ images }: { images: GalleryImage[] }) => {
 						{currentImgIndex < images.length - 1 && (
 							<img src="/assets/right_arrow.svg" alt="right" className={styles.LightBoxArrowImg} />
 						)}
-					</div>
+					</button>
 				</div>
 			</div>
 		</div>

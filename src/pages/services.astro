@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/PageLayout.astro'
+import Title1 from '../components/Title1.astro'
+import { services } from '../data/services'
+import ServicePageCards from '../components/ServicePageCards.astro'
+---
+
+<Layout>
+	<Title1 title={services.title} paragraph={services.paragraph} icon="fas fa-tools" />
+	{
+		services.cards.map((ogg, i) => (
+			<ServicePageCards
+				title={ogg.title}
+				description={ogg.description}
+				image={ogg.image}
+				index={i}
+			/>
+		))
+	}
+</Layout>
+
+<style scoped lang="scss"></style>

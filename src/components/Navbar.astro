@@ -15,7 +15,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 			<div class="navbar_links">
 				<a href="/">HOME</a>
 				<a href="/about-us">CHI SIAMO</a>
-				<a href="#">SERVIZI</a>
+				<a href="services">SERVIZI</a>
 				<a href="/gallery">GALLERIA</a>
 				<a href="/contact-us">CONTATTI</a>
 			</div>
@@ -34,7 +34,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 	<div class="side_navbar_links">
 		<a href="/">HOME</a>
 		<a href="/about-us">CHI SIAMO</a>
-		<a href="#">SERVIZI</a>
+		<a href="services">SERVIZI</a>
 		<a href="/gallery">GALLERIA</a>
 		<a href="/contact-us">CONTATTI</a>
 	</div>
@@ -88,6 +88,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 			display: flex;
 			justify-content: center;
 			background-color: rgb(48, 48, 48);
+			max-width: $standard-width;
 
 			.navbar_top_text {
 				width: 80%;
@@ -112,6 +113,8 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 			height: 60px;
 			display: flex;
 			justify-content: center;
+			max-width: $standard-width;
+			background-color: $color-white;
 
 			.navbar_bottom_main {
 				width: 80%;

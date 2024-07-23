@@ -79,6 +79,9 @@ $shadow-color: rgb(63, 63, 63);
 	cursor: pointer;
 	z-index: 100;
 	position: absolute;
+	background-color: transparent;
+	outline: none;
+	border: none;
 }
 
 .LightBoxLeftArrowDiv {
