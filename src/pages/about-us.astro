@@ -30,9 +30,10 @@ import { aboutUs } from '../data/aboutUs.ts'
 </PageLayout>
 
 <style lang="scss">
-	@use '../styles/variables/variables';
+	@use '../styles/variables/variables.scss' as variables;
+
 	.about_hero {
-		background: $background-color;
+		background: variables.$background-color;
 		padding: 80px 20px;
 		text-align: center;
 
@@ -44,13 +45,13 @@ import { aboutUs } from '../data/aboutUs.ts'
 		h1 {
 			font-size: 3rem;
 			margin-bottom: 20px;
-			color: $color-black;
+			color: variables.$color-black;
 		}
 
 		p {
 			font-size: 1.1rem;
 			margin-bottom: 30px;
-			color: $color-black;
+			color: variables.$color-black;
 		}
 
 		.buttons {

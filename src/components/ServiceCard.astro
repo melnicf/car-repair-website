@@ -19,7 +19,7 @@ const { title, description, image } = Astro.props
 </div>
 
 <style lang="scss">
-	@use '../styles/variables/variables';
+	@use '../styles/variables/variables.scss' as variables;
 
 	.service_card {
 		width: 300px;
@@ -28,10 +28,10 @@ const { title, description, image } = Astro.props
 		justify-content: flex-start;
 		align-items: center;
 		flex-direction: column;
-		box-shadow: $box-shadow-large;
-		padding: $padding-medium;
-		background-color: $color-white;
-		border-radius: $border-radius;
+		box-shadow: variables.$box-shadow-large;
+		padding: variables.$padding-medium;
+		background-color: variables.$color-white;
+		border-radius: variables.$border-radius;
 
 		p,
 		h1 {
@@ -41,7 +41,7 @@ const { title, description, image } = Astro.props
 
 		h1 {
 			font-size: 20px;
-			color: $color-black;
+			color: variables.$color-black;
 		}
 
 		p {
@@ -63,7 +63,7 @@ const { title, description, image } = Astro.props
 		}
 
 		&:hover {
-			box-shadow: $box-shadow-large;
+			box-shadow: variables.$box-shadow-large;
 		}
 	}
 </style>

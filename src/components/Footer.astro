@@ -27,7 +27,7 @@
 </footer>
 
 <style lang="scss">
-	@use '../styles/variables/variables';
+	@use '../styles/variables/variables.scss' as variables;
 
 	.footer {
 		width: 100%;
@@ -50,19 +50,19 @@
 			gap: 10px;
 			.footer_social {
 				height: auto;
-				padding: $padding-medium;
+				padding: variables.$padding-medium;
 				display: flex;
 				justify-content: space-around;
 				align-items: center;
 				gap: 15px;
 
 				i {
-					color: $color-white;
+					color: variables.$color-white;
 					font-size: 24px;
 					transition: color 0.3s;
 
 					&:hover {
-						color: $primary-color;
+						color: variables.$primary-color;
 					}
 				}
 			}
@@ -71,13 +71,13 @@
 		.footer_links {
 			width: 80%;
 			height: auto;
-			padding: $padding-medium;
+			padding: variables.$padding-medium;
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
 
 			a {
-				color: $color-white;
+				color: variables.$color-white;
 				font-size: 12px;
 			}
 		}
@@ -94,10 +94,10 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			padding: $padding-medium;
+			padding: variables.$padding-medium;
 
 			p {
-				color: $color-white;
+				color: variables.$color-white;
 			}
 		}
 	}

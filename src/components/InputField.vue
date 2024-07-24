@@ -44,7 +44,7 @@
 </script>
 
 <style scoped lang="scss">
-	@use '../styles/variables/variables';
+	@use '../styles/variables/variables.scss' as variables;
 
 .input_group {
   display: flex;
@@ -52,15 +52,15 @@
   width: 100%;
 
   input {
-    border-radius: $border-radius;
-    color: $color-black;
+    border-radius: variables.$border-radius;
+    color: variables.$color-black;
     font-size: 15px;
     height: 15px;
     outline: none;
-    padding: $padding-medium;
+    padding: variables.$padding-medium;
     width: 100%;
     border: none;
-    box-shadow: $box-shadow-large;
+    box-shadow: variables.$box-shadow-large;
   }
 
   .error {

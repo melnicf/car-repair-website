@@ -40,7 +40,7 @@
 </script>
 
 <style scoped lang="scss">
-	@use '../styles/variables/variables';
+	@use '../styles/variables/variables.scss' as variables;
 
 .input_group {
   display: flex;
@@ -48,12 +48,12 @@
   width: 100%;
 
   textarea {
-    border-radius: $border-radius;
+    border-radius: variables.$border-radius;
     height: 300px;
     width: 100%;
     resize: vertical;
     padding: 10px;
-    box-shadow: $box-shadow-large;
+    box-shadow: variables.$box-shadow-large;
     border: none;
   }
 

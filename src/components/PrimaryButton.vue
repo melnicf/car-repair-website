@@ -26,17 +26,17 @@
 </script>
 
 <style lang="scss">
-	@use '../styles/variables/variables';
+	@use '../styles/variables/variables.scss' as variables;
 
 .button_type_1 {
-  padding: $padding-small;
-  border-radius: $border-radius;
+  padding: variables.$padding-small;
+  border-radius: variables.$border-radius;
   text-decoration: none;
   background-color: rgb(157, 157, 44);
-  transition: $transition-ease;
+  transition: variables.$transition-ease;
   outline: none;
   border: none;
-  color: $color-white;
+  color: variables.$color-white;
   width: 200px;
   cursor: pointer;
   font-size: 15px;
@@ -50,14 +50,14 @@
 }
 
 .button_type_2 {
-  padding: $padding-small;
-  border-radius: $border-radius;
+  padding: variables.$padding-small;
+  border-radius: variables.$border-radius;
   text-decoration: none;
   background-color: transparent;
-  transition: $transition-ease;
+  transition: variables.$transition-ease;
   outline: none;
-  border: 1px $color-white solid;
-  color: $color-white;
+  border: 1px variables.$color-white solid;
+  color: variables.$color-white;
   width: 200px;
   cursor: pointer;
   font-size: 15px;
@@ -66,7 +66,7 @@
   align-items: center;
 
   &:hover {
-    background-color: $color-gray;
+    background-color: variables.$color-gray;
     text-decoration: underline;
   }
 }

@@ -5,7 +5,8 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 <nav class="navbar">
 	<div class="navbar_top">
 		<div class="navbar_top_text">
-			<a href={`tel:${phoneNumber}`} class="phone-link"><p>Contatti : {phoneNumber}</p></a>
+			<a href={`tel:variables.${phoneNumber}`} class="phone-link"><p>Contatti : {phoneNumber}</p></a
+			>
 			<p>Orario Apertura : 8:00 - 18:00</p>
 		</div>
 	</div>
@@ -71,7 +72,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 </script>
 
 <style lang="scss">
-	@use '../styles/variables/variables';
+	@use '../styles/variables/variables.scss' as variables;
 
 	.navbar {
 		width: 100%;
@@ -80,7 +81,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 		justify-content: flex-start;
 		align-items: center;
 		flex-direction: column;
-		box-shadow: $box-shadow-large;
+		box-shadow: variables.$box-shadow-large;
 
 		.navbar_top {
 			width: 100%;
@@ -88,7 +89,6 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 			display: flex;
 			justify-content: center;
 			background-color: rgb(48, 48, 48);
-			max-width: $standard-width;
 
 			.navbar_top_text {
 				width: 80%;
@@ -99,7 +99,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 				gap: 50px;
 
 				p {
-					color: $color-white;
+					color: variables.$color-white;
 				}
 
 				.phone-link {
@@ -113,8 +113,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 			height: 60px;
 			display: flex;
 			justify-content: center;
-			max-width: $standard-width;
-			background-color: $color-white;
+			background-color: variables.$color-white;
 
 			.navbar_bottom_main {
 				width: 80%;
@@ -169,9 +168,9 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 		top: 0px;
 		right: 0px;
 		transform: translateX(110%);
-		transition: $transition-ease;
-		background-color: $color-white;
-		box-shadow: $box-shadow-large;
+		transition: variables.$transition-ease;
+		background-color: variables.$color-white;
+		box-shadow: variables.$box-shadow-large;
 		z-index: 99;
 
 		&.side_navbar_toggle {
@@ -184,7 +183,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
-			box-shadow: $box-shadow-large;
+			box-shadow: variables.$box-shadow-large;
 			padding-right: 20px;
 		}
 

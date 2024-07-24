@@ -17,7 +17,7 @@ const { imgSrc, imgAlt, title, content } = Astro.props
 </div>
 
 <style lang="scss">
-	@use '../styles/variables/variables';
+	@use '../styles/variables/variables.scss' as variables;
 	.feature {
 		position: relative;
 		height: 450px;
@@ -25,7 +25,7 @@ const { imgSrc, imgAlt, title, content } = Astro.props
 		align-items: center;
 		text-align: center;
 		padding: 30px;
-		border-radius: $border-radius;
+		border-radius: variables.$border-radius;
 
 		@media screen and (max-width: 1000px) {
 			height: auto;
@@ -37,7 +37,7 @@ const { imgSrc, imgAlt, title, content } = Astro.props
 			background: rgba(255, 255, 255, 0.8);
 			backdrop-filter: blur(10px);
 			text-align: left;
-			border-radius: $border-radius;
+			border-radius: variables.$border-radius;
 			padding: 20px;
 		}
 
@@ -45,7 +45,7 @@ const { imgSrc, imgAlt, title, content } = Astro.props
 			font-size: 2rem;
 			margin-bottom: 15px;
 			text-align: center;
-			color: $color-black;
+			color: variables.$color-black;
 		}
 
 		img {
@@ -60,7 +60,7 @@ const { imgSrc, imgAlt, title, content } = Astro.props
 
 		p {
 			font-size: 1rem;
-			color: $color-black;
+			color: variables.$color-black;
 		}
 	}
 </style>
