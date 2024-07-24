@@ -26,9 +26,9 @@
 
 <script lang="ts">
 	import { reactive } from 'vue'
-	import PrimaryButton from '../components/PrimaryButton.vue'
-	import InputField from '../components/InputField.vue'
-	import TextAreaField from '../components/TextAreaField.vue'
+	import PrimaryButton from './PrimaryButton.vue'
+	import InputField from './InputField.vue'
+	import TextAreaField from './TextAreaField.vue'
 
 	export default {
 		components: {

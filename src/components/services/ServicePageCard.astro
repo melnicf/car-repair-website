@@ -38,7 +38,7 @@ const { title, description, image, index } = Astro.props
 </div>
 
 <style scoped lang="scss">
-	@import '../styles/variables/variables';
+	@use '@styles/variables/variables.scss' as variables;
 	.main_div {
 		display: flex;
 		justify-content: center;
@@ -56,8 +56,8 @@ const { title, description, image, index } = Astro.props
 		max-width: 1000px;
 		height: 100%;
 		gap: 50px;
-		box-shadow: $box-shadow-large;
-		border-radius: $border-radius;
+		box-shadow: variables.$box-shadow-large;
+		border-radius: variables.$border-radius;
 		padding: 40px;
 	}
 
@@ -72,7 +72,7 @@ const { title, description, image, index } = Astro.props
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			box-shadow: $box-shadow-large;
+			box-shadow: variables.$box-shadow-large;
 		}
 	}
 

@@ -26,7 +26,7 @@
 </script>
 
 <style lang="scss">
-	@use '../styles/variables/variables.scss' as variables;
+	@use '@styles/variables/variables.scss' as variables;
 
 .button_type_1 {
   padding: variables.$padding-small;

@@ -1,6 +1,6 @@
 <template>
 	<div class="input_group">
-		<textarea v-model="internalValue" :placeholder="placeholder"></textarea>
+		<input :type="type" v-model="internalValue" :placeholder="placeholder" />
 		<span v-if="error" class="error">{{ error }}</span>
 	</div>
 </template>
@@ -10,11 +10,15 @@
 	import type { PropType } from 'vue'
 
 	export default defineComponent({
-		name: 'TextAreaField',
+		name: 'InputField',
 		props: {
 			modelValue: {
 				type: String,
 				required: true,
+			},
+			type: {
+				type: String,
+				default: 'text',
 			},
 			placeholder: {
 				type: String,
@@ -40,21 +44,23 @@
 </script>
 
 <style scoped lang="scss">
-	@use '../styles/variables/variables.scss' as variables;
+	@use '@styles/variables/variables.scss' as variables;
 
 .input_group {
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  textarea {
+  input {
     border-radius: variables.$border-radius;
-    height: 300px;
+    color: variables.$color-black;
+    font-size: 15px;
+    height: 15px;
+    outline: none;
+    padding: variables.$padding-medium;
     width: 100%;
-    resize: vertical;
-    padding: 10px;
-    box-shadow: variables.$box-shadow-large;
     border: none;
+    box-shadow: variables.$box-shadow-large;
   }
 
   .error {

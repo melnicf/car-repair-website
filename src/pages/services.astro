@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/PageLayout.astro'
-import Title1 from '../components/Title1.astro'
+import HeroTitle from '../components/common/HeroTitle.astro'
 import { services } from '../data/services'
-import ServicePageCards from '../components/ServicePageCards.astro'
+import ServicePageCards from '../components/services/ServicePageCard.astro'
 ---
 
 <Layout>
-	<Title1 title={services.title} paragraph={services.paragraph} icon="fas fa-tools" />
+	<HeroTitle title={services.title} paragraph={services.paragraph} icon="fas fa-tools" />
 	{
 		services.cards.map((ogg, i) => (
 			<ServicePageCards

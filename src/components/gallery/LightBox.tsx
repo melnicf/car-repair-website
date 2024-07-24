@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import type { GalleryImage } from 'src/data/galleryImages'
-import styles from '../styles/css/Lightbox.module.scss'
+import styles from '@styles/css/Lightbox.module.scss'
 
 const LightBox = ({ images }: { images: GalleryImage[] }) => {
 	const [currentImgIndex, setCurrentImgIndex] = useState(0)

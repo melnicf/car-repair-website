@@ -24,7 +24,7 @@ const { title, paragraph, icon } = Astro.props as Props
 </div>
 
 <style scoped lang="scss">
-	@import '../styles/variables/variables';
+	@use '@styles/variables/variables.scss' as variables;
 	.main_div {
 		width: 100%;
 		height: auto;
@@ -43,7 +43,7 @@ const { title, paragraph, icon } = Astro.props as Props
 
 	.second_div {
 		width: 100%;
-		max-width: $standard-width;
+		max-width: variables.$standard-width;
 		height: auto;
 		display: flex;
 		justify-content: center;
