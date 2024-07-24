@@ -6,5 +6,6 @@
 	},
 	"prettier.requireConfig": true,
 	"html.validate.styles": false,
-	"css.validate": false
+	"css.validate": false,
+	"files.autoSave": "onFocusChange"
 }

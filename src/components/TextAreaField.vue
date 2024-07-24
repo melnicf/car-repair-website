@@ -40,7 +40,7 @@
 </script>
 
 <style scoped lang="scss">
-	@import '../styles/variables/variables';
+	@use '../styles/variables/variables';
 
 .input_group {
   display: flex;
