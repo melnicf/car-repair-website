@@ -4,10 +4,10 @@ type NavbarItem = {
 }
 export function getNavbarItems(): NavbarItem[] {
 	return [
-		{ title: 'HOME', link: '/' },
-		{ title: 'CHI SIAMO', link: '/about-us' },
-		{ title: 'SERVIZI', link: '/services' },
-		{ title: 'GALLERIA', link: '/gallery' },
-		{ title: 'CONTATTI', link: '/contact-us' },
+		{ title: 'Home', link: '/' },
+		{ title: 'Chi siamo', link: '/about-us' },
+		{ title: 'Servizi', link: '/services' },
+		{ title: 'Galleria', link: '/gallery' },
+		{ title: 'Contatti', link: '/contact-us' },
 	]
 }

@@ -1,23 +1,12 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro'
-import PrimaryButton from '../components/common/PrimaryButton.vue'
 import Feature from '../components/about/AboutUsFeatureCard.astro'
 import { aboutUs } from '../data/aboutUs.ts'
+import HeroTitle from '@components/common/HeroTitle.astro'
 ---
 
 <PageLayout>
-	<section class="about_hero">
-		<div class="container">
-			<h1>{aboutUs.title}</h1>
-			<p>
-				{aboutUs.description}
-			</p>
-			<div class="buttons">
-				<PrimaryButton class="button_type_1" type="submit" label="Contattaci" href="/contact-us" />
-			</div>
-		</div>
-	</section>
-
+	<HeroTitle title={aboutUs.title} paragraph={aboutUs.description} icon="fas fa-users" />
 	<section class="about_features">
 		<div class="container">
 			{
@@ -27,54 +16,99 @@ import { aboutUs } from '../data/aboutUs.ts'
 			}
 		</div>
 	</section>
+	<section class="our_team">
+		<h2>La nostra squadra</h2>
+		<div class="team_container">
+			{
+				aboutUs.team.map((member) => (
+					<div class="team_member">
+						<img src={member.image} alt={member.name} />
+						<div class="member_info">
+							<h3>{member.name}</h3>
+							<p>{member.position}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</section>
 </PageLayout>
 
 <style lang="scss">
 	@use '../styles/variables/variables.scss' as variables;
 
-	.about_hero {
-		background: variables.$background-color;
-		padding: 80px 20px;
-		text-align: center;
-
-		.container {
-			max-width: 700px;
-			margin: 0 auto;
-		}
-
-		h1 {
-			font-size: 3rem;
-			margin-bottom: 20px;
-			color: variables.$color-black;
-		}
-
-		p {
-			font-size: 1.1rem;
-			margin-bottom: 30px;
-			color: variables.$color-black;
-		}
-
-		.buttons {
-			display: flex;
-			justify-content: center;
-			gap: 15px;
-		}
+	.about_features {
+		padding: 50px 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
-	.about_features {
-		padding: 80px 0;
-		background: rgba(255, 255, 255, 0.8);
-		backdrop-filter: blur(10px);
+	.container {
+		width: 100%;
+		max-width: 1200px;
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		padding: 0 20px;
+	}
 
-		.container {
-			max-width: 70%;
-			margin: 0 auto;
+	.our_team {
+		background-color: aliceblue;
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		align-items: center;
+		padding: 50px 20px;
+		text-align: center;
+
+		h2 {
+			font-size: 2.5rem;
+			margin-bottom: 30px;
+			color: variables.$text-color;
+		}
+
+		.team_container {
+			width: 80%;
 			display: flex;
-			flex-direction: column;
-			gap: 50px;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			gap: 30px;
+		}
 
-			@media screen and (max-width: 800px) {
-				max-width: 90%;
+		.team_member {
+			background: variables.$color-white;
+			border-radius: variables.$border-radius;
+			box-shadow: variables.$box-shadow-small;
+			overflow: hidden;
+			width: 250px;
+			transition:
+				transform 0.3s ease,
+				box-shadow 0.3s ease;
+
+			&:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+			}
+
+			img {
+				width: 100%;
+				height: 250px;
+				object-fit: cover;
+			}
+
+			.member_info {
+				padding: 20px;
+
+				h3 {
+					font-size: 1.5rem;
+					color: variables.$text-color;
+					margin-bottom: 10px;
+				}
+
+				p {
+					font-size: 1rem;
+				}
 			}
 		}
 	}

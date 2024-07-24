@@ -82,7 +82,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 			height: auto;
 			display: flex;
 			justify-content: center;
-			background-color: rgb(48, 48, 48);
+			background-color: rgba(48, 48, 48, 0.8);
 
 			.navbar_top_text {
 				width: 80%;
@@ -107,7 +107,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 			height: 60px;
 			display: flex;
 			justify-content: center;
-			background-color: variables.$color-white;
+			background-color: rgba(255, 255, 255, 0.9);
 
 			.navbar_bottom_main {
 				width: 80%;
@@ -123,6 +123,12 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 					justify-content: space-around;
 					align-items: center;
 					gap: 40px;
+
+					a {
+						&:hover {
+							color: variables.$secondary-color;
+						}
+					}
 				}
 
 				.navbar_logo {
@@ -163,7 +169,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 		right: 0px;
 		transform: translateX(110%);
 		transition: variables.$transition-ease;
-		background-color: variables.$color-white;
+		background-color: rgba(255, 255, 255, 0.95);
 		box-shadow: variables.$box-shadow-large;
 		z-index: 99;
 
@@ -192,6 +198,12 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 			gap: 50px;
 			padding-top: 30px;
 			padding-bottom: 30px;
+
+			a {
+				&:hover {
+					color: variables.$secondary-color;
+				}
+			}
 		}
 	}
 

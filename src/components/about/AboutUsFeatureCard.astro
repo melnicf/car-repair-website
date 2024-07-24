@@ -9,58 +9,68 @@ const { imgSrc, imgAlt, title, content } = Astro.props
 ---
 
 <div class="feature">
-	<img src={imgSrc} alt={imgAlt} />
+	<div class="image_container">
+		<img src={imgSrc} alt={imgAlt} />
+		<h2 class="title">{title}</h2>
+	</div>
 	<div class="text_container">
-		<h2>{title}</h2>
 		<p>{content}</p>
 	</div>
 </div>
 
 <style lang="scss">
 	@use '@styles/variables/variables.scss' as variables;
-	.feature {
-		position: relative;
-		height: 450px;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		padding: 30px;
-		border-radius: variables.$border-radius;
 
-		@media screen and (max-width: 1000px) {
-			height: auto;
-			padding: 20px;
+	.feature {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		align-items: center;
+		background: variables.$color-white;
+		border-radius: variables.$border-radius;
+		box-shadow: variables.$box-shadow-small;
+		overflow: hidden;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+
+		&:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+		}
+
+		.image_container {
+			position: relative;
+			width: 100%;
+			height: 300px;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.title {
+				position: absolute;
+				bottom: 20px;
+				left: 20px;
+				font-size: 2.2rem;
+				color: variables.$text-color;
+				background: rgba(255, 255, 255, 0.8);
+				padding: 5px 10px;
+				border-radius: 5px;
+			}
 		}
 
 		.text_container {
-			height: 60%;
-			background: rgba(255, 255, 255, 0.8);
-			backdrop-filter: blur(10px);
-			text-align: left;
-			border-radius: variables.$border-radius;
 			padding: 20px;
-		}
-
-		h2 {
-			font-size: 2rem;
-			margin-bottom: 15px;
 			text-align: center;
-			color: variables.$color-black;
-		}
 
-		img {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			z-index: -1;
-		}
-
-		p {
-			font-size: 1rem;
-			color: variables.$color-black;
+			p {
+				font-size: 1.3rem;
+				color: variables.$text-color-light;
+				text-align: left;
+			}
 		}
 	}
 </style>
