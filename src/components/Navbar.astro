@@ -1,4 +1,6 @@
 ---
+import { getNavbarItems } from 'src/utils/getNavbarItems'
+
 const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 ---
 
@@ -14,11 +16,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 		<div class="navbar_bottom_main">
 			<img src="../assets/logo.png" alt="logo" class="navbar_logo" />
 			<div class="navbar_links">
-				<a href="/">HOME</a>
-				<a href="/about-us">CHI SIAMO</a>
-				<a href="services">SERVIZI</a>
-				<a href="/gallery">GALLERIA</a>
-				<a href="/contact-us">CONTATTI</a>
+				{getNavbarItems().map((item) => <a href={item.link}>{item.title}</a>)}
 			</div>
 			<button class="hamburger">
 				<img src="../assets/menu.svg" alt="burger" />
@@ -33,11 +31,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 		</button>
 	</div>
 	<div class="side_navbar_links">
-		<a href="/">HOME</a>
-		<a href="/about-us">CHI SIAMO</a>
-		<a href="services">SERVIZI</a>
-		<a href="/gallery">GALLERIA</a>
-		<a href="/contact-us">CONTATTI</a>
+		{getNavbarItems().map((item) => <a href={item.link}>{item.title}</a>)}
 	</div>
 </nav>
 

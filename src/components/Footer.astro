@@ -1,3 +1,7 @@
+---
+import { getNavbarItems } from 'src/utils/getNavbarItems'
+---
+
 <footer class="footer">
 	<div class="footer_logo">
 		<img src="../assets/logo_2.png" alt="logo" class="navbar_logo_img" width="200px" />
@@ -14,11 +18,7 @@
 		</div>
 	</div>
 	<div class="footer_links">
-		<a href="#">HOME</a>
-		<a href="#">CHI SIAMO</a>
-		<a href="#">SERVIZI</a>
-		<a href="#">GALLERIA</a>
-		<a href="#">CONTATTI</a>
+		{getNavbarItems().map((item) => <a href={item.link}>{item.title}</a>)}
 	</div>
 	<div class="footer_separator"></div>
 	<div class="footer_bottom">
