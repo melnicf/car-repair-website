@@ -1,26 +1,28 @@
 <template>
-	<div class="contact_form">
-		<div class="contact_form_info">
-			<h1>Contattaci!</h1>
-			<p>
-				Siamo a tua disposizione per qualsiasi informazione o richiesta di assistenza. Il nostro
-				team di esperti è pronto a rispondere a tutte le tue domande riguardo ai nostri servizi e a
-				fornirti supporto per qualsiasi esigenza legata alla tua auto. Compila il modulo a destra
-				con i tuoi dettagli e la tua richiesta, e ti ricontatteremo al più presto per offrirti il
-				miglior servizio possibile. La tua soddisfazione è la nostra priorità.
-			</p>
+	<div class="contact_main_div">
+		<div class="contact_form_second_div">
+			<div class="contact_form_info">
+				<h1>Contattaci!</h1>
+				<p>
+					Siamo a tua disposizione per qualsiasi informazione o richiesta di assistenza. Il nostro
+					team di esperti è pronto a rispondere a tutte le tue domande riguardo ai nostri servizi e
+					a fornirti supporto per qualsiasi esigenza legata alla tua auto. Compila il modulo a
+					destra con i tuoi dettagli e la tua richiesta, e ti ricontatteremo al più presto per
+					offrirti il miglior servizio possibile. La tua soddisfazione è la nostra priorità.
+				</p>
+			</div>
+			<form class="contact_form_fields" @submit.prevent="validateForm">
+				<div class="contact_form_top">
+					<InputField v-model="form.name" placeholder="Nome" :error="errors.name" />
+					<InputField v-model="form.email" placeholder="Email" :error="errors.email" />
+				</div>
+				<InputField v-model="form.object" placeholder="Oggetto" :error="errors.object" />
+				<TextAreaField v-model="form.message" placeholder="Messaggio" :error="errors.message" />
+				<div class="contact_form_button">
+					<PrimaryButton class="button_type_1" label="INVIA" type="submit" />
+				</div>
+			</form>
 		</div>
-		<form class="contact_form_fields" @submit.prevent="validateForm">
-			<div class="contact_form_top">
-				<InputField v-model="form.name" placeholder="Nome" :error="errors.name" />
-				<InputField v-model="form.email" placeholder="Email" :error="errors.email" />
-			</div>
-			<InputField v-model="form.object" placeholder="Oggetto" :error="errors.object" />
-			<TextAreaField v-model="form.message" placeholder="Messaggio" :error="errors.message" />
-			<div class="contact_form_button">
-				<PrimaryButton class="button_type_1" label="INVIA" type="submit" />
-			</div>
-		</form>
 	</div>
 </template>
 
@@ -81,13 +83,26 @@
 </script>
 
 <style scoped lang="scss">
-	.contact_form {
-  width: 70%;
+	@use '@styles/variables/variables.scss' as variables;
+
+	.contact_main_div {
+  width: 100%;
   height: auto;
-  padding: 30px;
+  padding: 50px;
   display: flex;
-  gap: 100px;
-  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact_form_second_div{
+	width: 80%;
+	height: auto;
+	display: flex;
+	gap: 100px;
+	padding: 20px;
+	background: variables.$color-white;
+	border-radius: variables.$border-radius;
+	box-shadow: variables.$box-shadow-small;
 }
 
 .contact_form_info {
@@ -115,7 +130,7 @@
 
 .contact_form_info h1 {
   font-size: 40px;
-  text-align: center;
+  text-align: start;
 }
 
 .contact_form_info p {
@@ -171,7 +186,7 @@
 }
 
 @media screen and (max-width: 800px) {
-  .contact_form {
+  .contact_form_second_div {
     flex-direction: column;
   }
 
@@ -189,6 +204,15 @@
 
   .contact_form_info p {
     font-size: 5vw;
+  }
+  .contact_main_div{
+	padding: 10px;
+  }
+  .contact_form_button{
+	justify-content: center;
+  }
+  .contact_form_second_div{
+	width: 90%;
   }
 }
 </style>
