@@ -33,7 +33,6 @@ const { imgSrc, imgAlt, title, span, content, theme } = Astro.props
 		border-radius: variables.$border-radius;
 
 		&.dark {
-			background: variables.$quaternary;
 			color: variables.$white;
 			box-shadow: none;
 
@@ -48,7 +47,6 @@ const { imgSrc, imgAlt, title, span, content, theme } = Astro.props
 		}
 
 		&.light {
-			background: variables.$gray;
 			color: variables.$black;
 
 			.text_container h2,
@@ -73,7 +71,7 @@ const { imgSrc, imgAlt, title, span, content, theme } = Astro.props
 		}
 
 		.text_container {
-			width: 80%;
+			width: 100%;
 			text-align: center;
 
 			h2 {
@@ -82,7 +80,7 @@ const { imgSrc, imgAlt, title, span, content, theme } = Astro.props
 			}
 
 			p {
-				@include variables.typo-sub1;
+				@include variables.typo-h3;
 			}
 		}
 	}
