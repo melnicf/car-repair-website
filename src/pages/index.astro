@@ -4,26 +4,49 @@ import PageLayout from '../layouts/PageLayout.astro'
 import ContactForm from '../components/common/ContactForm.vue'
 import ServiceCard from '../components/home/ServiceCard.astro'
 import { services } from '../data/home.ts'
-import PrimaryButton from '../components/common/PrimaryButton.vue'
+import PrimaryButton from '@components/common/PrimaryButton.vue'
 ---
 
 <PageLayout>
 	<div class="hero_section">
 		<div class="hero_content">
 			<div class="hero_text">
-				<h1>La meccanica che fa per te</h1>
-				<p style="font-size: 20px">
+				<h1>Meccanici Numero<span>1 Al Mondo!</span></h1>
+				<p>
 					Benvenuti nella nostra officina meccanica, dove esperienza e tecnologia si uniscono per
 					offrire un servizio rapido e affidabile. Affidateci la vostra auto e vi garantiremo
 					sicurezza e soddisfazione.
 				</p>
-				<div class="hero_buttons">
-					<PrimaryButton class="button_type_2" type="button" label="CONTATTACI" href="contact-us" />
-				</div>
+			</div>
+			<div class="hero_buttons">
+				<PrimaryButton label="Scopri di più" class="button_type_1" type="button" />
+				<PrimaryButton label="Scopri di più" class="button_type_2" type="button" />
+			</div>
+		</div>
+	</div>
+	<div class="about_section">
+		<div class="about_content">
+			<img src="/assets/car_logo.svg" alt="car logo" />
+			<div class="about_text">
+				<p>
+					Siamo un team di meccanici esperti dedicati a fornire il miglior servizio possibile. La
+					nostra missione è garantire che ogni cliente sia completamente soddisfatto del nostro
+					lavoro.
+				</p>
+			</div>
+			<div class="about_button">
+				<PrimaryButton label="Scopri di più" class="button_type_3" type="button" />
 			</div>
 		</div>
 	</div>
 	<div class="features_section">
+		<div class="features_text">
+			<h1>Un servizio rapido, sicuro<br />e <span>efficiente.</span></h1>
+			<p>
+				Scopri i nostri servizi e le nostre competenze in modo facile e veloce. Affidati alla nostra
+				officina meccanica e vi garantiremo sicurezza e soddisfazione.
+			</p>
+		</div>
 		<div class="features_content">
 			{
 				services.map((service) => (
@@ -35,6 +58,9 @@ import PrimaryButton from '../components/common/PrimaryButton.vue'
 				))
 			}
 		</div>
+		<div class="features_button">
+			<PrimaryButton label="Scopri di più" class="button_type_1" type="button" />
+		</div>
 	</div>
-	<ContactForm client:load />
+	<div class="contact_section"><ContactForm client:load /></div>
 </PageLayout>

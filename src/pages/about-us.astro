@@ -6,16 +6,22 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 ---
 
 <PageLayout>
-	<HeroTitle title={aboutUs.title} paragraph={aboutUs.description} icon="fas fa-users" />
-	<section class="about_features">
-		<div class="container">
-			{
-				aboutUs.features.map((f) => (
-					<Feature imgSrc={f.coverImage} imgAlt={f.title} title={f.title} content={f.description} />
-				))
-			}
-		</div>
-	</section>
+	<HeroTitle title={aboutUs.title} span="noi" paragraph={aboutUs.description} icon="fas fa-users" />
+	{
+		aboutUs.features.map((f, index) => (
+			<section class={`feature_section ${index % 2 === 0 ? 'bg_secondary' : 'bg_white'}`}>
+				<div class="container">
+					<Feature
+						imgSrc={f.coverImage}
+						theme={index % 2 === 0 ? 'light' : 'dark'}
+						imgAlt={f.title}
+						title={f.title}
+						content={f.description}
+					/>
+				</div>
+			</section>
+		))
+	}
 	<section class="our_team">
 		<h2>La nostra squadra</h2>
 		<div class="team_container">
@@ -37,11 +43,19 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 <style lang="scss">
 	@use '../styles/variables/variables.scss' as variables;
 
-	.about_features {
-		padding: 50px 0;
+	.feature_section {
+		padding: 100px 0;
 		display: flex;
-		flex-direction: column;
+		justify-content: center;
 		align-items: center;
+
+		&.bg_secondary {
+			background-color: variables.$white;
+		}
+
+		&.bg_white {
+			background-color: variables.$secondary;
+		}
 	}
 
 	.container {
@@ -49,12 +63,12 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 		max-width: 1200px;
 		display: flex;
 		flex-direction: column;
-		gap: 50px;
+		gap: 80px;
 		padding: 0 20px;
 	}
 
 	.our_team {
-		background-color: aliceblue;
+		background-color: variables.$white;
 		display: flex;
 		flex-direction: column;
 		gap: 30px;
@@ -63,9 +77,8 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 		text-align: center;
 
 		h2 {
-			font-size: 2.5rem;
-			margin-bottom: 30px;
-			color: variables.$text-color;
+			color: variables.$primary;
+			@include variables.typo-h1;
 		}
 
 		.team_container {
@@ -77,14 +90,15 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 		}
 
 		.team_member {
-			background: variables.$color-white;
+			background: variables.$white;
 			border-radius: variables.$border-radius;
-			box-shadow: variables.$box-shadow-small;
 			overflow: hidden;
 			width: 250px;
 			transition:
 				transform 0.3s ease,
 				box-shadow 0.3s ease;
+
+			@include variables.shadow2;
 
 			&:hover {
 				transform: translateY(-10px);
@@ -101,13 +115,12 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 				padding: 20px;
 
 				h3 {
-					font-size: 1.5rem;
-					color: variables.$text-color;
-					margin-bottom: 10px;
+					color: variables.$primary;
+					@include variables.typo-h3;
 				}
 
 				p {
-					font-size: 1rem;
+					@include variables.typo-body1;
 				}
 			}
 		}

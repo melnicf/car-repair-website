@@ -32,7 +32,7 @@ import { getNavbarItems } from 'src/utils/getNavbarItems'
 	.footer {
 		width: 100%;
 		height: auto;
-		background-color: rgb(37, 37, 37);
+		background-color: variables.$secondary;
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
@@ -57,12 +57,12 @@ import { getNavbarItems } from 'src/utils/getNavbarItems'
 				gap: 15px;
 
 				i {
-					color: variables.$color-white;
+					color: variables.$white;
 					font-size: 24px;
 					transition: color 0.3s;
 
 					&:hover {
-						color: variables.$primary-color;
+						color: variables.$primary;
 					}
 				}
 			}
@@ -77,7 +77,7 @@ import { getNavbarItems } from 'src/utils/getNavbarItems'
 			align-items: center;
 
 			a {
-				color: variables.$color-white;
+				color: variables.$white;
 				font-size: 12px;
 			}
 		}
@@ -97,7 +97,7 @@ import { getNavbarItems } from 'src/utils/getNavbarItems'
 			padding: variables.$padding-medium;
 
 			p {
-				color: variables.$color-white;
+				color: variables.$white;
 			}
 		}
 	}

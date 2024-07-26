@@ -1,21 +1,162 @@
 /* Reusable styles */
-$primary-color: #3498db;
-$secondary-color: rgb(157, 157, 44);
-$background-color: #ecf0f1;
-$text-color: #2c3e50;
-$text-color-light: #7f8c8d;
-$text-color-dark: #34495e;
-$text-color-muted: #95a5a6;
-$font-family: 'Roboto';
-$font-size: 16px;
-$box-shadow-small: 0 1px 3px rgba(0, 0, 0, 0.12);
-$box-shadow-large: 0 0 20px 0 #c1c1c1;
-$border-radius: 10px;
-$padding-large: 30px;
-$padding-medium: 20px;
-$padding-small: 15px;
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+$font-family: 'Urbanist';
+$font-family-anton: 'Anton';
+$border-radius: 8px;
+$padding-large: 64px;
+$padding-medium: 24px;
+$padding-small: 16px;
 $transition-ease: ease-in-out 0.2s;
-$color-white: #ffffff;
-$color-black: #000000;
-$color-gray: rgba(204, 204, 204, 0.356);
 $standard-width: 1200px;
+
+/* Color Palette */
+$primary: #edff71;
+$secondary: #0f2028;
+$tertiary: #d0efef;
+$quaternary: #28373e;
+$white: #ffffff;
+$gray: #f8f8f8;
+$black: #000000;
+
+$success-dgreen: #115b43;
+$success-mgreen: #009262;
+$success-lgreen: #f1fbf8;
+$success-forest: #1b6e53;
+$success-herbal: #32c997;
+$success-mint: #84dfc1;
+
+$warning-dyellow: #e48900;
+$warning-myellow: #ffb240;
+$warning-lyellow: #fff8ec;
+$warning-lemon: #ffa826;
+$warning-straw: #ffc670;
+$warning-sand: #ffd596;
+
+$danger-dred: #c33025;
+$danger-mred: #e02b1d;
+$danger-lred: #fff1f0;
+$danger-scarlet: #e01507;
+$danger-raspberry: #ff5a4f;
+$danger-rubicund: #f0857d;
+
+/* Typography Mixins */
+@mixin typo-h1 {
+	font-style: normal;
+	font-weight: 800;
+	font-size: 70px;
+	line-height: 74px;
+}
+
+@mixin typo-h2 {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 31px;
+	line-height: 44px;
+}
+
+@mixin typo-h3 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 26.4px;
+}
+
+@mixin typo-h4 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 24px;
+}
+
+@mixin typo-sub1 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: normal;
+}
+
+@mixin typo-sub2 {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: normal;
+}
+
+@mixin typo-sub3 {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: normal;
+}
+
+@mixin typo-body1 {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22.4px;
+}
+
+@mixin typo-body2 {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+@mixin typo-body3 {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+@mixin typo-fields1 {
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0em;
+}
+
+@mixin typo-fields2 {
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+	letter-spacing: 0em;
+}
+
+@mixin typo-fields3 {
+	font-size: 9px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: 0em;
+}
+
+@mixin typo-fieldsMessaggi {
+	font-size: 13px;
+	font-style: italic;
+	font-weight: 400;
+	line-height: normal;
+}
+
+/* Shadow Mixins */
+@mixin shadow2 {
+	box-shadow: 0px 2px 4px 0px rgba(171, 190, 209, 0.6);
+}
+
+@mixin shadow4 {
+	box-shadow: 0px 4px 8px 0px rgba(171, 190, 209, 0.4);
+}
+
+@mixin shadow6 {
+	box-shadow: 0px 6px 12px 0px rgba(171, 190, 209, 0.3);
+}
+
+@mixin shadow8 {
+	box-shadow: 0px 8px 16px 0px rgba(171, 190, 209, 0.4);
+}

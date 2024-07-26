@@ -49,12 +49,15 @@
 
   textarea {
     border-radius: variables.$border-radius;
-    height: 300px;
+    color: variables.$quaternary;
+    height: 200px;
+    outline: none;
+    padding: variables.$padding-medium;
     width: 100%;
-    resize: vertical;
-    padding: 10px;
-    box-shadow: variables.$box-shadow-large;
     border: none;
+
+	@include variables.shadow4;
+	@include variables.typo-fields1;
   }
 
   .error {

@@ -10,7 +10,7 @@
 		name: 'PrimaryButton',
 		props: {
 			class: {
-				type: String as PropType<'button_type_1' | 'button_type_2'>,
+				type: String as PropType<'button_type_1' | 'button_type_2' | 'button_type_3'>,
 				required: true,
 			},
 			label: {
@@ -31,43 +31,62 @@
 .button_type_1 {
   padding: variables.$padding-small;
   border-radius: variables.$border-radius;
-  text-decoration: none;
-  background-color: rgb(157, 157, 44);
+  background-color: variables.$primary;
   transition: variables.$transition-ease;
   outline: none;
   border: none;
-  color: variables.$color-white;
+  color: variables.$black;
   width: 200px;
   cursor: pointer;
-  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 
+
   &:hover {
-    background-color: rgb(185, 185, 60);
+    background-color: lighten(variables.$primary, 10%);
   }
+
 }
 
 .button_type_2 {
   padding: variables.$padding-small;
   border-radius: variables.$border-radius;
-  text-decoration: none;
-  background-color: transparent;
+  background-color: variables.$tertiary;
   transition: variables.$transition-ease;
   outline: none;
-  border: 1px variables.$color-white solid;
-  color: variables.$color-white;
+  border: 1px variables.$white solid;
+  color: variables.$black;
   width: 200px;
   cursor: pointer;
-  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 
+
   &:hover {
-    background-color: variables.$color-gray;
-    text-decoration: underline;
+    background-color: lighten(variables.$tertiary, 10%);
+  }
+}
+
+.button_type_3 {
+  padding: variables.$padding-small;
+  border-radius: variables.$border-radius;
+  background-color: variables.$secondary;
+  transition: variables.$transition-ease;
+  outline: none;
+  border: 1px variables.$white solid;
+  color: variables.$primary;
+  width: 200px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &:hover {
+    background-color: lighten(variables.$quaternary, 10%);
+
   }
 }
 </style>
