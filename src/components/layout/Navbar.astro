@@ -37,11 +37,15 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
-		const currentPath = window.location.pathname
+		const currentPath = window.location.pathname.replace(/\/$/, '')
 		const links = document.querySelectorAll('.navbar_links a, .side_navbar_links a')
 		links.forEach((link) => {
-			if (link.getAttribute('href') === currentPath) {
-				link.classList.add('active')
+			const href = link.getAttribute('href')
+			if (href) {
+				const linkPath = href.replace(/\/$/, '')
+				if (linkPath === currentPath) {
+					link.classList.add('active')
+				}
 			}
 		})
 
