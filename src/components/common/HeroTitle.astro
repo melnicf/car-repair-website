@@ -8,18 +8,18 @@ interface Props {
 const { title, span, paragraph, icon } = Astro.props as Props
 ---
 
-<div class="main_div">
-	<div class="second_div">
-		<h1>
+<div class="hero-container">
+	<div class="hero-content">
+		<h1 class="hero-title">
 			{title}
-			<span>{span}</span>
+			<span class="hero-highlight">{span}</span>
 		</h1>
-		<div class="line_main_div">
-			<div class="line"></div>
+		<div class="hero-divider">
+			<div class="divider-line"></div>
 			<i class={icon}></i>
-			<div class="line"></div>
+			<div class="divider-line"></div>
 		</div>
-		<p>
+		<p class="hero-paragraph">
 			{paragraph}
 		</p>
 	</div>
@@ -27,7 +27,7 @@ const { title, span, paragraph, icon } = Astro.props as Props
 
 <style scoped lang="scss">
 	@use '@styles/variables/variables.scss' as variables;
-	.main_div {
+	.hero-container {
 		width: 100%;
 		height: 60vh;
 		display: flex;
@@ -39,55 +39,54 @@ const { title, span, paragraph, icon } = Astro.props as Props
 		padding-right: 50px;
 		background-color: variables.$secondary;
 
-		p {
+		.hero-content {
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			gap: 20px;
+		}
+
+		.hero-paragraph {
+			width: 55%;
 			text-align: center;
 			color: variables.$white;
-
 			@include variables.typo-body1;
 		}
 
-		h1 {
+		.hero-divider {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 20px;
+			width: 100%;
+			height: auto;
+
+			.divider-line {
+				width: 15%;
+				height: 2px;
+				background-color: variables.$tertiary;
+			}
+
+			i {
+				font-size: 2rem;
+				color: variables.$primary;
+			}
+		}
+
+		.hero-title {
 			text-align: center;
 			color: variables.$white;
 			margin-bottom: 10px;
 			font-family: variables.$font-family-anton;
-
 			@include variables.typo-h1;
+
+			.hero-highlight {
+				font-family: variables.$font-family-anton;
+				color: variables.$primary;
+			}
 		}
-
-		span {
-			font-family: variables.$font-family-anton;
-			color: variables.$primary;
-		}
-	}
-
-	.second_div {
-		width: 100%;
-		height: auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		gap: 20px;
-	}
-
-	.line_main_div {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 20px;
-		width: 100%;
-		height: auto;
-	}
-
-	.line {
-		width: 100%;
-		height: 2px;
-		background-color: variables.$tertiary;
-	}
-
-	i {
-		font-size: 2rem;
-		color: variables.$primary;
 	}
 </style>
