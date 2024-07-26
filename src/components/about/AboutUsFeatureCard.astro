@@ -3,18 +3,20 @@ interface Props {
 	imgSrc: string
 	imgAlt: string
 	title: string
+	span?: string
 	content: string
 	theme: 'dark' | 'light'
 }
-const { imgSrc, imgAlt, title, content, theme } = Astro.props
+const { imgSrc, imgAlt, title, span, content, theme } = Astro.props
 ---
 
 <div class={`feature ${theme}`}>
 	<div class="image_container">
-		<img src="/assets/car_logo.svg" alt={imgAlt} class="svg-icon" />
+		<img src={imgSrc} alt={imgAlt} />
 	</div>
+
 	<div class="text_container">
-		<h2>{title}</h2>
+		<h2>{title}<span>{span}</span></h2>
 		<p>{content}</p>
 	</div>
 </div>
@@ -29,38 +31,41 @@ const { imgSrc, imgAlt, title, content, theme } = Astro.props
 		gap: 40px;
 		padding: variables.$padding-large;
 		border-radius: variables.$border-radius;
-		overflow: hidden;
-		transition:
-			transform 0.3s ease,
-			box-shadow 0.3s ease;
-
-		@include variables.shadow2;
 
 		&.dark {
-			background: variables.$secondary;
+			background: variables.$quaternary;
 			color: variables.$white;
+			box-shadow: none;
 
 			.text_container h2,
 			.text_container p {
 				color: variables.$white;
 			}
+
+			.text_container h2 span {
+				color: variables.$primary;
+			}
 		}
 
 		&.light {
-			background: variables.$white;
+			background: variables.$gray;
 			color: variables.$black;
 
 			.text_container h2,
 			.text_container p {
-				color: variables.$black;
+				color: variables.$secondary;
+			}
+
+			.text_container h2 span {
+				color: variables.$quaternary;
 			}
 		}
 
 		.image_container {
 			width: 50%;
+
 			img {
 				width: 100%;
-				height: auto;
 			}
 			.svg-icon {
 				fill: variables.$primary; // Change the color of the SVG
@@ -68,7 +73,7 @@ const { imgSrc, imgAlt, title, content, theme } = Astro.props
 		}
 
 		.text_container {
-			width: 60%;
+			width: 80%;
 			text-align: center;
 
 			h2 {
@@ -77,7 +82,7 @@ const { imgSrc, imgAlt, title, content, theme } = Astro.props
 			}
 
 			p {
-				@include variables.typo-body1;
+				@include variables.typo-sub1;
 			}
 		}
 	}

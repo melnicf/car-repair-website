@@ -16,6 +16,7 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 						theme={index % 2 === 0 ? 'light' : 'dark'}
 						imgAlt={f.title}
 						title={f.title}
+						span={f.span}
 						content={f.description}
 					/>
 				</div>
@@ -23,7 +24,7 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 		))
 	}
 	<section class="our_team">
-		<h2>La nostra squadra</h2>
+		<h2>La nostra <span>squadra</span></h2>
 		<div class="team_container">
 			{
 				aboutUs.team.map((member) => (
@@ -44,10 +45,9 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 	@use '../styles/variables/variables.scss' as variables;
 
 	.feature_section {
-		padding: 100px 0;
+		padding: 40px 0;
 		display: flex;
 		justify-content: center;
-		align-items: center;
 
 		&.bg_secondary {
 			background-color: variables.$white;
@@ -77,8 +77,9 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 		text-align: center;
 
 		h2 {
-			color: variables.$primary;
+			color: variables.$secondary;
 			@include variables.typo-h1;
+			font-family: variables.$font-family-anton;
 		}
 
 		.team_container {
@@ -90,7 +91,7 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 		}
 
 		.team_member {
-			background: variables.$white;
+			background: variables.$quaternary;
 			border-radius: variables.$border-radius;
 			overflow: hidden;
 			width: 250px;
@@ -115,12 +116,13 @@ import HeroTitle from '@components/common/HeroTitle.astro'
 				padding: 20px;
 
 				h3 {
-					color: variables.$primary;
+					color: variables.$white;
 					@include variables.typo-h3;
 				}
 
 				p {
-					@include variables.typo-body1;
+					color: variables.$tertiary;
+					@include variables.typo-sub1;
 				}
 			}
 		}
