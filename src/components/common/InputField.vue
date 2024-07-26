@@ -53,14 +53,15 @@
 
   input {
     border-radius: variables.$border-radius;
-    color: variables.$color-black;
-    font-size: 15px;
+    color: variables.$quaternary;
     height: 15px;
     outline: none;
     padding: variables.$padding-medium;
     width: 100%;
     border: none;
-    box-shadow: variables.$box-shadow-large;
+
+	@include variables.shadow4;
+	@include variables.typo-fields1;
   }
 
   .error {

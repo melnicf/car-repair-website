@@ -4,16 +4,17 @@ interface Props {
 	imgAlt: string
 	title: string
 	content: string
+	theme: 'dark' | 'light'
 }
-const { imgSrc, imgAlt, title, content } = Astro.props
+const { imgSrc, imgAlt, title, content, theme } = Astro.props
 ---
 
-<div class="feature">
+<div class={`feature ${theme}`}>
 	<div class="image_container">
-		<img src={imgSrc} alt={imgAlt} />
-		<h2 class="title">{title}</h2>
+		<img src="/assets/car_logo.svg" alt={imgAlt} class="svg-icon" />
 	</div>
 	<div class="text_container">
+		<h2>{title}</h2>
 		<p>{content}</p>
 	</div>
 </div>
@@ -24,52 +25,59 @@ const { imgSrc, imgAlt, title, content } = Astro.props
 	.feature {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
 		align-items: center;
-		background: variables.$color-white;
+		gap: 40px;
+		padding: variables.$padding-large;
 		border-radius: variables.$border-radius;
-		box-shadow: variables.$box-shadow-small;
 		overflow: hidden;
 		transition:
 			transform 0.3s ease,
 			box-shadow 0.3s ease;
 
-		&:hover {
-			transform: translateY(-10px);
-			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+		@include variables.shadow2;
+
+		&.dark {
+			background: variables.$secondary;
+			color: variables.$white;
+
+			.text_container h2,
+			.text_container p {
+				color: variables.$white;
+			}
+		}
+
+		&.light {
+			background: variables.$white;
+			color: variables.$black;
+
+			.text_container h2,
+			.text_container p {
+				color: variables.$black;
+			}
 		}
 
 		.image_container {
-			position: relative;
-			width: 100%;
-			height: 300px;
-
+			width: 50%;
 			img {
 				width: 100%;
-				height: 100%;
-				object-fit: cover;
+				height: auto;
 			}
-
-			.title {
-				position: absolute;
-				bottom: 20px;
-				left: 20px;
-				font-size: 2.2rem;
-				color: variables.$text-color;
-				background: rgba(255, 255, 255, 0.8);
-				padding: 5px 10px;
-				border-radius: 5px;
+			.svg-icon {
+				fill: variables.$primary; // Change the color of the SVG
 			}
 		}
 
 		.text_container {
-			padding: 20px;
+			width: 60%;
 			text-align: center;
 
+			h2 {
+				@include variables.typo-h1;
+				font-family: variables.$font-family-anton;
+			}
+
 			p {
-				font-size: 1.3rem;
-				color: variables.$text-color-light;
-				text-align: left;
+				@include variables.typo-body1;
 			}
 		}
 	}

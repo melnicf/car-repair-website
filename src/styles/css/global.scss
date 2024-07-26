@@ -7,23 +7,24 @@
 
 body {
 	margin: 0;
-	background-color: variables.$color-white;
+	background-color: variables.$white;
 	position: relative;
 }
 
 p {
-	color: variables.$color-black;
+	color: variables.$black;
 	word-wrap: break-word;
+	margin: 0;
 }
 
 a {
-	color: variables.$color-black;
+	color: variables.$black;
 	text-decoration: none;
-	font-size: 17px;
+	margin: 0;
 }
 
 h1 {
-	color: variables.$color-black;
-	font-size: 50px;
+	color: variables.$black;
 	word-wrap: break-word;
+	margin: 0;
 }
