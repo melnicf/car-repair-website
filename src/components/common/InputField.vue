@@ -1,6 +1,6 @@
 <template>
 	<div class="input_group">
-		<input :type="type" v-model="internalValue" :placeholder="placeholder" />
+		<input :name="name" :type="type" v-model="internalValue" :placeholder="placeholder" />
 		<span v-if="error" class="error">{{ error }}</span>
 	</div>
 </template>
@@ -27,6 +27,10 @@
 			error: {
 				type: String as PropType<string | null>,
 				default: null,
+			},
+			name: {
+				type: String,
+				required: true,
 			},
 		},
 		emits: ['update:modelValue'],

@@ -10,13 +10,28 @@
 				miglior servizio possibile. La tua soddisfazione è la nostra priorità.
 			</p>
 		</div>
-		<form class="contact_form_fields" @submit.prevent="validateForm">
+		<form ref="form_obj" class="contact_form_fields" @submit.prevent="validateForm">
 			<div class="contact_form_top">
-				<InputField v-model="form.name" placeholder="Nome" :error="errors.name" />
-				<InputField v-model="form.email" placeholder="Email" :error="errors.email" />
+				<InputField name="user_name" v-model="form.name" placeholder="Nome" :error="errors.name" />
+				<InputField
+					name="user_email"
+					v-model="form.email"
+					placeholder="Email"
+					:error="errors.email"
+				/>
 			</div>
-			<InputField v-model="form.object" placeholder="Oggetto" :error="errors.object" />
-			<TextAreaField v-model="form.message" placeholder="Messaggio" :error="errors.message" />
+			<InputField
+				name="user_subject"
+				v-model="form.object"
+				placeholder="Oggetto"
+				:error="errors.object"
+			/>
+			<TextAreaField
+				name="user_message"
+				v-model="form.message"
+				placeholder="Messaggio"
+				:error="errors.message"
+			/>
 			<div class="contact_form_button">
 				<PrimaryButton class="button_type_3" label="Invia" type="submit" />
 			</div>
@@ -25,7 +40,8 @@
 </template>
 
 <script lang="ts">
-	import { reactive } from 'vue'
+	import emailjs from '@emailjs/browser'
+	import { reactive, ref } from 'vue'
 	import PrimaryButton from './PrimaryButton.vue'
 	import InputField from './InputField.vue'
 	import TextAreaField from './TextAreaField.vue'
@@ -56,6 +72,26 @@
 				message: null,
 			})
 
+			const form_obj = ref<HTMLFormElement | string>('')
+
+			const sendEmail = () => {
+				console.log(form_obj.value)
+				emailjs
+					.sendForm('service_i4dkyfl', 'template_ez6gwf9', form_obj.value, {
+						publicKey: 'XOpak0E3EAk6Z90_g',
+					})
+					.then(
+						() => {
+							console.log('SUCCESS!')
+							// toast success
+						},
+						(error) => {
+							console.log('FAILED...', error.text)
+							// toast error
+						}
+					)
+			}
+
 			const validateForm = () => {
 				errors.name = form.name ? null : 'Nome è richiesto'
 				errors.email = form.email ? null : 'Email è richiesta'
@@ -65,7 +101,7 @@
 				if (!errors.name && !errors.email && !errors.object && !errors.message) {
 					// Form is valid, submit the form
 					console.log('Form submitted:', form)
-					// Add your form submission logic here
+					sendEmail()
 				} else {
 					console.log('Form validation failed', errors)
 				}
@@ -73,8 +109,10 @@
 
 			return {
 				form,
+				form_obj,
 				errors,
 				validateForm,
+				sendEmail,
 			}
 		},
 	}
