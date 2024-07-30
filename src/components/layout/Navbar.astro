@@ -1,249 +1,255 @@
 ---
-import { getNavbarItems } from 'src/utils/getNavbarItems'
+import { getNavbarItems } from "src/utils/getNavbarItems";
 
-const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
+const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
 ---
 
 <nav class="navbar">
-	<!-- 	<div class="navbar_top">
+    <!-- 	<div class="navbar_top">
 		<div class="navbar_top_text">
 			<a href={`tel:variables.${phoneNumber}`} class="phone-link"><p>Contatti : {phoneNumber}</p></a
 			>
 			<p>Orario Apertura : 8:00 - 18:00</p>
 		</div>
 	</div> -->
-	<div class="navbar_bottom">
-		<div class="navbar_bottom_main">
-			<img src="../assets/logo_2.png" alt="logo" class="navbar_logo" />
-			<div class="navbar_links">
-				{getNavbarItems().map((item) => <a href={item.link}>{item.title}</a>)}
-			</div>
-			<button class="hamburger">
-				<img src="../assets/menu.svg" alt="burger" />
-			</button>
-		</div>
-	</div>
+    <div class="navbar_bottom">
+        <div class="navbar_bottom_main">
+            <img src="../assets/logo_2.png" alt="logo" class="navbar_logo" />
+            <div class="navbar_links">
+                {
+                    getNavbarItems().map((item) => (
+                        <a href={item.link}>{item.title}</a>
+                    ))
+                }
+            </div>
+            <button class="hamburger">
+                <img src="../assets/menu.svg" alt="burger" />
+            </button>
+        </div>
+    </div>
 </nav>
 <nav class="side_navbar">
-	<div class="side_navbar_top">
-		<button class="close">
-			<img src="../assets/close.svg" alt="close" />
-		</button>
-	</div>
-	<div class="side_navbar_links">
-		{getNavbarItems().map((item) => <a href={item.link}>{item.title}</a>)}
-	</div>
+    <div class="side_navbar_top">
+        <button class="close">
+            <img src="../assets/close.svg" alt="close" />
+        </button>
+    </div>
+    <div class="side_navbar_links">
+        {getNavbarItems().map((item) => <a href={item.link}>{item.title}</a>)}
+    </div>
 </nav>
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const currentPath = window.location.pathname.replace(/\/$/, '')
-		const links = document.querySelectorAll('.navbar_links a, .side_navbar_links a')
-		links.forEach((link) => {
-			const href = link.getAttribute('href')
-			if (href) {
-				const linkPath = href.replace(/\/$/, '')
-				if (linkPath === currentPath) {
-					link.classList.add('active')
-				}
-			}
-		})
+    document.addEventListener("DOMContentLoaded", () => {
+        const currentPath = window.location.pathname.replace(/\/$/, "");
+        const links = document.querySelectorAll(
+            ".navbar_links a, .side_navbar_links a"
+        );
+        links.forEach((link) => {
+            const href = link.getAttribute("href");
+            if (href) {
+                const linkPath = href.replace(/\/$/, "");
+                if (linkPath === currentPath) {
+                    link.classList.add("active");
+                }
+            }
+        });
 
-		const rightNavBarToggle = () => {
-			const rightNavBar = document.querySelector('.side_navbar')
-			const hamburger = document.querySelector('.hamburger')
-			if (rightNavBar) {
-				rightNavBar.classList.toggle('side_navbar_toggle')
-				if (hamburger) {
-					hamburger.classList.toggle('hidden')
-				}
-			}
-		}
+        const rightNavBarToggle = () => {
+            const rightNavBar = document.querySelector(".side_navbar");
+            const hamburger = document.querySelector(".hamburger");
+            if (rightNavBar) {
+                rightNavBar.classList.toggle("side_navbar_toggle");
+                if (hamburger) {
+                    hamburger.classList.toggle("hidden");
+                }
+            }
+        };
 
-		const hamburger = document.querySelector('.hamburger')
-		const closeBtn = document.querySelector('.close')
+        const hamburger = document.querySelector(".hamburger");
+        const closeBtn = document.querySelector(".close");
 
-		if (hamburger) {
-			hamburger.addEventListener('click', rightNavBarToggle)
-		}
+        if (hamburger) {
+            hamburger.addEventListener("click", rightNavBarToggle);
+        }
 
-		if (closeBtn) {
-			closeBtn.addEventListener('click', rightNavBarToggle)
-		}
-	})
+        if (closeBtn) {
+            closeBtn.addEventListener("click", rightNavBarToggle);
+        }
+    });
 </script>
 
 <style lang="scss">
-	@use '@styles/variables/variables.scss' as variables;
+    @use "@styles/variables/variables.scss" as variables;
 
-	.navbar {
-		width: 100%;
-		height: auto;
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		flex-direction: column;
+    .navbar {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
 
-		.navbar_top {
-			width: 100%;
-			height: auto;
-			display: flex;
-			justify-content: center;
-			background-color: rgba(48, 48, 48, 0.8);
+        .navbar_top {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(48, 48, 48, 0.8);
 
-			.navbar_top_text {
-				width: 80%;
-				height: auto;
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				gap: 50px;
+            .navbar_top_text {
+                width: 80%;
+                height: auto;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 50px;
 
-				p {
-					color: variables.$white;
-				}
+                p {
+                    color: variables.$white;
+                }
 
-				.phone-link {
-					cursor: url('/assets/call-cursor.svg'), auto;
-				}
-			}
-		}
+                .phone-link {
+                    cursor: url("/assets/call-cursor.svg"), auto;
+                }
+            }
+        }
 
-		.navbar_bottom {
-			padding-top: 50px;
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			background-color: variables.$secondary;
+        .navbar_bottom {
+            padding-top: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: variables.$secondary;
 
-			.navbar_bottom_main {
-				position: relative;
-				width: 100%;
-				height: auto;
-				display: flex;
-				justify-content: center;
-				align-items: center;
+            .navbar_bottom_main {
+                position: relative;
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
-				.navbar_links {
-					width: auto;
-					height: 100%;
-					display: flex;
-					justify-content: space-around;
-					align-items: center;
-					gap: 40px;
+                .navbar_links {
+                    width: auto;
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    gap: 40px;
 
-					.active {
-						color: variables.$primary;
-					}
+                    .active {
+                        color: variables.$primary;
+                    }
 
-					a {
-						color: variables.$white;
+                    a {
+                        color: variables.$white;
 
-						&:hover {
-							color: variables.$primary;
-						}
-					}
-				}
+                        &:hover {
+                            color: variables.$primary;
+                        }
+                    }
+                }
 
-				.navbar_logo {
-					position: absolute;
-					left: 40px;
-					width: 200px;
-					z-index: 2;
-				}
+                .navbar_logo {
+                    position: absolute;
+                    left: 40px;
+                    width: 200px;
+                    z-index: 2;
+                }
 
-				.hamburger {
-					display: none;
-					background-color: transparent;
-					border: none;
-					cursor: pointer;
-					&.hidden {
-						display: none;
-					}
-				}
+                .hamburger {
+                    display: none;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    &.hidden {
+                        display: none;
+                    }
+                }
 
-				.close {
-					display: none;
-					background-color: transparent;
-					border: none;
-					cursor: pointer;
-					&.hidden {
-						display: none;
-					}
-				}
-			}
-		}
-	}
+                .close {
+                    display: none;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    &.hidden {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 
-	.side_navbar {
-		width: 400px;
-		height: 100%;
-		justify-content: flex-start;
-		align-items: center;
-		position: fixed;
-		flex-direction: column;
-		top: 0px;
-		right: 0px;
-		transform: translateX(110%);
-		transition: variables.$transition-ease;
-		background-color: rgba(255, 255, 255, 0.95);
-		z-index: 99;
+    .side_navbar {
+        width: 400px;
+        height: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        position: fixed;
+        flex-direction: column;
+        top: 0px;
+        right: 0px;
+        transform: translateX(110%);
+        transition: variables.$transition-ease;
+        background-color: rgba(255, 255, 255, 0.95);
+        z-index: 99;
 
-		@include variables.shadow4;
-		&.side_navbar_toggle {
-			transform: translateX(0%);
-		}
+        @include variables.shadow();
+        &.side_navbar_toggle {
+            transform: translateX(0%);
+        }
 
-		.side_navbar_top {
-			width: 100%;
-			min-height: 70px;
-			display: flex;
-			justify-content: flex-end;
-			align-items: center;
-			padding-right: 20px;
-			@include variables.shadow4;
-		}
+        .side_navbar_top {
+            width: 100%;
+            min-height: 70px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 20px;
+            @include variables.shadow();
+        }
 
-		.side_navbar_links {
-			width: 100%;
-			height: auto;
-			overflow-y: auto;
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			flex-direction: column;
-			gap: 50px;
-			padding-top: 30px;
-			padding-bottom: 30px;
+        .side_navbar_links {
+            width: 100%;
+            height: auto;
+            overflow-y: auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            gap: 50px;
+            padding-top: 30px;
+            padding-bottom: 30px;
 
-			a {
-				&:hover {
-					color: variables.$primary;
-				}
-			}
-		}
-	}
+            a {
+                &:hover {
+                    color: variables.$primary;
+                }
+            }
+        }
+    }
 
-	@media screen and (max-width: 1000px) {
-		.navbar .navbar_bottom .navbar_bottom_main .navbar_links {
-			display: none;
-		}
+    @media screen and (max-width: 1000px) {
+        .navbar .navbar_bottom .navbar_bottom_main .navbar_links {
+            display: none;
+        }
 
-		.navbar .navbar_bottom .navbar_bottom_main .hamburger {
-			display: block;
-		}
+        .navbar .navbar_bottom .navbar_bottom_main .hamburger {
+            display: block;
+        }
 
-		.side_navbar {
-			display: flex;
-		}
-	}
+        .side_navbar {
+            display: flex;
+        }
+    }
 
-	@media screen and (max-width: 500px) {
-		.side_navbar {
-			width: 100%;
-		}
-		.navbar_logo {
-			width: 100%;
-		}
-	}
+    @media screen and (max-width: 500px) {
+        .side_navbar {
+            width: 100%;
+        }
+        .navbar_logo {
+            width: 100%;
+        }
+    }
 </style>

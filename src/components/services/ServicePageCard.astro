@@ -1,132 +1,132 @@
 ---
 interface Props {
-	title: string
-	description: string
-	image: string
-	index: number
+    title: string;
+    description: string;
+    image: string;
+    index: number;
 }
 
-const { title, description, image, index } = Astro.props
+const { title, description, image, index } = Astro.props;
 ---
 
 <div class="main_div">
-	<div class="second_div">
-		{
-			index % 2 === 0 ? (
-				<>
-					<div class="text_div">
-						<h1>{title}</h1>
-						<p>{description}</p>
-					</div>
-					<div class="image_div">
-						<img src={image} alt="" />
-					</div>
-				</>
-			) : (
-				<>
-					<div class="image_div">
-						<img src={image} alt="" />
-					</div>
-					<div class="text_div">
-						<h1>{title}</h1>
-						<p>{description}</p>
-					</div>
-				</>
-			)
-		}
-	</div>
+    <div class="second_div">
+        {
+            index % 2 === 0 ? (
+                <>
+                    <div class="text_div">
+                        <h1>{title}</h1>
+                        <p>{description}</p>
+                    </div>
+                    <div class="image_div">
+                        <img src={image} alt="" />
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div class="image_div">
+                        <img src={image} alt="" />
+                    </div>
+                    <div class="text_div">
+                        <h1>{title}</h1>
+                        <p>{description}</p>
+                    </div>
+                </>
+            )
+        }
+    </div>
 </div>
 
 <style scoped lang="scss">
-	@use '@styles/variables/variables.scss' as variables;
-	.main_div {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 100%;
-		padding: 50px;
-	}
+    @use "@styles/variables/variables.scss" as variables;
+    .main_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 50px;
+    }
 
-	.second_div {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 90%;
-		max-width: 1000px;
-		height: 100%;
-		gap: 50px;
-		border-radius: variables.$border-radius;
-		padding: 40px;
+    .second_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        max-width: 1000px;
+        height: 100%;
+        gap: 50px;
+        border-radius: variables.$border-radius;
+        padding: 40px;
 
-		@include variables.shadow2;
-	}
+        @include variables.shadow(s);
+    }
 
-	.image_div {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+    .image_div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
 
-			@include variables.shadow2;
-		}
-	}
+            @include variables.shadow(s);
+        }
+    }
 
-	.text_div {
-		display: flex;
-		justify-content: flex-start;
-		align-items: flex-start;
-		flex-direction: column;
-		gap: 20px;
-		width: 100%;
-		height: 100%;
-		padding: 10px;
+    .text_div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
 
-		h1,
-		p {
-			text-align: start;
-			width: 100%;
-		}
-	}
-	@media screen and (max-width: 1000px) {
-		.image_div {
-			order: 0;
-		}
+        h1,
+        p {
+            text-align: start;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 1000px) {
+        .image_div {
+            order: 0;
+        }
 
-		.text_div {
-			order: 1;
-		}
+        .text_div {
+            order: 1;
+        }
 
-		.second_div {
-			flex-direction: column;
-			gap: 30px;
-		}
+        .second_div {
+            flex-direction: column;
+            gap: 30px;
+        }
 
-		.text_div {
-			h1,
-			p {
-				text-align: center;
-			}
-		}
-		.main_div {
-			padding: 10px;
-			padding-top: 50px;
-			padding-bottom: 50px;
-		}
-		.second_div {
-			padding: 0px;
-		}
+        .text_div {
+            h1,
+            p {
+                text-align: center;
+            }
+        }
+        .main_div {
+            padding: 10px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .second_div {
+            padding: 0px;
+        }
 
-		.image_div {
-			img {
-				border-radius: variables.$border-radius;
-			}
-		}
-	}
+        .image_div {
+            img {
+                border-radius: variables.$border-radius;
+            }
+        }
+    }
 </style>
