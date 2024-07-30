@@ -1,205 +1,207 @@
-@use '../variables/variables.scss' as variables;
+@use "../variables/variables.scss" as variables;
 
 .hero_section {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	background: variables.$secondary;
-	color: variables.$white;
-	position: relative;
-	overflow: hidden;
-	padding-top: 160px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: variables.$secondary;
+    color: variables.$white;
+    position: relative;
+    overflow: hidden;
+    padding-top: 160px;
 
-	.hero_content {
-		width: 100%;
-		max-width: 1200px;
-		height: 50%;
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		text-align: center;
-		gap: 100px;
+    .hero_content {
+        width: 100%;
+        max-width: 1200px;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 100px;
 
-		.hero_text {
-			display: flex;
-			flex-direction: column;
-			gap: 20px;
-			width: 60%;
+        .hero_text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 60%;
 
-			h1 {
-				@include variables.typo-h1;
-				font-family: variables.$font-family-anton;
-				color: variables.$white;
-			}
+            h1 {
+                @include variables.typo-h1;
+                font-family: variables.$font-family-anton;
+                color: variables.$white;
+            }
 
-			p {
-				@include variables.typo-h4;
-				color: variables.$white;
-			}
+            p {
+                @include variables.typo-h4;
+                color: variables.$white;
+            }
 
-			span {
-				font-family: variables.$font-family-anton;
-				color: variables.$primary;
-			}
-		}
+            span {
+                font-family: variables.$font-family-anton;
+                color: variables.$primary;
+            }
+        }
 
-		.hero_buttons {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			gap: 40px;
+        .hero_buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 40px;
 
-			button {
-				@include variables.typo-sub1;
-			}
-		}
-	}
+            button {
+                @include variables.typo-sub1;
+            }
+        }
+    }
 }
 
 .features_section {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	gap: 40px;
-	padding: variables.$padding-large;
-	background: variables.$secondary;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    padding: variables.$padding-large;
+    background: variables.$secondary;
 
-	.features_text {
-		display: flex;
-		flex-direction: column;
-		text-align: center;
-		gap: 40px;
-		width: 60%;
+    .features_text {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        width: 60%;
 
-		h1 {
-			@include variables.typo-h1;
-			font-family: variables.$font-family-anton;
-			color: variables.$white;
-		}
+        h1 {
+            @include variables.typo-h1;
+            font-family: variables.$font-family-anton;
+            color: variables.$white;
+        }
 
-		p {
-			@include variables.typo-body1;
-			color: variables.$white;
-		}
+        p {
+            @include variables.typo-body1;
+            color: variables.$white;
+        }
 
-		span {
-			font-family: variables.$font-family-anton;
-			color: variables.$primary;
-		}
-	}
+        span {
+            font-family: variables.$font-family-anton;
+            color: variables.$primary;
+        }
+    }
 
-	.features_content {
-		width: 100%;
-		height: auto;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-		gap: 80px;
-		padding: variables.$padding-large;
-	}
+    .features_content {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+        padding: variables.$padding-large;
+    }
 
-	.features_button {
-		button {
-			@include variables.typo-sub1;
-		}
-	}
+    .features_button {
+        button {
+            @include variables.typo-sub1;
+        }
+    }
 }
 
 @media screen and (max-width: 800px) {
-	.features_section {
-		height: auto;
-		padding: 0;
+    .features_section {
+        height: auto;
+        padding: 0;
 
-		.features_content {
-			flex-direction: column;
-			margin-top: 0;
-		}
-	}
+        .features_content {
+            flex-direction: column;
+            margin-top: 0;
+        }
+    }
 }
 
 @media screen and (max-width: 600px) {
-	.hero_section {
-		height: auto;
-	}
+    .hero_section {
+        height: auto;
+    }
 
-	.hero_content {
-		width: 100%;
-		padding: 20px;
-	}
+    .hero_content {
+        width: 100%;
+        padding: 20px;
+    }
 
-	.hero_text {
-		align-items: center;
+    .hero_text {
+        align-items: center;
 
-		h1 {
-			text-align: center;
-		}
+        h1 {
+            text-align: center;
+        }
 
-		p {
-			text-align: center;
-		}
-	}
+        p {
+            text-align: center;
+        }
+    }
 
-	.hero_buttons {
-		flex-direction: column;
-		width: 100%;
-	}
+    .hero_buttons {
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 .contact_section {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about_section {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: variables.$white;
-	text-align: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: variables.$white;
+    text-align: center;
 
-	.about_content {
-		max-width: 1200px;
-		width: 100%;
-		padding: 20px;
-		display: flex;
-		flex-direction: column;
-		gap: 40px;
-		justify-content: center;
-		align-items: center;
-		img {
-			width: 50%;
-		}
+    .about_content {
+        max-width: 1200px;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
 
-		.about_text {
-			width: 65%;
-			h2 {
-				color: #0f2028;
-				margin-bottom: 20px;
+        img {
+            width: 50%;
+        }
 
-				@include variables.typo-h1;
-			}
+        .about_text {
+            width: 65%;
 
-			p {
-				color: #333;
-				@include variables.typo-h2;
-			}
-		}
+            h2 {
+                color: #0f2028;
+                margin-bottom: 20px;
 
-		.about_button {
-			button {
-				@include variables.typo-sub1;
-			}
-		}
-	}
+                @include variables.typo-h1;
+            }
+
+            p {
+                color: #333;
+                @include variables.typo-h2;
+            }
+        }
+
+        .about_button {
+            button {
+                @include variables.typo-sub1;
+            }
+        }
+    }
 }
