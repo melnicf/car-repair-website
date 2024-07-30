@@ -1,14 +1,10 @@
 {
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": null,
-	"[scss]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"prettier.requireConfig": true,
-	"html.validate.styles": false,
-	"css.validate": false,
-	"files.autoSave": "onFocusChange",
-	"[vue]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  }
 }

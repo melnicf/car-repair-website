@@ -1,4 +1,9 @@
 {
-  "recommendations": ["astro-build.astro-vscode", "imgildev.vscode-astro-pack"],
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "imgildev.vscode-astro-pack",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ],
   "unwantedRecommendations": []
 }
