@@ -135,7 +135,7 @@ export default {
 .contact_form {
   width: 80%;
   height: auto;
-  padding: 30px;
+  padding: 50px;
   display: flex;
   gap: 100px;
   margin: auto;
