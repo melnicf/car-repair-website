@@ -1,92 +1,91 @@
 ---
 interface Props {
-  title: string;
-  span?: string;
-  paragraph: string;
-  icon: string;
+    title: string;
+    span?: string;
+    paragraph: string;
+    icon: string;
 }
 const { title, span, paragraph, icon } = Astro.props as Props;
 ---
 
 <div class="hero-container">
-  <div class="hero-content">
-    <h1 class="hero-title">
-      {title}
-      <span class="hero-highlight">{span}</span>
-    </h1>
-    <div class="hero-divider">
-      <div class="divider-line"></div>
-      <i class={icon}></i>
-      <div class="divider-line"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">
+            {title}
+            <span class="hero-highlight">{span}</span>
+        </h1>
+        <div class="hero-divider">
+            <div class="divider-line"></div>
+            <i class={icon}></i>
+            <div class="divider-line"></div>
+        </div>
+        <p class="hero-paragraph">
+            {paragraph}
+        </p>
     </div>
-    <p class="hero-paragraph">
-      {paragraph}
-    </p>
-  </div>
 </div>
 
 <style scoped lang="scss">
-  @use "@styles/variables/variables.scss" as variables;
-  .hero-container {
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    margin-bottom: 80px;
-    padding-left: 50px;
-    padding-right: 50px;
-    background-color: variables.$secondary;
+    @use "@styles/variables/variables.scss" as variables;
+    .hero-container {
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+        background-color: variables.$secondary;
 
-    .hero-content {
-      width: 100%;
-      height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 20px;
+        .hero-content {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-paragraph {
+            width: 55%;
+            text-align: center;
+            color: variables.$white;
+            @include variables.typo-h4;
+        }
+
+        .hero-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            height: auto;
+
+            .divider-line {
+                width: 15%;
+                height: 2px;
+                background-color: variables.$tertiary;
+            }
+
+            i {
+                font-size: 2rem;
+                color: variables.$primary;
+            }
+        }
+
+        .hero-title {
+            text-align: center;
+            color: variables.$white;
+            margin-bottom: 10px;
+            font-family: variables.$font-family-anton;
+            @include variables.typo-h1;
+
+            .hero-highlight {
+                font-family: variables.$font-family-anton;
+                color: variables.$primary;
+            }
+        }
     }
-
-    .hero-paragraph {
-      width: 55%;
-      text-align: center;
-      color: variables.$white;
-      @include variables.typo-h4;
-    }
-
-    .hero-divider {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      width: 100%;
-      height: auto;
-
-      .divider-line {
-        width: 15%;
-        height: 2px;
-        background-color: variables.$tertiary;
-      }
-
-      i {
-        font-size: 2rem;
-        color: variables.$primary;
-      }
-    }
-
-    .hero-title {
-      text-align: center;
-      color: variables.$white;
-      margin-bottom: 10px;
-      font-family: variables.$font-family-anton;
-      @include variables.typo-h1;
-
-      .hero-highlight {
-        font-family: variables.$font-family-anton;
-        color: variables.$primary;
-      }
-    }
-  }
 </style>

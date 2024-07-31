@@ -5,234 +5,282 @@ import HeroTitle from "@components/common/HeroTitle.astro";
 ---
 
 <Layout>
-  <div class="section_1">
     <HeroTitle
-      title="Contattaci"
-      paragraph="Per informazioni o per un appuntamento"
-      icon="fas fa-address-book"
+        title="Contattaci"
+        paragraph="Per informazioni o per un appuntamento"
+        icon="fas fa-address-book"
     />
-    <h1>Dove siamo:</h1>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11168.284344614001!2d9.184663525549261!3d45.589115703337356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786beeae2418757%3A0x27e9f70a0c484a63!2s20834%20Nova%20Milanese%20MB!5e0!3m2!1sit!2sit!4v1719877020677!5m2!1sit!2sit"
-      width="600"
-      height="450"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-  <div class="section_2">
-    <h1>I nostri orari di apertura:</h1>
-    <div class="table_main_div">
-      <table class="table_opening_time">
-        <thead>
-          <tr>
-            <th>Giorno</th>
-            <th>Orario di Apertura</th>
-            <th>Orario di Chiusura</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Lunedì</td>
-            <td>9:00</td>
-            <td>17:00</td>
-          </tr>
-          <tr>
-            <td>Martedì</td>
-            <td>9:00</td>
-            <td>17:00</td>
-          </tr>
-          <tr>
-            <td>Mercoledì</td>
-            <td>9:00</td>
-            <td>17:00</td>
-          </tr>
-          <tr>
-            <td>Giovedì</td>
-            <td>9:00</td>
-            <td>17:00</td>
-          </tr>
-          <tr>
-            <td>Venerdì</td>
-            <td>9:00</td>
-            <td>17:00</td>
-          </tr>
-          <tr>
-            <td>Sabato</td>
-            <td>10:00</td>
-            <td>16:00</td>
-          </tr>
-          <tr>
-            <td>Domenica</td>
-            <td>Chiuso</td>
-            <td>Chiuso</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="location_section">
+        <h2>Dove siamo:</h2>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11168.284344614001!2d9.184663525549261!3d45.589115703337356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786beeae2418757%3A0x27e9f70a0c484a63!2s20834%20Nova%20Milanese%20MB!5e0!3m2!1sit!2sit!4v1719877020677!5m2!1sit!2sit"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <div class="number_main_div">
-      <div>
-        <i class="fas fa-phone"></i>
-        <p>340 123 4567</p>
-      </div>
-      <div class="sep"></div>
-      <div>
-        <i class="fas fa-phone"></i>
-        <p>340 123 4567</p>
-      </div>
+    <div class="opening_time_section">
+        <h2>I nostri orari di <span>apertura:</span></h2>
+        <div class="table_main_div">
+            <table class="table_opening_time">
+                <thead>
+                    <tr>
+                        <th>Giorno</th>
+                        <th>Orario di Apertura</th>
+                        <th>Orario di Chiusura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lunedì</td>
+                        <td>9:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Martedì</td>
+                        <td>9:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Mercoledì</td>
+                        <td>9:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Giovedì</td>
+                        <td>9:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Venerdì</td>
+                        <td>9:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Sabato</td>
+                        <td>10:00</td>
+                        <td>16:00</td>
+                    </tr>
+                    <tr>
+                        <td>Domenica</td>
+                        <td>Chiuso</td>
+                        <td>Chiuso</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="number_main_div">
+            <div>
+                <i class="fas fa-phone"></i>
+                <p>340 123 4567</p>
+            </div>
+            <div class="sep"></div>
+            <div>
+                <i class="fas fa-phone"></i>
+                <p>340 123 4567</p>
+            </div>
+        </div>
+        <div class="social_div">
+            <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
     </div>
-    <div class="social_div">
-      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-  </div>
 
-  <ContactForm client:load />
+    <div class="contact_section"><ContactForm client:load /></div>
 </Layout>
 
 <style scoped lang="scss">
-  @use "../styles/variables/variables.scss" as variables;
-  .section_1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    padding-bottom: 100px;
-    flex-direction: column;
-    gap: 20px;
+    @use "../styles/variables/variables.scss" as variables;
+    .location_section {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        gap: 40px;
 
-    iframe {
-      width: 80%;
-      height: 400px;
-    }
-  }
-
-  .section_2 {
-    width: 100%;
-    height: auto;
-    background-color: variables.$secondary;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    padding: 50px;
-    gap: 40px;
-    position: relative;
-
-    h1 {
-      color: white;
-      text-align: center;
-    }
-
-    .social_div {
-      height: auto;
-      width: auto;
-      padding: 10px;
-      position: absolute;
-      right: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 30px;
-
-      i {
-        color: variables.$white;
-        font-size: 24px;
-        transition: color 0.3s;
-
-        &:hover {
-          color: variables.$primary;
-        }
-      }
-    }
-  }
-
-  .table_main_div {
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    width: 80%;
-    .table_opening_time {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-
-      th,
-      td {
-        padding: 12px;
-        border: 1px solid #ddd;
-      }
-
-      th {
-        background-color: #f8f8f8;
-        color: #333;
-      }
-
-      tbody {
-        tr:nth-child(odd) {
-          background-color: #f9f9f9;
+        h2 {
+            color: variables.$secondary;
+            @include variables.typo-h2;
         }
 
-        td {
-          color: #555;
+        iframe {
+            width: 80%;
+            height: 600px;
         }
-      }
-    }
-  }
-
-  .number_main_div {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 20px;
-    width: 80%;
-    height: auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-
-    div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
     }
 
-    .sep {
-      width: 20px;
-      height: 1px;
-      background-color: variables.$secondary;
-    }
-  }
+    .opening_time_section {
+        width: 100%;
+        height: 100vh;
+        background-color: variables.$secondary;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        padding: 50px;
+        gap: 40px;
+        position: relative;
 
-  @media screen and (max-width: 600px) {
-    .table_main_div {
-      overflow-x: auto;
-      width: 100%;
+        h2 {
+            color: variables.$white;
+            @include variables.typo-h2;
+            text-align: center;
+
+            span {
+                color: variables.$primary;
+            }
+        }
+
+        .table_main_div {
+            background: variables.$quaternary;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 80%;
+            .table_opening_time {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 10px;
+                margin-bottom: 10px;
+
+                th,
+                td {
+                    padding: 16px;
+                    width: 33%;
+                    text-align: center;
+                    border: 2px solid variables.$quaternary;
+                }
+
+                th {
+                    background-color: variables.$quaternary;
+                    color: variables.$white;
+
+                    @include variables.typo-h4;
+                }
+
+                td {
+                    @include variables.typo-sub1;
+                }
+
+                tbody {
+                    tr:nth-child(odd) {
+                        background-color: variables.$tertiary;
+                        color: variables.$black;
+                    }
+
+                    tr:nth-child(even) {
+                        color: variables.$white;
+                    }
+                }
+            }
+        }
+
+        .number_main_div {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 20px;
+            width: 80%;
+            height: auto;
+            padding: 20px;
+            background-color: variables.$quaternary;
+            border-radius: variables.$border-radius;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+
+                p {
+                    color: variables.$white;
+                    @include variables.typo-sub1;
+                }
+
+                i {
+                    color: variables.$primary;
+                    font-size: 20px;
+                }
+            }
+
+            .sep {
+                width: 20px;
+                height: 1px;
+                background-color: variables.$primary;
+            }
+        }
+
+        .social_div {
+            height: auto;
+            width: auto;
+            padding: 10px;
+            position: absolute;
+            right: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+
+            i {
+                color: variables.$tertiary;
+                font-size: 24px;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: variables.$primary;
+                }
+            }
+        }
     }
-    .section_2 {
-      padding: 20px;
-      .social_div {
-        position: static;
-        flex-direction: row;
-      }
+
+    .contact_section {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .number_main_div {
-      flex-direction: column;
-      .sep {
-        width: 60%;
-      }
+
+    @media screen and (max-width: 600px) {
+        .table_main_div {
+            overflow-x: auto;
+            width: 100%;
+        }
+        .section_2 {
+            padding: 20px;
+            .social_div {
+                position: static;
+                flex-direction: row;
+            }
+        }
+        .number_main_div {
+            flex-direction: column;
+            .sep {
+                width: 60%;
+            }
+        }
     }
-  }
 </style>
