@@ -2,21 +2,26 @@
 import ContactForm from "@components/common/ContactForm.vue";
 import Layout from "../layouts/PageLayout.astro";
 import HeroTitle from "@components/common/HeroTitle.astro";
+import Availability from "@components/contact-us/Availability.astro";
+import { contactUs } from "src/data/contactUs";
+
+const { availability, location, heroTitle } = contactUs;
+
+const [...words] = heroTitle.title.split(" ");
+const title = words.slice(0, -1).join(" ");
+const span = words.pop();
 ---
 
 <Layout>
-    <HeroTitle
-        paragraph="Per informazioni o per un appuntamento"
-        icon="fas fa-address-book"
-    >
+    <HeroTitle paragraph={heroTitle.paragraph} icon={heroTitle.icon}>
         <div slot="title" class="hero-title">
-            <h1>Modi per <span>contattarci</span></h1>
+            <h1>{title} <span>{span}</span></h1>
         </div>
     </HeroTitle>
     <div class="location_section">
-        <h2>Dove siamo:</h2>
+        <h1>Dove siamo:</h1>
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11168.284344614001!2d9.184663525549261!3d45.589115703337356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786beeae2418757%3A0x27e9f70a0c484a63!2s20834%20Nova%20Milanese%20MB!5e0!3m2!1sit!2sit!4v1719877020677!5m2!1sit!2sit"
+            src={location.mapEmbedUrl}
             width="600"
             height="450"
             style="border:0;"
@@ -25,92 +30,16 @@ import HeroTitle from "@components/common/HeroTitle.astro";
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="opening_time_section">
-        <h2>I nostri orari di <span>apertura:</span></h2>
-        <div class="table_main_div">
-            <table class="table_opening_time">
-                <thead>
-                    <tr>
-                        <th>Giorno</th>
-                        <th>Orario di Apertura</th>
-                        <th>Orario di Chiusura</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Lunedì</td>
-                        <td>9:00</td>
-                        <td>17:00</td>
-                    </tr>
-                    <tr>
-                        <td>Martedì</td>
-                        <td>9:00</td>
-                        <td>17:00</td>
-                    </tr>
-                    <tr>
-                        <td>Mercoledì</td>
-                        <td>9:00</td>
-                        <td>17:00</td>
-                    </tr>
-                    <tr>
-                        <td>Giovedì</td>
-                        <td>9:00</td>
-                        <td>17:00</td>
-                    </tr>
-                    <tr>
-                        <td>Venerdì</td>
-                        <td>9:00</td>
-                        <td>17:00</td>
-                    </tr>
-                    <tr>
-                        <td>Sabato</td>
-                        <td>10:00</td>
-                        <td>16:00</td>
-                    </tr>
-                    <tr>
-                        <td>Domenica</td>
-                        <td>Chiuso</td>
-                        <td>Chiuso</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="number_main_div">
-            <div>
-                <i class="fas fa-phone"></i>
-                <a href="tel:340 123 4567">340 123 4567</a>
-            </div>
-            <div class="sep"></div>
-            <div>
-                <i class="fas fa-phone"></i>
-                <a href="tel:340 123 4567">340 123 4567</a>
-            </div>
-        </div>
-        <div class="social_div">
-            <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <i class="fab fa-instagram"></i>
-            </a>
-        </div>
+        <Availability availability={contactUs.availability} />
     </div>
 
-    <div class="contact_section"><ContactForm client:load /></div>
+    <div class="contact_section">
+        <ContactForm
+            title="Come possiamo aiutarti?"
+            description=" Compila il modulo a destra con i tuoi dettagli e la tua richiesta, e ti ricontatteremo al più presto per offrirti il miglior servizio possibile. La tua soddisfazione è la nostra priorità."
+            client:load
+        />
+    </div>
 </Layout>
 
 <style scoped lang="scss">
@@ -138,9 +67,11 @@ import HeroTitle from "@components/common/HeroTitle.astro";
         flex-direction: column;
         gap: 40px;
 
-        h2 {
+        padding: variables.$padding-large;
+
+        h1 {
             color: variables.$secondary;
-            @include variables.typo-h2;
+            @include variables.typo-h1;
         }
 
         iframe {
@@ -160,59 +91,6 @@ import HeroTitle from "@components/common/HeroTitle.astro";
         padding: 50px;
         gap: 40px;
         position: relative;
-
-        h2 {
-            color: variables.$white;
-            @include variables.typo-h2;
-            text-align: center;
-
-            span {
-                color: variables.$primary;
-            }
-        }
-
-        .table_main_div {
-            background: variables.$quaternary;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            width: 80%;
-            .table_opening_time {
-                width: 100%;
-                border-collapse: collapse;
-                margin-top: 10px;
-                margin-bottom: 10px;
-
-                th,
-                td {
-                    padding: 16px;
-                    width: 33%;
-                    text-align: center;
-                    border: 2px solid variables.$quaternary;
-                }
-
-                th {
-                    background-color: variables.$quaternary;
-                    color: variables.$white;
-
-                    @include variables.typo-h4;
-                }
-
-                td {
-                    @include variables.typo-sub1;
-                }
-
-                tbody {
-                    tr:nth-child(odd) {
-                        background-color: variables.$tertiary;
-                        color: variables.$black;
-                    }
-
-                    tr:nth-child(even) {
-                        color: variables.$white;
-                    }
-                }
-            }
-        }
 
         .number_main_div {
             display: flex;

@@ -1,0 +1,82 @@
+---
+type Props = {
+    availability: Availability[];
+};
+
+type Availability = {
+    day: string;
+    open: string;
+    close: string;
+};
+
+const { availability } = Astro.props;
+---
+
+<div>
+    <h2>I nostri orari di <span>apertura:</span></h2>
+    <ul>
+        {
+            availability.map((availability) => (
+                <li>
+                    <span>{availability.day}</span>
+                    <span>
+                        {availability.open}
+                        {availability.close}
+                    </span>
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
+<style lang="scss">
+    @use "@styles/variables/variables.scss" as variables;
+
+    div {
+        display: flex;
+        flex: 1;
+        width: 100%;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+            color: variables.$white;
+            @include variables.typo-h1;
+            text-align: center;
+
+            span {
+                color: variables.$primary;
+            }
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            flex-direction: column;
+            gap: 20px;
+            width: 45%;
+            padding: variables.$padding-large;
+
+            border-radius: variables.$border-radius;
+
+            li {
+                color: variables.$white;
+                @include variables.typo-h3;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding-bottom: 5px;
+
+                span:nth-child(even) {
+                    width: 30%;
+                    display: flex;
+                    justify-content: center;
+                    color: variables.$tertiary;
+                }
+            }
+        }
+    }
+</style>
