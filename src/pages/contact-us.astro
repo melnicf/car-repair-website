@@ -74,12 +74,12 @@ import HeroTitle from "@components/common/HeroTitle.astro";
         <div class="number_main_div">
             <div>
                 <i class="fas fa-phone"></i>
-                <p>340 123 4567</p>
+                <a href="tel:340 123 4567">340 123 4567</a>
             </div>
             <div class="sep"></div>
             <div>
                 <i class="fas fa-phone"></i>
-                <p>340 123 4567</p>
+                <a href="tel:340 123 4567">340 123 4567</a>
             </div>
         </div>
         <div class="social_div">
@@ -214,9 +214,13 @@ import HeroTitle from "@components/common/HeroTitle.astro";
                 align-items: center;
                 gap: 20px;
 
-                p {
+                a {
                     color: variables.$white;
                     @include variables.typo-sub1;
+
+                    &:hover {
+                        color: variables.$primary;
+                    }
                 }
 
                 i {
