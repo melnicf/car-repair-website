@@ -19,74 +19,6 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         />
         <title>Mecha</title>
-        <style lang="scss">
-            @use "../styles/variables/variables.scss" as variables;
-            .whatsapp-button,
-            .call-button {
-                position: fixed;
-                bottom: 20px;
-                background-color: variables.$primary;
-                color: variables.$quaternary;
-                border-radius: 50%;
-                width: 60px;
-                height: 60px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 30px;
-                @include variables.shadow(s);
-                z-index: 1000;
-                transition: all 0.2s ease;
-            }
-
-            .whatsapp-button {
-                right: 20px;
-            }
-
-            .whatsapp-button:hover {
-                background-color: #25d366;
-                color: variables.$white;
-            }
-
-            .call-button {
-                right: 100px;
-                overflow: hidden;
-                width: 60px;
-                padding: 0;
-                background-color: variables.$tertiary;
-            }
-
-            .call-button i {
-                font-size: 25px;
-                position: absolute;
-                right: 0px;
-                background-color: variables.$tertiary;
-                color: variables.$quaternary;
-                padding-top: 15px;
-                padding-right: 18px;
-                padding-bottom: 15px;
-            }
-
-            .call-button span {
-                color: variables.$secondary;
-                padding-right: 35px;
-                white-space: nowrap;
-                opacity: 0;
-                transform: translateX(40%);
-                transition: all 0.5s ease;
-                @include variables.typo-h4;
-            }
-
-            .call-button:hover {
-                width: 200px;
-                border-radius: 360px;
-            }
-
-            .call-button:hover span {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        </style>
     </head>
     <body>
         <Navbar />
@@ -106,3 +38,75 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
         </a>
     </body>
 </html>
+<style scoped lang="scss">
+    @use "../styles/variables/variables.scss" as variables;
+    .whatsapp-button,
+    .call-button {
+        position: fixed;
+        bottom: 20px;
+        background-color: variables.$primary;
+        color: variables.$quaternary;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        @include variables.shadow(s);
+        z-index: 1000;
+        transition: all 0.2s ease;
+    }
+
+    .whatsapp-button {
+        right: 20px;
+
+        &:hover {
+            background-color: #25d366;
+            color: variables.$white;
+        }
+    }
+
+    .call-button {
+        right: 100px;
+        overflow: hidden;
+        width: 60px;
+        padding: 0;
+        background-color: variables.$tertiary;
+
+        i {
+            font-size: 25px;
+            position: absolute;
+            right: 0px;
+            background-color: variables.$tertiary;
+            color: variables.$quaternary;
+            padding-top: 15px;
+            padding-right: 18px;
+            padding-bottom: 15px;
+        }
+
+        span {
+            color: variables.$secondary;
+            padding-right: 35px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(40%);
+            transition: all 0.5s ease;
+            @include variables.typo-h4;
+        }
+
+        &:hover {
+            width: 200px;
+            border-radius: 360px;
+
+            span {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            i {
+                color: #007bff;
+            }
+        }
+    }
+</style>
