@@ -1,66 +1,95 @@
 ---
-import '../styles/css/index.scss'
-import PageLayout from '../layouts/PageLayout.astro'
-import ContactForm from '../components/common/ContactForm.vue'
-import ServiceCard from '../components/home/ServiceCard.astro'
-import { services } from '../data/home.ts'
-import PrimaryButton from '@components/common/PrimaryButton.vue'
+import "../styles/css/index.scss";
+import PageLayout from "../layouts/PageLayout.astro";
+import ContactForm from "../components/common/ContactForm.vue";
+import ServiceCard from "../components/home/ServiceCard.astro";
+import { services } from "../data/home.ts";
+import PrimaryButton from "@components/common/PrimaryButton.vue";
 ---
 
 <PageLayout>
-	<div class="hero_section">
-		<div class="hero_content">
-			<div class="hero_text">
-				<h1>La meccanica che <span><br />fa per te!</span></h1>
-				<p>
-					Benvenuti nella nostra officina meccanica, dove esperienza e tecnologia si uniscono per
-					offrire un servizio rapido e affidabile. Affidateci la vostra auto e vi garantiremo
-					sicurezza e soddisfazione.
-				</p>
-			</div>
-			<div class="hero_buttons">
-				<PrimaryButton label="Scopri di più" class="button_type_1" type="button" />
-				<PrimaryButton label="Scopri di più" class="button_type_2" type="button" />
-			</div>
-		</div>
-	</div>
-	<div class="about_section">
-		<div class="about_content">
-			<img src="/assets/car_logo.svg" alt="car logo" />
-			<div class="about_text">
-				<p>
-					Siamo un team di meccanici esperti dedicati a fornire il miglior servizio possibile. La
-					nostra missione è garantire che ogni cliente sia completamente soddisfatto del nostro
-					lavoro.
-				</p>
-			</div>
-			<div class="about_button">
-				<PrimaryButton label="Scopri di più" class="button_type_3" type="button" />
-			</div>
-		</div>
-	</div>
-	<div class="features_section">
-		<div class="features_text">
-			<h1>Un servizio rapido, sicuro<br />e <span>efficiente.</span></h1>
-			<p>
-				Scopri i nostri servizi e le nostre competenze in modo facile e veloce. Affidati alla nostra
-				officina meccanica e vi garantiremo sicurezza e soddisfazione.
-			</p>
-		</div>
-		<div class="features_content">
-			{
-				services.map((service) => (
-					<ServiceCard
-						title={service.title}
-						description={service.description}
-						image={service.image}
-					/>
-				))
-			}
-		</div>
-		<div class="features_button">
-			<PrimaryButton label="Scopri di più" class="button_type_1" type="button" />
-		</div>
-	</div>
-	<div class="contact_section"><ContactForm client:load /></div>
+    <div class="hero_section">
+        <div class="hero_content">
+            <div class="hero_text">
+                <h1>La meccanica che <span><br />fa per te!</span></h1>
+                <p>
+                    Benvenuti nella nostra officina meccanica, dove esperienza e
+                    tecnologia si uniscono per offrire un servizio rapido e
+                    affidabile. Affidateci la vostra auto e vi garantiremo
+                    sicurezza e soddisfazione.
+                </p>
+            </div>
+            <div class="hero_buttons">
+                <PrimaryButton
+                    label="Contattaci"
+                    class="button_type_1"
+                    type="button"
+                    href="#contact"
+                    client:load
+                />
+                <PrimaryButton
+                    label="Dove trovarci"
+                    class="button_type_2"
+                    type="button"
+                    href="/contact-us#location"
+                    client:load
+                />
+            </div>
+        </div>
+    </div>
+    <div class="about_section">
+        <div class="about_content">
+            <img src="/assets/car_logo.svg" alt="car logo" />
+            <div class="about_text">
+                <p>
+                    Siamo un team di meccanici esperti dedicati a fornire il
+                    miglior servizio possibile. La nostra missione è garantire
+                    che ogni cliente sia completamente soddisfatto del nostro
+                    lavoro.
+                </p>
+            </div>
+            <div class="about_button">
+                <PrimaryButton
+                    label="Scopri di più"
+                    class="button_type_3"
+                    type="button"
+                    href="/about-us#our-team"
+                    client:load
+                />
+            </div>
+        </div>
+    </div>
+    <div class="features_section">
+        <div class="features_text">
+            <h1>Un servizio rapido, sicuro<br />e <span>efficiente.</span></h1>
+            <p>
+                Scopri i nostri servizi e le nostre competenze in modo facile e
+                veloce. Affidati alla nostra officina meccanica e vi garantiremo
+                sicurezza e soddisfazione.
+            </p>
+        </div>
+        <div class="features_content">
+            {
+                services.map((service) => (
+                    <ServiceCard
+                        title={service.title}
+                        description={service.description}
+                        image={service.image}
+                    />
+                ))
+            }
+        </div>
+        <div class="features_button">
+            <PrimaryButton
+                label="Scopri di più"
+                class="button_type_1"
+                type="button"
+                href="/services#services"
+                client:load
+            />
+        </div>
+    </div>
+    <div class="contact_section" id="contact">
+        <ContactForm client:load />
+    </div>
 </PageLayout>

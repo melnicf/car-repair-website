@@ -1,30 +1,31 @@
-@use '../variables/variables.scss' as variables;
+@use "../variables/variables.scss" as variables;
 
 * {
-	box-sizing: border-box;
-	font-family: variables.$font-family;
+    box-sizing: border-box;
+    font-family: variables.$font-family;
+    scroll-behavior: smooth;
 }
 
 body {
-	margin: 0;
-	background-color: variables.$white;
-	position: relative;
+    margin: 0;
+    background-color: variables.$white;
+    position: relative;
 }
 
 p {
-	color: variables.$black;
-	word-wrap: break-word;
-	margin: 0;
+    color: variables.$black;
+    word-wrap: break-word;
+    margin: 0;
 }
 
 a {
-	color: variables.$black;
-	text-decoration: none;
-	margin: 0;
+    color: variables.$black;
+    text-decoration: none;
+    margin: 0;
 }
 
 h1 {
-	color: variables.$black;
-	word-wrap: break-word;
-	margin: 0;
+    color: variables.$black;
+    word-wrap: break-word;
+    margin: 0;
 }
