@@ -6,10 +6,13 @@ import HeroTitle from "@components/common/HeroTitle.astro";
 
 <Layout>
     <HeroTitle
-        title="Contattaci"
         paragraph="Per informazioni o per un appuntamento"
         icon="fas fa-address-book"
-    />
+    >
+        <div slot="title" class="hero-title">
+            <h1>Modi per <span>contattarci</span></h1>
+        </div>
+    </HeroTitle>
     <div class="location_section">
         <h2>Dove siamo:</h2>
         <iframe
@@ -112,6 +115,20 @@ import HeroTitle from "@components/common/HeroTitle.astro";
 
 <style scoped lang="scss">
     @use "../styles/variables/variables.scss" as variables;
+
+    .hero-title {
+        h1 {
+            text-align: center;
+            color: variables.$white;
+            font-family: variables.$font-family-anton;
+            @include variables.typo-h1;
+
+            span {
+                font-family: variables.$font-family-anton;
+                color: variables.$primary;
+            }
+        }
+    }
     .location_section {
         display: flex;
         justify-content: flex-start;

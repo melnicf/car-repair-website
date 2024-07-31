@@ -6,12 +6,11 @@ import HeroTitle from "@components/common/HeroTitle.astro";
 ---
 
 <PageLayout>
-    <HeroTitle
-        title={aboutUs.title}
-        span="noi"
-        paragraph={aboutUs.description}
-        icon="fas fa-users"
-    />
+    <HeroTitle paragraph={aboutUs.description} icon="fas fa-users">
+        <div slot="title" class="hero-title">
+            <h1>Chi <span>siamo</span></h1>
+        </div>
+    </HeroTitle>
     {
         aboutUs.features.map((f, index) => (
             <section
@@ -50,6 +49,20 @@ import HeroTitle from "@components/common/HeroTitle.astro";
 
 <style lang="scss">
     @use "../styles/variables/variables.scss" as variables;
+
+    .hero-title {
+        h1 {
+            text-align: center;
+            color: variables.$white;
+            font-family: variables.$font-family-anton;
+            @include variables.typo-h1;
+
+            span {
+                font-family: variables.$font-family-anton;
+                color: variables.$primary;
+            }
+        }
+    }
 
     .feature_section {
         padding: 40px 0;

@@ -1,22 +1,48 @@
 ---
-import Layout from '../layouts/PageLayout.astro'
-import HeroTitle from '../components/common/HeroTitle.astro'
-import { services } from '../data/services'
-import ServicePageCards from '../components/services/ServicePageCard.astro'
+import Layout from "../layouts/PageLayout.astro";
+import HeroTitle from "../components/common/HeroTitle.astro";
+import { services } from "../data/services";
+import ServicePageCards from "../components/services/ServicePageCard.astro";
+
+const [...words] = services.title.split(" ");
+const title = words.slice(0, -1).join(" ");
+const span = words.pop();
 ---
 
 <Layout>
-	<HeroTitle title={services.title} paragraph={services.paragraph} icon="fas fa-tools" />
-	{
-		services.cards.map((ogg, i) => (
-			<ServicePageCards
-				title={ogg.title}
-				description={ogg.description}
-				image={ogg.image}
-				index={i}
-			/>
-		))
-	}
+    <HeroTitle paragraph={services.paragraph} icon="fas fa-tools">
+        <div slot={"title"} class="hero-title">
+            <h1>
+                {title}<span> {span}</span>
+            </h1>
+        </div>
+    </HeroTitle>
+    {
+        services.cards.map((ogg, i) => (
+            <ServicePageCards
+                title={ogg.title}
+                description={ogg.description}
+                image={ogg.image}
+                index={i}
+            />
+        ))
+    }
 </Layout>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+    @use "../styles/variables/variables.scss" as variables;
+    .hero-title {
+        h1 {
+            text-align: center;
+            color: variables.$white;
+            margin-bottom: 10px;
+            font-family: variables.$font-family-anton;
+            @include variables.typo-h1;
+
+            span {
+                font-family: variables.$font-family-anton;
+                color: variables.$primary;
+            }
+        }
+    }
+</style>

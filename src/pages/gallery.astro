@@ -1,28 +1,53 @@
 ---
-import Layout from '../layouts/PageLayout.astro'
-import LightBox from '@components/gallery/LightBox'
-import { galleryImages } from '../data/galleryImages'
-import HeroTitle from '@components/common/HeroTitle.astro'
-import { gallery } from 'src/data/gallery'
+import Layout from "../layouts/PageLayout.astro";
+import LightBox from "@components/gallery/LightBox";
+import { galleryImages } from "../data/galleryImages";
+import HeroTitle from "@components/common/HeroTitle.astro";
+import { gallery } from "src/data/gallery";
+
+const [...words] = gallery.title.split(" ");
+const title = words.slice(0, -1).join(" ");
+const span = words.pop();
 ---
 
 <Layout>
-	<HeroTitle title={gallery.title} paragraph={gallery.paragraph} icon="fas fa-photo-video" />
-	<div class="gallery__images">
-		<LightBox images={galleryImages} client:load />
-	</div>
+    <HeroTitle paragraph={gallery.paragraph} icon="fas fa-photo-video">
+        <div slot="title" class="hero-title">
+            <h1>
+                {title}
+                <span>{span}</span>
+            </h1>
+        </div>
+    </HeroTitle>
+    <div class="gallery__images">
+        <LightBox images={galleryImages} client:load />
+    </div>
 </Layout>
-
 <style scoped lang="scss">
-	.gallery {
-		padding: 20px;
-	}
-	.gallery__images {
-		width: 100%;
-		height: auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 20px;
-	}
+    @use "@styles/variables/variables.scss" as variables;
+    .gallery {
+        padding: 20px;
+    }
+    .gallery__images {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .hero-title {
+        h1 {
+            text-align: center;
+            color: variables.$white;
+            font-family: variables.$font-family-anton;
+            @include variables.typo-h1;
+
+            span {
+                font-family: variables.$font-family-anton;
+                color: variables.$primary;
+            }
+        }
+    }
 </style>
