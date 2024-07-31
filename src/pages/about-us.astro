@@ -1,130 +1,138 @@
 ---
-import PageLayout from '@layouts/PageLayout.astro'
-import Feature from '../components/about/AboutUsFeatureCard.astro'
-import { aboutUs } from '../data/aboutUs.ts'
-import HeroTitle from '@components/common/HeroTitle.astro'
+import PageLayout from "@layouts/PageLayout.astro";
+import Feature from "../components/about/AboutUsFeatureCard.astro";
+import { aboutUs } from "../data/aboutUs.ts";
+import HeroTitle from "@components/common/HeroTitle.astro";
 ---
 
 <PageLayout>
-	<HeroTitle title={aboutUs.title} span="noi" paragraph={aboutUs.description} icon="fas fa-users" />
-	{
-		aboutUs.features.map((f, index) => (
-			<section class={`feature_section ${index % 2 === 0 ? 'bg_secondary' : 'bg_white'}`}>
-				<div class="container">
-					<Feature
-						imgSrc={f.coverImage}
-						theme={index % 2 === 0 ? 'light' : 'dark'}
-						imgAlt={f.title}
-						title={f.title}
-						span={f.span}
-						content={f.description}
-					/>
-				</div>
-			</section>
-		))
-	}
-	<section class="our_team">
-		<h2>La nostra <span>squadra</span></h2>
-		<div class="team_container">
-			{
-				aboutUs.team.map((member) => (
-					<div class="team_member">
-						<img src={member.image} alt={member.name} />
-						<div class="member_info">
-							<h3>{member.name}</h3>
-							<p>{member.position}</p>
-						</div>
-					</div>
-				))
-			}
-		</div>
-	</section>
+    <HeroTitle
+        title={aboutUs.title}
+        span="noi"
+        paragraph={aboutUs.description}
+        icon="fas fa-users"
+    />
+    {
+        aboutUs.features.map((f, index) => (
+            <section
+                class={`feature_section ${index % 2 === 0 ? "bg_secondary" : "bg_white"}`}
+            >
+                <div class="container">
+                    <Feature
+                        imgSrc={f.coverImage}
+                        theme={index % 2 === 0 ? "light" : "dark"}
+                        imgAlt={f.title}
+                        title={f.title}
+                        span={f.span}
+                        content={f.description}
+                    />
+                </div>
+            </section>
+        ))
+    }
+    <section class="our_team">
+        <h2>La nostra <span>squadra</span></h2>
+        <div class="team_container">
+            {
+                aboutUs.team.map((member) => (
+                    <div class="team_member">
+                        <img src={member.image} alt={member.name} />
+                        <div class="member_info">
+                            <h3>{member.name}</h3>
+                            <p>{member.position}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
 </PageLayout>
 
 <style lang="scss">
-	@use '../styles/variables/variables.scss' as variables;
+    @use "../styles/variables/variables.scss" as variables;
 
-	.feature_section {
-		padding: 40px 0;
-		display: flex;
-		justify-content: center;
+    .feature_section {
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
 
-		&.bg_secondary {
-			background-color: variables.$white;
-		}
+        &.bg_secondary {
+            background-color: variables.$white;
+        }
 
-		&.bg_white {
-			background-color: variables.$secondary;
-		}
-	}
+        &.bg_white {
+            background-color: variables.$secondary;
+        }
+    }
 
-	.container {
-		width: 100%;
-		max-width: 1200px;
-		display: flex;
-		flex-direction: column;
-		gap: 80px;
-		padding: 0 20px;
-	}
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        padding: 0 20px;
+    }
 
-	.our_team {
-		background-color: variables.$white;
-		display: flex;
-		flex-direction: column;
-		gap: 80px;
-		align-items: center;
-		padding: 50px 20px;
-		text-align: center;
+    .our_team {
+        background-color: variables.$white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        align-items: center;
+        padding: 50px 20px;
+        text-align: center;
 
-		h2 {
-			color: variables.$secondary;
-			@include variables.typo-h1;
-			font-family: variables.$font-family-anton;
-		}
+        h2 {
+            color: variables.$secondary;
+            @include variables.typo-h1;
+            font-family: variables.$font-family-anton;
+        }
 
-		.team_container {
-			width: 80%;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-around;
-			gap: 30px;
-		}
+        .team_container {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+        }
 
-		.team_member {
-			background: variables.$quaternary;
-			border-radius: variables.$border-radius;
-			overflow: hidden;
-			width: 250px;
-			transition:
-				transform 0.3s ease,
-				box-shadow 0.3s ease;
+        .team_member {
+            background: variables.$quaternary;
+            border-radius: variables.$border-radius;
+            overflow: hidden;
+            width: 250px;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
 
-			@include variables.shadow(s, variables.$quaternary);
+            @include variables.shadow(s, variables.$quaternary);
 
-			&:hover {
-				transform: translateY(-10px);
-				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-			}
+            &:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
 
-			img {
-				width: 100%;
-				height: 250px;
-				object-fit: cover;
-			}
+            img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
 
-			.member_info {
-				padding: 20px;
+            .member_info {
+                padding: 20px;
 
-				h3 {
-					color: variables.$white;
-					@include variables.typo-h3;
-				}
+                h3 {
+                    color: variables.$white;
+                    @include variables.typo-h3;
+                }
 
-				p {
-					color: variables.$tertiary;
-					@include variables.typo-sub1;
-				}
-			}
-		}
-	}
+                p {
+                    color: variables.$tertiary;
+                    @include variables.typo-sub1;
+                }
+            }
+        }
+    }
 </style>

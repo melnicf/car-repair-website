@@ -1,87 +1,88 @@
 ---
 interface Props {
-  imgSrc: string;
-  imgAlt: string;
-  title: string;
-  span?: string;
-  content: string;
-  theme: "dark" | "light";
+    imgSrc: string;
+    imgAlt: string;
+    title: string;
+    span?: string;
+    content: string;
+    theme: "dark" | "light";
 }
 const { imgSrc, imgAlt, title, span, content, theme } = Astro.props;
 ---
 
 <div class={`feature ${theme}`}>
-  <div class="image_container">
-    <img src={imgSrc} alt={imgAlt} />
-  </div>
+    <div class="image_container">
+        <img src={imgSrc} alt={imgAlt} />
+    </div>
 
-  <div class="text_container">
-    <h2>{title}<span>{span}</span></h2>
-    <p>{content}</p>
-  </div>
+    <div class="text_container">
+        <h2>{title}<span>{span}</span></h2>
+        <p>{content}</p>
+    </div>
 </div>
 
 <style lang="scss">
-  @use "@styles/variables/variables.scss" as variables;
+    @use "@styles/variables/variables.scss" as variables;
 
-  .feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: variables.$padding-large;
-    border-radius: variables.$border-radius;
+    .feature {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: variables.$padding-large;
+        border-radius: variables.$border-radius;
 
-    &.dark {
-      color: variables.$white;
-      box-shadow: none;
+        &.dark {
+            color: variables.$white;
+            box-shadow: none;
 
-      .text_container h2,
-      .text_container p {
-        color: variables.$white;
-      }
+            .text_container h2,
+            .text_container p {
+                color: variables.$white;
+            }
 
-      .text_container h2 span {
-        color: variables.$primary;
-      }
+            .text_container h2 span {
+                color: variables.$primary;
+            }
+        }
+
+        &.light {
+            color: variables.$black;
+
+            .text_container h2,
+            .text_container p {
+                color: variables.$secondary;
+            }
+
+            .text_container h2 span {
+                color: variables.$quaternary;
+            }
+        }
+
+        .image_container {
+            width: 40%;
+
+            img {
+                width: 100%;
+            }
+            .svg-icon {
+                fill: variables.$primary; // Change the color of the SVG
+            }
+        }
+
+        .text_container {
+            width: 100%;
+            text-align: center;
+
+            h2 {
+                @include variables.typo-h1;
+                font-family: variables.$font-family-anton;
+            }
+
+            p {
+                @include variables.typo-h3;
+            }
+        }
     }
-
-    &.light {
-      color: variables.$black;
-
-      .text_container h2,
-      .text_container p {
-        color: variables.$secondary;
-      }
-
-      .text_container h2 span {
-        color: variables.$quaternary;
-      }
-    }
-
-    .image_container {
-      width: 50%;
-
-      img {
-        width: 100%;
-      }
-      .svg-icon {
-        fill: variables.$primary; // Change the color of the SVG
-      }
-    }
-
-    .text_container {
-      width: 100%;
-      text-align: center;
-
-      h2 {
-        @include variables.typo-h1;
-        font-family: variables.$font-family-anton;
-      }
-
-      p {
-        @include variables.typo-h3;
-      }
-    }
-  }
 </style>

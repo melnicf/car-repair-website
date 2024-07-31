@@ -1,53 +1,108 @@
 ---
-import '../styles/css/global.scss'
-import Navbar from '../components/layout/Navbar.astro'
-import Footer from '../components/layout/Footer.astro'
+import "../styles/css/global.scss";
+import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
 
-const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER
+const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-		/>
-		<title>Mecha</title>
-		<style>
-			.whatsapp-button {
-				position: fixed;
-				bottom: 20px;
-				right: 20px;
-				background-color: #25d366;
-				color: white;
-				border-radius: 50%;
-				width: 60px;
-				height: 60px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				font-size: 30px;
-				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-				z-index: 1000;
-			}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+        <title>Mecha</title>
+        <style lang="scss">
+            @use "../styles/variables/variables.scss" as variables;
+            .whatsapp-button,
+            .call-button {
+                position: fixed;
+                bottom: 20px;
+                background-color: variables.$primary;
+                color: variables.$quaternary;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                @include variables.shadow(s);
+                z-index: 1000;
+                transition: all 0.2s ease;
+            }
 
-			.whatsapp-button:hover {
-				background-color: #128c7e;
-			}
-		</style>
-	</head>
-	<body>
-		<Navbar />
-		<slot />
-		<Footer />
-		<a href={`https://wa.me/${phoneNumber}`} class="whatsapp-button" target="_blank">
-			<i class="fab fa-whatsapp"></i>
-		</a>
-	</body>
+            .whatsapp-button {
+                right: 20px;
+            }
+
+            .whatsapp-button:hover {
+                background-color: #25d366;
+                color: variables.$white;
+            }
+
+            .call-button {
+                right: 100px;
+                overflow: hidden;
+                width: 60px;
+                padding: 0;
+                background-color: variables.$tertiary;
+            }
+
+            .call-button i {
+                font-size: 25px;
+                position: absolute;
+                right: 0px;
+                background-color: variables.$tertiary;
+                color: variables.$quaternary;
+                padding-top: 15px;
+                padding-right: 18px;
+                padding-bottom: 15px;
+            }
+
+            .call-button span {
+                color: variables.$secondary;
+                padding-right: 35px;
+                white-space: nowrap;
+                opacity: 0;
+                transform: translateX(40%);
+                transition: all 0.5s ease;
+                @include variables.typo-h4;
+            }
+
+            .call-button:hover {
+                width: 200px;
+                border-radius: 360px;
+            }
+
+            .call-button:hover span {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        </style>
+    </head>
+    <body>
+        <Navbar />
+        <slot />
+        <Footer />
+
+        <a
+            href={`https://wa.me/${phoneNumber}`}
+            class="whatsapp-button"
+            target="_blank"
+        >
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href={`tel:${phoneNumber}`} class="call-button">
+            <span>{phoneNumber}</span>
+            <i class="fas fa-phone"></i>
+        </a>
+    </body>
 </html>
