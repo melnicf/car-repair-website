@@ -40,6 +40,7 @@
                     class="button_type_3"
                     label="Invia"
                     type="submit"
+                    :loading="state.loading"
                 />
             </div>
         </form>
@@ -86,8 +87,10 @@ export default defineComponent({
         });
 
         const form_obj = ref<HTMLFormElement | string>("");
+        const state = reactive({ loading: false });
 
         const sendEmail = () => {
+            state.loading = true;
             console.log(form_obj.value);
             emailjs
                 .sendForm(
@@ -101,10 +104,12 @@ export default defineComponent({
                 .then(
                     () => {
                         console.log("SUCCESS!");
+                        state.loading = false;
                         // toast success
                     },
                     (error) => {
                         console.log("FAILED...", error.text);
+                        state.loading = false;
                         // toast error
                     },
                 );
@@ -136,6 +141,7 @@ export default defineComponent({
             errors,
             validateForm,
             sendEmail,
+            state,
         };
     },
 });

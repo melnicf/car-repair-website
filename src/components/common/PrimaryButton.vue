@@ -1,5 +1,8 @@
 <template>
-    <button :class="class" :type="type" @click="navigate">{{ label }}</button>
+    <button :class="class" :type="type" @click="navigate" :disabled="loading">
+        <span v-if="loading" class="spinner"></span>
+        <span v-else>{{ label }}</span>
+    </button>
 </template>
 
 <script lang="ts">
@@ -27,9 +30,14 @@ export default defineComponent({
             type: String,
             default: "",
         },
+        loading: {
+            type: Boolean,
+            default: false,
+        },
     },
     setup(props) {
         const navigate = () => {
+            if (props.loading) return; // Prevent navigation if loading
             if (props.href) {
                 if (props.href.startsWith("#")) {
                     document
@@ -37,8 +45,6 @@ export default defineComponent({
                         ?.scrollIntoView({
                             behavior: "smooth",
                         });
-                } else if (props.href.includes("#")) {
-                    window.location.href = props.href;
                 } else {
                     window.location.href = props.href;
                 }
@@ -54,6 +60,24 @@ export default defineComponent({
 
 <style lang="scss">
 @use "@styles/variables/variables.scss" as variables;
+
+.spinner {
+    border: 2px solid transparent;
+    border-top: 2px solid variables.$primary;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 .button_type_1 {
     padding: variables.$padding-small;
