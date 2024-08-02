@@ -30,7 +30,8 @@ h1 {
     margin: 0;
 }
 
-button {
+button,
+a {
     -webkit-tap-highlight-color: transparent; // Disable tap highlight color
     touch-action: manipulation; // Prevent default touch actions
 }
