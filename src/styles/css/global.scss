@@ -30,7 +30,7 @@ h1 {
     margin: 0;
 }
 
-button:focus {
-    outline: none;
-    background-color: transparent;
+button {
+    -webkit-tap-highlight-color: transparent; // Disable tap highlight color
+    touch-action: manipulation; // Prevent default touch actions
 }
