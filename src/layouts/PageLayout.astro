@@ -112,12 +112,21 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
 
     @media (hover: none) {
         .call-button {
-            width: 60px; // Keep original width
-            border-radius: 50%; // Keep original border-radius
+            width: 60px;
+            border-radius: 50%;
 
             &:hover {
-                width: 60px; // Prevent hover effect
-                border-radius: 50%; // Prevent hover effect
+                width: 60px;
+                border-radius: 50%;
+
+                span {
+                    opacity: 0;
+                    transform: translateX(0);
+                }
+
+                i {
+                    color: variables.$quaternary;
+                }
             }
         }
     }
