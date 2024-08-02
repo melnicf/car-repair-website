@@ -114,6 +114,7 @@ export default defineComponent({
                         resetForm();
                         updateGlobalOptions({ rtl: true });
                         toast.success("Messaggio inviato!");
+                        state.loading = false;
                     },
                     (error) => {
                         console.log("FAILED...", error.text);
