@@ -11,6 +11,12 @@
     overflow: hidden;
     padding-top: 160px;
 
+    @media screen and (max-width: variables.$mobile) {
+        height: auto;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
     .hero_content {
         width: 100%;
         max-width: 1200px;
@@ -20,6 +26,13 @@
         flex-direction: column;
         text-align: center;
         gap: 100px;
+
+        @media screen and (max-width: variables.$mobile) {
+            width: 100%;
+            padding: 10px;
+            padding-top: 0;
+            gap: 48px;
+        }
 
         .hero_text {
             display: flex;
@@ -42,6 +55,12 @@
                 font-family: variables.$font-family-anton;
                 color: variables.$primary;
             }
+
+            @media screen and (max-width: variables.$mobile) {
+                align-items: center;
+                gap: 24px;
+                width: 95%;
+            }
         }
 
         .hero_buttons {
@@ -53,6 +72,15 @@
 
             button {
                 @include variables.typo-sub1;
+            }
+
+            @media screen and (max-width: variables.$mobile) {
+                gap: 16px;
+                padding: 0 10px;
+                button {
+                    height: 40px;
+                    border-radius: 60px;
+                }
             }
         }
     }
@@ -67,6 +95,12 @@
     gap: 40px;
     padding: variables.$padding-large;
     background: variables.$secondary;
+
+    @media screen and (max-width: variables.$mobile) {
+        height: auto;
+        padding: 48px 0;
+        gap: 24px;
+    }
 
     .features_text {
         display: flex;
@@ -90,6 +124,10 @@
             font-family: variables.$font-family-anton;
             color: variables.$primary;
         }
+
+        @media screen and (max-width: variables.$mobile) {
+            width: 90%;
+        }
     }
 
     .features_content {
@@ -102,52 +140,21 @@
         align-items: center;
         gap: 80px;
         padding: variables.$padding-large;
+
+        @media screen and (max-width: variables.$mobile) {
+            gap: 48px;
+        }
     }
 
     .features_button {
         button {
             @include variables.typo-sub1;
+
+            @media screen and (max-width: variables.$mobile) {
+                height: 40px;
+                border-radius: 60px;
+            }
         }
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .features_section {
-        height: auto;
-        padding: 0;
-
-        .features_content {
-            flex-direction: column;
-            margin-top: 0;
-        }
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .hero_section {
-        height: auto;
-    }
-
-    .hero_content {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .hero_text {
-        align-items: center;
-
-        h1 {
-            text-align: center;
-        }
-
-        p {
-            text-align: center;
-        }
-    }
-
-    .hero_buttons {
-        flex-direction: column;
-        width: 100%;
     }
 }
 
@@ -157,6 +164,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: variables.$mobile) {
+        height: auto;
+        padding: 48px 0;
+    }
 }
 
 .about_section {
@@ -168,6 +180,11 @@
     background-color: variables.$white;
     text-align: center;
 
+    @media screen and (max-width: variables.$mobile) {
+        height: auto;
+        padding: 48px 0;
+    }
+
     .about_content {
         max-width: 1200px;
         width: 100%;
@@ -178,18 +195,23 @@
         justify-content: center;
         align-items: center;
 
+        @media screen and (max-width: variables.$mobile) {
+            gap: 48px;
+        }
+
         img {
             width: 50%;
+
+            @media screen and (max-width: variables.$mobile) {
+                width: 80%;
+            }
         }
 
         .about_text {
             width: 65%;
 
-            h2 {
-                color: #0f2028;
-                margin-bottom: 20px;
-
-                @include variables.typo-h1;
+            @media screen and (max-width: variables.$mobile) {
+                width: 90%;
             }
 
             p {
@@ -201,6 +223,11 @@
         .about_button {
             button {
                 @include variables.typo-sub1;
+
+                @media screen and (max-width: variables.$mobile) {
+                    height: 48px;
+                    border-radius: 60px;
+                }
             }
         }
     }

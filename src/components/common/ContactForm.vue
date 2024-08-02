@@ -152,6 +152,14 @@ export default defineComponent({
     gap: 100px;
     margin: auto;
 
+    @media screen and (max-width: variables.$mobile) {
+        flex-direction: column;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+        gap: 48px;
+    }
+
     .contact_form_info {
         display: flex;
         justify-content: flex-start;
@@ -159,7 +167,13 @@ export default defineComponent({
         flex-direction: column;
         height: 100%;
         max-width: 45%;
-        gap: 40px;
+        gap: 48px;
+
+        @media screen and (max-width: variables.$mobile) {
+            max-width: 100%;
+            height: auto;
+            gap: 16px;
+        }
 
         h1,
         p {
@@ -175,6 +189,19 @@ export default defineComponent({
         p {
             @include variables.typo-sub1;
         }
+
+        @media screen and (max-width: variables.$mobile) {
+            h1 {
+                @include variables.typo-h1;
+                text-align: center;
+            }
+
+            p {
+                color: variables.$black;
+                @include variables.typo-sub1;
+                text-align: center;
+            }
+        }
     }
 
     .contact_form_fields {
@@ -182,9 +209,12 @@ export default defineComponent({
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-
         height: auto;
         gap: 50px;
+
+        @media screen and (max-width: variables.$mobile) {
+            gap: 20px;
+        }
 
         .contact_form_top {
             display: flex;
@@ -193,61 +223,27 @@ export default defineComponent({
             gap: 20px;
             width: 100%;
             height: auto;
+
+            @media screen and (max-width: 1100px) {
+                flex-direction: column;
+            }
+
+            input {
+                width: 100%;
+            }
         }
 
         .contact_form_button {
             button {
                 @include variables.typo-sub1;
+
+                @media screen and (max-width: 1100px) {
+                    margin-top: 20px;
+                    height: 44px;
+                    border-radius: 60px;
+                }
             }
         }
-
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-    }
-}
-
-@media screen and (max-width: 1100px) {
-    .contact_form_top {
-        flex-direction: column;
-    }
-
-    .contact_form_top input {
-        width: 100%;
-    }
-
-    .contact_form_button button {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .contact_form {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .contact_form_info {
-        p {
-            text-align: left;
-        }
-
-        h1 {
-            text-align: center;
-        }
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .contact_form_info h1 {
-        @include variables.typo-h2;
-    }
-
-    .contact_form_info p {
-        color: variables.$gray;
-        @include variables.typo-sub1;
     }
 }
 </style>

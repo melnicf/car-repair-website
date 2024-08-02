@@ -42,95 +42,103 @@ $danger-scarlet: #e01507;
 $danger-raspberry: #ff5a4f;
 $danger-rubicund: #f0857d;
 
+//media
+$mobile: 600px;
+$tablet: 800px;
+
 /* Typography Mixins */
 @mixin typo-h1 {
     font-style: normal;
     font-weight: 800;
-    font-size: 70px;
-    line-height: 74px;
+    font-size: 4.3rem;
+    line-height: 4.6rem;
+
+    @media screen and (max-width: $mobile) {
+        font-size: 3.9rem;
+    }
 }
 
 @mixin typo-h2 {
     font-style: normal;
     font-weight: 700;
-    font-size: 40px;
-    line-height: 44px;
+    font-size: 2.5rem;
+    line-height: 2.75rem;
 }
 
 @mixin typo-h3 {
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
-    line-height: 26.4px;
+    font-size: 1.375rem;
+    line-height: 1.65rem;
 }
 
 @mixin typo-h4 {
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
 }
 
 @mixin typo-sub1 {
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: normal;
 }
 
 @mixin typo-sub2 {
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: normal;
 }
 
 @mixin typo-sub3 {
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: normal;
 }
 
 @mixin typo-body1 {
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 22.4px;
+    font-size: 1rem;
+    line-height: 1.4rem;
 }
 
 @mixin typo-body2 {
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
 }
 
 @mixin typo-body3 {
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 0.75rem;
+    line-height: 1rem;
 }
 
 @mixin typo-fields1 {
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 1.5rem;
     letter-spacing: 0em;
 }
 
 @mixin typo-fields2 {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 16px;
+    line-height: 1rem;
     letter-spacing: 0em;
 }
 
 @mixin typo-fields3 {
-    font-size: 9px;
+    font-size: 0.5625rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -138,7 +146,7 @@ $danger-rubicund: #f0857d;
 }
 
 @mixin typo-fieldsMessaggi {
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-style: italic;
     font-weight: 400;
     line-height: normal;
