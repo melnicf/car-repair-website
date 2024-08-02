@@ -21,7 +21,6 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
     </div>
 </nav>
 <nav class="sidebar-navbar">
-    <div class="sidebar-navbar-header"></div>
     <div class="sidebar-navbar-links">
         {getNavbarItems().map((item) => <a href={item.link}>{item.title}</a>)}
     </div>
@@ -85,7 +84,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
     @use "@styles/variables/variables.scss" as variables;
 
     body.no-scroll {
-        overflow: hidden; // Prevent scrolling
+        overflow: hidden;
     }
 
     .main-navbar {
@@ -118,8 +117,14 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
                 padding-right: 16px;
 
                 &.scrolled {
-                    background-color: darken(variables.$secondary, 3%);
-                    transition: background-color 0.6s;
+                    background-color: rgba(
+                        darken(variables.$secondary, 3%),
+                        0.95
+                    );
+                    backdrop-filter: blur(5px);
+                    transition:
+                        background-color 0.6s,
+                        backdrop-filter 0.6s;
                 }
             }
 
@@ -186,37 +191,18 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
         justify-content: flex-start;
         align-items: center;
         position: fixed;
+        top: 60px;
         flex-direction: column;
         gap: 40px;
         transform: translateX(110%);
         transition: variables.$transition-ease;
-        background-color: rgba(variables.$secondary, 0.99);
+        background-color: rgba(variables.$secondary, 0.95);
+        backdrop-filter: blur(5px);
         z-index: 40;
         border-left: 1px solid variables.$primary;
 
         &.sidebar-navbar-visible {
             transform: translateX(0%);
-        }
-
-        .sidebar-navbar-header {
-            width: 100%;
-            min-height: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: variables.$secondary;
-            color: variables.$white;
-
-            .close-button {
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-            }
-
-            .main-navbar-logo {
-                width: 150px;
-            }
         }
 
         .sidebar-navbar-links {
@@ -255,7 +241,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
         }
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: variables.$mobile) {
         .sidebar-navbar {
             width: 100%;
         }
