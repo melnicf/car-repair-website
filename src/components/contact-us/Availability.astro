@@ -61,6 +61,13 @@ const { availability } = Astro.props;
 
             border-radius: variables.$border-radius;
 
+            @media screen and (max-width: variables.$mobile) {
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                padding: variables.$padding-large;
+            }
+
             li {
                 color: variables.$white;
                 @include variables.typo-h3;
@@ -74,7 +81,13 @@ const { availability } = Astro.props;
                     width: 30%;
                     display: flex;
                     justify-content: center;
+                    align-items: center;
                     color: variables.$tertiary;
+
+                    @media screen and (max-width: variables.$mobile) {
+                        max-width: 70%;
+                        width: auto;
+                    }
                 }
             }
         }

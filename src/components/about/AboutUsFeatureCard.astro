@@ -33,6 +33,12 @@ const { imgSrc, imgAlt, title, span, content, theme } = Astro.props;
         padding: variables.$padding-large;
         border-radius: variables.$border-radius;
 
+        @media screen and (max-width: variables.$mobile) {
+            height: auto;
+            padding: 20px 0;
+            gap: 20px;
+        }
+
         &.dark {
             color: variables.$white;
             box-shadow: none;
@@ -66,8 +72,9 @@ const { imgSrc, imgAlt, title, span, content, theme } = Astro.props;
             img {
                 width: 100%;
             }
-            .svg-icon {
-                fill: variables.$primary; // Change the color of the SVG
+
+            @media screen and (max-width: variables.$mobile) {
+                width: 80%;
             }
         }
 
@@ -82,21 +89,6 @@ const { imgSrc, imgAlt, title, span, content, theme } = Astro.props;
 
             p {
                 @include variables.typo-h3;
-            }
-        }
-    }
-
-    @media screen and (max-width: variables.$mobile) {
-        .feature {
-            height: auto;
-
-            &.light,
-            &.dark {
-                padding: variables.$padding-medium;
-            }
-
-            .image_container {
-                width: 80%;
             }
         }
     }

@@ -97,6 +97,12 @@ import HeroTitle from "@components/common/HeroTitle.astro";
         padding: 50px 20px;
         text-align: center;
 
+        @media screen and (max-width: variables.$mobile) {
+            height: auto;
+            padding: 40px 0;
+            gap: 40px;
+        }
+
         h2 {
             color: variables.$secondary;
             @include variables.typo-h1;
@@ -122,6 +128,10 @@ import HeroTitle from "@components/common/HeroTitle.astro";
 
             @include variables.shadow(s, variables.$quaternary);
 
+            @media screen and (max-width: variables.$mobile) {
+                height: auto;
+            }
+
             &:hover {
                 transform: translateY(-10px);
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -146,12 +156,6 @@ import HeroTitle from "@components/common/HeroTitle.astro";
                     @include variables.typo-sub1;
                 }
             }
-        }
-    }
-
-    @media screen and (max-width: variables.$mobile) {
-        .our_team {
-            height: auto;
         }
     }
 </style>

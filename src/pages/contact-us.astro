@@ -69,6 +69,11 @@ const span = words.pop();
 
         padding: variables.$padding-large;
 
+        @media screen and (max-width: variables.$mobile) {
+            padding: 48px 0;
+            height: auto;
+        }
+
         h1 {
             color: variables.$secondary;
             @include variables.typo-h1;
@@ -77,6 +82,10 @@ const span = words.pop();
         iframe {
             width: 80%;
             height: 600px;
+
+            @media screen and (max-width: variables.$mobile) {
+                width: 95%;
+            }
         }
     }
 
@@ -92,66 +101,9 @@ const span = words.pop();
         gap: 40px;
         position: relative;
 
-        .number_main_div {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            gap: 20px;
-            width: 80%;
+        @media screen and (max-width: variables.$mobile) {
             height: auto;
-            padding: 20px;
-            background-color: variables.$quaternary;
-            border-radius: variables.$border-radius;
-
-            div {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
-
-                a {
-                    color: variables.$white;
-                    @include variables.typo-sub1;
-
-                    &:hover {
-                        color: variables.$primary;
-                    }
-                }
-
-                i {
-                    color: variables.$primary;
-                    font-size: 20px;
-                }
-            }
-
-            .sep {
-                width: 20px;
-                height: 1px;
-                background-color: variables.$primary;
-            }
-        }
-
-        .social_div {
-            height: auto;
-            width: auto;
-            padding: 10px;
-            position: absolute;
-            right: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 30px;
-
-            i {
-                color: variables.$tertiary;
-                font-size: 24px;
-                transition: color 0.3s;
-
-                &:hover {
-                    color: variables.$primary;
-                }
-            }
+            padding: 48px 0;
         }
     }
 
@@ -161,25 +113,9 @@ const span = words.pop();
         display: flex;
         justify-content: center;
         align-items: center;
-    }
 
-    @media screen and (max-width: 600px) {
-        .table_main_div {
-            overflow-x: auto;
-            width: 100%;
-        }
-        .section_2 {
-            padding: 20px;
-            .social_div {
-                position: static;
-                flex-direction: row;
-            }
-        }
-        .number_main_div {
-            flex-direction: column;
-            .sep {
-                width: 60%;
-            }
+        @media screen and (max-width: variables.$mobile) {
+            height: auto;
         }
     }
 </style>
