@@ -53,6 +53,8 @@ import { reactive, ref, defineComponent } from "vue";
 import PrimaryButton from "./PrimaryButton.vue";
 import InputField from "./InputField.vue";
 import TextAreaField from "./TextAreaField.vue";
+import { toast, updateGlobalOptions } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 
 export default defineComponent({
     components: {
@@ -89,6 +91,12 @@ export default defineComponent({
         const form_obj = ref<HTMLFormElement | string>("");
         const state = reactive({ loading: false });
 
+        const resetForm = () => {
+            form.name = "";
+            form.email = "";
+            form.object = "";
+            form.message = "";
+        };
         const sendEmail = () => {
             state.loading = true;
             console.log(form_obj.value);
@@ -103,9 +111,9 @@ export default defineComponent({
                 )
                 .then(
                     () => {
-                        console.log("SUCCESS!");
-                        state.loading = false;
-                        // toast success
+                        resetForm();
+                        updateGlobalOptions({ rtl: true });
+                        toast.success("Messaggio inviato!");
                     },
                     (error) => {
                         console.log("FAILED...", error.text);

@@ -70,4 +70,17 @@ const { paragraph, icon } = Astro.props as Props;
             }
         }
     }
+
+    @media screen and (max-width: variables.$mobile) {
+        .hero-container {
+            height: auto;
+            padding: 30px;
+            padding-top: 70px;
+            padding-bottom: 70px;
+
+            .hero-paragraph {
+                width: 80%;
+            }
+        }
+    }
 </style>
