@@ -56,12 +56,13 @@ const { availability } = Astro.props;
             align-items: start;
             flex-direction: column;
             gap: 20px;
-            width: 45%;
+            width: 60%;
             padding: variables.$padding-large;
 
             border-radius: variables.$border-radius;
 
-            @media screen and (max-width: variables.$mobile) {
+            @media screen and (max-width: variables.$mobile),
+                screen and (max-width: variables.$tablet) {
                 width: 100%;
                 justify-content: space-between;
                 align-items: center;
@@ -78,11 +79,12 @@ const { availability } = Astro.props;
                 padding-bottom: 5px;
 
                 span:nth-child(even) {
-                    width: 30%;
+                    width: auto;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     color: variables.$tertiary;
+                    word-wrap: none;
 
                     @media screen and (max-width: variables.$mobile) {
                         max-width: 70%;
