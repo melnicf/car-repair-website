@@ -4,37 +4,25 @@ import { getNavbarItems } from "src/utils/getNavbarItems";
 const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
 ---
 
-<nav class="navbar">
-    <!-- 	<div class="navbar_top">
-		<div class="navbar_top_text">
-			<a href={`tel:variables.${phoneNumber}`} class="phone-link"><p>Contatti : {phoneNumber}</p></a
-			>
-			<p>Orario Apertura : 8:00 - 18:00</p>
-		</div>
-	</div> -->
-    <div class="navbar_bottom">
-        <div class="navbar_bottom_main">
-            <img src="../assets/logo_2.png" alt="logo" class="navbar_logo" />
-            <div class="navbar_links">
-                {
-                    getNavbarItems().map((item) => (
-                        <a href={item.link}>{item.title}</a>
-                    ))
-                }
-            </div>
-            <button class="hamburger">
-                <img src="../assets/menu.svg" alt="burger" />
-            </button>
+<nav class="main-navbar">
+    <div class="main-navbar-content">
+        <img src="../assets/logo_2.png" alt="logo" class="main-navbar-logo" />
+        <div class="main-navbar-links">
+            {
+                getNavbarItems().map((item) => (
+                    <a href={item.link}>{item.title}</a>
+                ))
+            }
         </div>
-    </div>
-</nav>
-<nav class="side_navbar">
-    <div class="side_navbar_top">
-        <button class="close">
-            <img src="../assets/close.svg" alt="close" />
+        <button class="menu-toggle">
+            <p>Menu</p>
+            <i class="fa fa-bars"></i>
         </button>
     </div>
-    <div class="side_navbar_links">
+</nav>
+<nav class="sidebar-navbar">
+    <div class="sidebar-navbar-header"></div>
+    <div class="sidebar-navbar-links">
         {getNavbarItems().map((item) => <a href={item.link}>{item.title}</a>)}
     </div>
 </nav>
@@ -43,7 +31,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
     document.addEventListener("DOMContentLoaded", () => {
         const currentPath = window.location.pathname.replace(/\/$/, "");
         const links = document.querySelectorAll(
-            ".navbar_links a, .side_navbar_links a"
+            ".main-navbar-links a, .sidebar-navbar-links a"
         );
         links.forEach((link) => {
             const href = link.getAttribute("href");
@@ -55,26 +43,31 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
             }
         });
 
-        const rightNavBarToggle = () => {
-            const rightNavBar = document.querySelector(".side_navbar");
-            const hamburger = document.querySelector(".hamburger");
-            if (rightNavBar) {
-                rightNavBar.classList.toggle("side_navbar_toggle");
-                if (hamburger) {
-                    hamburger.classList.toggle("hidden");
+        const toggleSidebar = () => {
+            const sidebar = document.querySelector(".sidebar-navbar");
+            const menuToggle = document.querySelector(".menu-toggle");
+            if (sidebar) {
+                sidebar.classList.toggle("sidebar-navbar-visible");
+                if (menuToggle) {
+                    menuToggle.classList.toggle("hidden");
                 }
+
+                document.body.classList.toggle(
+                    "no-scroll",
+                    sidebar.classList.contains("sidebar-navbar-visible")
+                );
             }
         };
 
-        const hamburger = document.querySelector(".hamburger");
-        const closeBtn = document.querySelector(".close");
+        const menuToggle = document.querySelector(".menu-toggle");
+        const closeButton = document.querySelector(".close-button");
 
-        if (hamburger) {
-            hamburger.addEventListener("click", rightNavBarToggle);
+        if (menuToggle) {
+            menuToggle.addEventListener("click", toggleSidebar);
         }
 
-        if (closeBtn) {
-            closeBtn.addEventListener("click", rightNavBarToggle);
+        if (closeButton) {
+            closeButton.addEventListener("click", toggleSidebar);
         }
     });
 </script>
@@ -82,135 +75,137 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
 <style lang="scss">
     @use "@styles/variables/variables.scss" as variables;
 
-    .navbar {
+    body.no-scroll {
+        overflow: hidden; // Prevent scrolling
+    }
+
+    .main-navbar {
         width: 100%;
         height: auto;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
 
-        .navbar_top {
-            width: 100%;
-            height: auto;
-            display: flex;
-            justify-content: center;
-            background-color: rgba(48, 48, 48, 0.8);
-
-            .navbar_top_text {
-                width: 80%;
-                height: auto;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 50px;
-
-                p {
-                    color: variables.$white;
-                }
-
-                .phone-link {
-                    cursor: url("/assets/call-cursor.svg"), auto;
-                }
-            }
+        @media screen and (max-width: variables.$mobile) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
         }
 
-        .navbar_bottom {
-            padding-top: 50px;
+        .main-navbar-content {
+            padding-top: 40px;
             width: 100%;
             display: flex;
             justify-content: center;
+            align-items: center;
             background-color: variables.$secondary;
 
-            .navbar_bottom_main {
-                position: relative;
-                width: 100%;
-                height: auto;
+            @media screen and (max-width: variables.$mobile) {
+                padding: 14px 0;
+                justify-content: flex-end;
+                padding-right: 8px;
+            }
+
+            .main-navbar-links {
+                width: auto;
+                height: 100%;
                 display: flex;
-                justify-content: center;
+                justify-content: space-around;
                 align-items: center;
+                gap: 40px;
 
-                .navbar_links {
-                    width: auto;
-                    height: 100%;
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    gap: 40px;
+                .active {
+                    color: variables.$primary;
+                }
 
-                    .active {
+                a {
+                    color: variables.$white;
+
+                    &:hover {
                         color: variables.$primary;
                     }
+                }
+            }
 
-                    a {
+            .main-navbar-logo {
+                position: absolute;
+                left: 5%;
+                width: 150px;
+                z-index: 2;
+            }
+
+            .menu-toggle {
+                display: none;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+
+                @media screen and (max-width: variables.$mobile) {
+                    display: flex !important;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
                         color: variables.$white;
-
-                        &:hover {
-                            color: variables.$primary;
-                        }
+                        @include variables.typo-body1;
+                    }
+                    i {
+                        color: variables.$white;
+                        font-size: 18px;
                     }
                 }
-
-                .navbar_logo {
-                    position: absolute;
-                    left: 40px;
-                    width: 200px;
-                    z-index: 2;
-                }
-
-                .hamburger {
+                &.hidden {
                     display: none;
-                    background-color: transparent;
-                    border: none;
-                    cursor: pointer;
-                    &.hidden {
-                        display: none;
-                    }
-                }
-
-                .close {
-                    display: none;
-                    background-color: transparent;
-                    border: none;
-                    cursor: pointer;
-                    &.hidden {
-                        display: none;
-                    }
                 }
             }
         }
     }
 
-    .side_navbar {
+    .sidebar-navbar {
+        display: none;
         width: 400px;
-        height: 100%;
+        height: 100vh;
         justify-content: flex-start;
         align-items: center;
         position: fixed;
         flex-direction: column;
-        top: 0px;
-        right: 0px;
+        gap: 40px;
         transform: translateX(110%);
         transition: variables.$transition-ease;
-        background-color: rgba(255, 255, 255, 0.95);
-        z-index: 99;
+        background-color: rgba(variables.$secondary, 0.99);
+        z-index: 40;
+        border-left: 1px solid variables.$primary;
 
-        @include variables.shadow();
-        &.side_navbar_toggle {
+        &.sidebar-navbar-visible {
             transform: translateX(0%);
         }
 
-        .side_navbar_top {
+        .sidebar-navbar-header {
             width: 100%;
-            min-height: 70px;
+            min-height: 40px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
-            padding-right: 20px;
-            @include variables.shadow();
+            padding: 20px;
+            background-color: variables.$secondary;
+            color: variables.$white;
+
+            .close-button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+
+            .main-navbar-logo {
+                width: 150px;
+            }
         }
 
-        .side_navbar_links {
+        .sidebar-navbar-links {
             width: 100%;
             height: auto;
             overflow-y: auto;
@@ -218,37 +213,39 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
             justify-content: flex-start;
             align-items: center;
             flex-direction: column;
-            gap: 50px;
-            padding-top: 30px;
-            padding-bottom: 30px;
+            gap: 30px;
+            padding: 20px;
 
             a {
-                &:hover {
-                    color: variables.$primary;
-                }
+                color: variables.$white;
+                padding: 10px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+
+                @include variables.typo-h4;
             }
         }
     }
 
     @media screen and (max-width: 1000px) {
-        .navbar .navbar_bottom .navbar_bottom_main .navbar_links {
+        .main-navbar .main-navbar-content .main-navbar-links {
             display: none;
         }
 
-        .navbar .navbar_bottom .navbar_bottom_main .hamburger {
+        .main-navbar .main-navbar-content .menu-toggle {
             display: block;
         }
 
-        .side_navbar {
+        .sidebar-navbar {
             display: flex;
         }
     }
 
     @media screen and (max-width: 500px) {
-        .side_navbar {
+        .sidebar-navbar {
             width: 100%;
         }
-        .navbar_logo {
+        .main-navbar-logo {
             width: 100%;
         }
     }
