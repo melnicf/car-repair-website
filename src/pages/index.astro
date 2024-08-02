@@ -68,25 +68,27 @@ import PrimaryButton from "@components/common/PrimaryButton.vue";
                 sicurezza e soddisfazione.
             </p>
         </div>
-        <div class="features_content">
-            {
-                services.map((service) => (
-                    <ServiceCard
-                        title={service.title}
-                        description={service.description}
-                        image={service.image}
-                    />
-                ))
-            }
-        </div>
-        <div class="features_button">
-            <PrimaryButton
-                label="Scopri di più"
-                class="button_type_1"
-                type="button"
-                href="/services#services"
-                client:load
-            />
+        <div class="features_container">
+            <div class="features_content">
+                {
+                    services.map((service) => (
+                        <ServiceCard
+                            title={service.title}
+                            description={service.description}
+                            image={service.image}
+                        />
+                    ))
+                }
+            </div>
+            <div class="features_button">
+                <PrimaryButton
+                    label="Scopri di più"
+                    class="button_type_1"
+                    type="button"
+                    href="/services#services"
+                    client:load
+                />
+            </div>
         </div>
     </div>
     <div class="contact_section" id="contact">

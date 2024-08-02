@@ -70,17 +70,9 @@
             width: 100%;
             gap: 40px;
 
-            button {
-                @include variables.typo-sub1;
-            }
-
             @media screen and (max-width: variables.$mobile) {
                 gap: 16px;
                 padding: 0 10px;
-                button {
-                    height: 40px;
-                    border-radius: 60px;
-                }
             }
         }
     }
@@ -98,7 +90,7 @@
 
     @media screen and (max-width: variables.$mobile) {
         height: auto;
-        padding: 48px 0;
+        padding: 68px 0;
         gap: 24px;
     }
 
@@ -130,29 +122,26 @@
         }
     }
 
-    .features_content {
+    .features_container {
         width: 100%;
-        height: auto;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        gap: 80px;
-        padding: variables.$padding-large;
+        gap: 48px 0;
+        padding-top: variables.$padding-large;
 
-        @media screen and (max-width: variables.$mobile) {
-            gap: 48px;
-        }
-    }
-
-    .features_button {
-        button {
-            @include variables.typo-sub1;
+        .features_content {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
 
             @media screen and (max-width: variables.$mobile) {
-                height: 40px;
-                border-radius: 60px;
+                gap: 48px;
             }
         }
     }
@@ -219,16 +208,9 @@
                 @include variables.typo-h2;
             }
         }
-
-        .about_button {
-            button {
-                @include variables.typo-sub1;
-
-                @media screen and (max-width: variables.$mobile) {
-                    height: 48px;
-                    border-radius: 60px;
-                }
-            }
-        }
     }
+}
+
+button {
+    @include variables.typo-sub1;
 }

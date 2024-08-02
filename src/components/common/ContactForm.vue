@@ -239,8 +239,6 @@ export default defineComponent({
 
                 @media screen and (max-width: 1100px) {
                     margin-top: 20px;
-                    height: 44px;
-                    border-radius: 60px;
                 }
             }
         }

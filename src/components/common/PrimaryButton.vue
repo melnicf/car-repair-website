@@ -69,6 +69,11 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
 
+    @media screen and (max-width: variables.$mobile) {
+        height: 56px;
+        border-radius: 60px;
+    }
+
     &:hover {
         background-color: lighten(variables.$primary, 10%);
     }
@@ -88,6 +93,11 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
 
+    @media screen and (max-width: variables.$mobile) {
+        height: 56px;
+        border-radius: 60px;
+    }
+
     &:hover {
         background-color: lighten(variables.$tertiary, 10%);
     }
@@ -106,6 +116,11 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: variables.$mobile) {
+        height: 56px;
+        border-radius: 60px;
+    }
 
     &:hover {
         background-color: lighten(variables.$quaternary, 10%);
