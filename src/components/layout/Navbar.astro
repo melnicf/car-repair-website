@@ -95,7 +95,8 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
         align-items: center;
         flex-direction: column;
 
-        @media screen and (max-width: variables.$mobile) {
+        @media screen and (max-width: variables.$mobile),
+            screen and (max-width: variables.$tablet) {
             position: fixed;
             top: 0;
             left: 0;
@@ -111,7 +112,8 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
             align-items: center;
             background-color: variables.$secondary;
 
-            @media screen and (max-width: variables.$mobile) {
+            @media screen and (max-width: variables.$mobile),
+                screen and (max-width: variables.$tablet) {
                 padding: 18px 0;
                 justify-content: flex-end;
                 padding-right: 16px;
@@ -162,7 +164,8 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
                 border: none;
                 cursor: pointer;
 
-                @media screen and (max-width: variables.$mobile) {
+                @media screen and (max-width: variables.$mobile),
+                    screen and (max-width: variables.$tablet) {
                     display: flex !important;
                     justify-content: center;
                     align-items: center;
@@ -192,6 +195,7 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
         align-items: center;
         position: fixed;
         top: 60px;
+        right: 0px;
         padding-top: 30%;
         flex-direction: column;
         gap: 40px;
@@ -228,7 +232,13 @@ const phoneNumber = import.meta.env.PUBLIC_PHONE_NUMBER;
         }
     }
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: variables.$tablet) {
+        .sidebar-navbar {
+            width: 60%;
+        }
+        .main-navbar-logo {
+            width: 100%;
+        }
         .main-navbar .main-navbar-content .main-navbar-links {
             display: none;
         }
