@@ -85,4 +85,19 @@ const { imgSrc, imgAlt, title, span, content, theme } = Astro.props;
             }
         }
     }
+
+    @media screen and (max-width: variables.$mobile) {
+        .feature {
+            height: auto;
+
+            &.light,
+            &.dark {
+                padding: variables.$padding-medium;
+            }
+
+            .image_container {
+                width: 80%;
+            }
+        }
+    }
 </style>
