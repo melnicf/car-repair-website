@@ -29,3 +29,8 @@ h1 {
     word-wrap: break-word;
     margin: 0;
 }
+
+button:focus {
+    outline: none;
+    background-color: transparent;
+}
