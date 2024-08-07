@@ -14,13 +14,13 @@ Welcome to the Car Repair Website project! This project is built using Astro, a 
 
 The project is organized as follows:
 
-├── public/ # Static assets
-├── src/
-│ ├── components/ # Reusable components
-│ ├── layouts/ # Layout components
-│ ├── pages/ # Page components
-│ └── data/ # Data files for services, gallery, etc.
-└── package.json # Project configuration
+-   📂 `public/`: Static assets
+-   📂 `src/`: Source files
+    -   📂 `components/`: Reusable components
+    -   📂 `layouts/`: Layout components
+    -   📂 `pages/`: Page components
+    -   📂 `data/`: Data files for services, gallery, etc.
+-   📄 `package.json`: Project configuration
 
 ## Installation
 
@@ -61,4 +61,8 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ## Contact
 
-For any inquiries, please reach out via the contact form on the website or directly at [filipmelnic.dev@gmail.com].
+For any inquiries, please reach out directly at [filipmelnic.dev@gmail.com].
+
+```
+
+```
