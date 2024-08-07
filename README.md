@@ -1,54 +1,64 @@
-# Astro Starter Kit: Basics
+# Car Repair Website
 
-```sh
-npm create astro@latest -- --template basics
-```
+Welcome to the Car Repair Website project! This project is built using Astro, a modern static site generator, and is designed to provide users with information about car repair services.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+-   **Home Page**: Introduces the car repair services and provides quick access to contact options.
+-   **About Us**: Details about the team and the mission of the car repair service.
+-   **Services**: A comprehensive list of services offered, including descriptions and images.
+-   **Gallery**: A visual showcase of the work done by the repair team.
+-   **Contact Us**: A form for users to reach out for inquiries or appointments, along with contact details and availability.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Project Structure
 
-## 🚀 Project Structure
+The project is organized as follows:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
+├── public/ # Static assets
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+│ ├── components/ # Reusable components
+│ ├── layouts/ # Layout components
+│ ├── pages/ # Page components
+│ └── data/ # Data files for services, gallery, etc.
+└── package.json # Project configuration
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Installation
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+To get started with the project, follow these steps:
 
-Any static assets, like images, can be placed in the `public/` directory.
+1. Clone the repository:
 
-## 🧞 Commands
+    ```sh
+    git clone <repository-url>
+    cd car-repair-website
+    ```
 
-All commands are run from the root of the project, from a terminal:
+2. Install the dependencies:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+    ```sh
+    npm install
+    ```
 
-## 👀 Want to learn more?
+3. Start the development server:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+    ```sh
+    npm run dev
+    ```
+
+4. Open your browser and navigate to `http://localhost:4321`.
+
+## Commands
+
+Here are some useful commands for managing the project:
+
+-   `npm run dev`: Starts the local development server.
+-   `npm run build`: Builds the project for production.
+-   `npm run preview`: Previews the production build locally.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+## Contact
+
+For any inquiries, please reach out via the contact form on the website or directly at [filipmelnic.dev@gmail.com].
